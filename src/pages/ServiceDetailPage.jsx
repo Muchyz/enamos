@@ -81,10 +81,14 @@ export default function ServiceDetailPage() {
           {/* Left: Description */}
           <div className="lg:col-span-2">
             <Reveal>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6" style={{ fontFamily: "'DM Serif Display',serif" }}>
+              <div className="flex items-center gap-2 mb-3">
+                <div className="w-8 h-[3px] rounded-full" style={{ background: service.color }} />
+                <span className="text-xs font-bold tracking-widest uppercase" style={{ color: service.color }}>Overview</span>
+              </div>
+              <h2 className="text-3xl font-bold text-gray-900 mb-5" style={{ fontFamily: "'DM Serif Display',serif" }}>
                 About This Service
               </h2>
-              <p className="text-gray-600 leading-relaxed text-lg mb-8">{service.longDesc || service.desc}</p>
+              <p className="text-gray-600 leading-relaxed text-lg mb-8 pl-5 border-l-2" style={{ borderColor: `${service.color}30` }}>{service.longDesc || service.desc}</p>
 
               {service.subSystems && (
                 <div className="mt-16 space-y-14">
