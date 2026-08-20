@@ -96,20 +96,20 @@ export default function ServiceDetailPage() {
                     What We Offer
                   </h3>
                   {service.subSystems.map((sys, i) => (
-                    <div key={i} className="rounded-3xl overflow-hidden border border-gray-100 shadow-md">
-                      <div className="flex items-center gap-4 px-8 py-5" style={{background: sys.color}}>
-                        <span className="text-white/40 text-4xl font-black leading-none">{sys.number}</span>
-                        <h4 className="text-white text-xl font-bold">{sys.title}</h4>
+                    <div key={i} className="rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-lg transition-shadow bg-white">
+                      <div className="flex items-center gap-5 px-8 py-6 border-b border-gray-100" style={{background: `${sys.color}0d`}}>
+                        <span className="text-5xl font-black leading-none opacity-20" style={{color: sys.color}}>{sys.number}</span>
+                        <h4 className="text-xl font-bold text-gray-900">{sys.title}</h4>
                       </div>
                       <div className="p-8 bg-white">
                         <p className="text-gray-500 mb-6">{sys.desc}</p>
                         <div className="grid md:grid-cols-2 gap-8 items-start">
                           <div>
-                            <p className="text-sm font-bold mb-3" style={{color: sys.color}}>What to expect</p>
+                            <p className="text-xs font-bold tracking-wider uppercase mb-3" style={{color: sys.color}}>What to expect</p>
                             <ul className="space-y-2">
                               {sys.bullets.map((b, j) => (
-                                <li key={j} className="flex items-start gap-2 text-sm text-gray-700">
-                                  <span className="mt-1.5 w-2 h-2 rounded-full shrink-0" style={{background: sys.color}} />
+                                <li key={j} className="flex items-start gap-2.5 text-sm text-gray-700">
+                                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full shrink-0" style={{background: sys.color}} />
                                   {b}
                                 </li>
                               ))}
@@ -117,7 +117,7 @@ export default function ServiceDetailPage() {
                           </div>
                           <div className={`grid gap-3 ${sys.photos.length > 1 ? "grid-cols-2" : "grid-cols-1"}`}>
                             {sys.photos.map((photo, k) => (
-                              <div key={k} className="rounded-2xl overflow-hidden shadow-md" style={{aspectRatio:"4/3"}}>
+                              <div key={k} className="rounded-2xl overflow-hidden shadow-sm ring-1 ring-black/5" style={{aspectRatio:"4/3"}}>
                                 <img src={`/${photo}`} alt={sys.title}
                                   className="w-full h-full object-cover"
                                   onError={e => { e.target.parentElement.style.background="#e2e8f0"; e.target.style.display="none"; }} />
@@ -133,15 +133,15 @@ export default function ServiceDetailPage() {
             </Reveal>
 
             <Reveal delay={0.1}>
-              <div className="p-8 rounded-3xl mb-8" style={{ background: service.bg }}>
+              <div className="p-8 rounded-3xl mb-8 bg-white border border-gray-100 shadow-sm border-t-4" style={{ borderTopColor: service.color }}>
                 <h3 className="font-bold text-gray-900 mb-5 text-lg">What's Included</h3>
-                <ul className="space-y-3">
+                <ul className="grid sm:grid-cols-2 gap-3">
                   {service.bullets.map((b, i) => (
                     <li key={i} className="flex items-center gap-3 text-gray-700">
-                      <div className="w-6 h-6 rounded-full flex items-center justify-center shrink-0" style={{ background: service.color }}>
-                        <CheckCircle className="w-3.5 h-3.5 text-white" />
+                      <div className="w-6 h-6 rounded-full flex items-center justify-center shrink-0" style={{ background: `${service.color}18` }}>
+                        <CheckCircle className="w-3.5 h-3.5" style={{ color: service.color }} />
                       </div>
-                      <span className="font-medium">{b}</span>
+                      <span className="font-medium text-sm">{b}</span>
                     </li>
                   ))}
                 </ul>
@@ -229,16 +229,22 @@ export default function ServiceDetailPage() {
           <div className="grid md:grid-cols-3 gap-6">
             {others.map((s, i) => (
               <Reveal key={i} delay={i * 0.08}>
-                <div className="p-6 rounded-2xl bg-white border border-gray-100 hover:shadow-lg transition-all cursor-pointer group"
+                <div className="rounded-2xl bg-white border border-gray-100 hover:shadow-xl transition-all cursor-pointer group overflow-hidden"
                   onClick={() => navigate(`/services/${s.slug}`)}>
-                  <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform" style={{ background: s.bg }}>
-                    <s.icon className="w-6 h-6" style={{ color: s.color }} />
+                    <div className="relative overflow-hidden" style={{ aspectRatio: "16/9" }}>
+                      <img src={`/${s.photo}`} alt={s.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onError={e => { e.target.style.display = "none"; }} />
+                      <div className="absolute inset-0" style={{ background: "linear-gradient(to top,rgba(15,23,42,0.55),transparent 60%)" }} />
+                    </div>
+                    <div className="p-6">
+                  <div className="-mt-9 ml-6 relative w-11 h-11 rounded-xl flex items-center justify-center mb-4 backdrop-blur-md ring-1 ring-white/30" style={{ background: `${s.color}cc` }}>
+                    <s.icon className="w-5 h-5 text-white" />
                   </div>
                   <h3 className="font-bold text-gray-900 mb-2">{s.title}</h3>
                   <p className="text-gray-500 text-sm leading-relaxed mb-3 line-clamp-2">{s.desc}</p>
                   <div className="flex items-center gap-1 text-sm font-semibold" style={{ color: s.color }}>
-                    View service <ChevronRight className="w-4 h-4" />
+                    View service <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </div>
+                </div>
                 </div>
               </Reveal>
             ))}
