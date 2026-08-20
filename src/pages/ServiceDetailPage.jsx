@@ -149,77 +149,80 @@ export default function ServiceDetailPage() {
             </Reveal>
 
             <Reveal delay={0.15}>
-              <div className="p-8 rounded-3xl" style={{ background: "linear-gradient(135deg,#0f172a,#1e1b4b)" }}>
-                <h3 className="font-bold text-white mb-3">Ready to Get Started?</h3>
-                <p className="text-white/60 text-sm mb-5">Contact us today for a free site assessment and custom quote. Our team responds within 2 hours.</p>
-                <div className="flex gap-3 flex-wrap">
-                  <button onClick={() => navigate("/contact")}
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white"
-                    style={{ background: service.color }}>
-                    Get Free Quote <ArrowRight className="w-4 h-4" />
-                  </button>
-                  <a href="tel:+254722981621"
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white border border-white/20 hover:bg-white/10 transition-all">
-                    <Phone className="w-4 h-4" /> Call Now
-                  </a>
+                <div className="p-8 rounded-2xl" style={{ background: "#0f172a" }}>
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style={{ background: service.color }}>
+                    <service.icon className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="font-bold text-white text-xl mb-2">Ready to Get Started?</h3>
+                  <p className="text-white/60 text-sm mb-6 leading-relaxed">Contact us today for a free site assessment and custom quote. Our team responds within 2 hours.</p>
+                  <div className="flex gap-3 flex-wrap">
+                    <button onClick={() => navigate("/contact")}
+                      className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white"
+                      style={{ background: service.color }}>
+                      Get Free Quote <ArrowRight className="w-4 h-4" />
+                    </button>
+                    <a href="tel:+254722981621"
+                      className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white border-2 border-white/25 active:bg-white/10 transition-colors">
+                      <Phone className="w-4 h-4" /> Call Now
+                    </a>
+                  </div>
                 </div>
-              </div>
-            </Reveal>
+              </Reveal>
           </div>
 
           {/* Right: Sidebar */}
           <div className="space-y-6">
             <Reveal delay={0.05}>
-              <div className="relative rounded-3xl overflow-hidden shadow-xl" style={{ aspectRatio: "4/3" }}>
+              <div className="relative rounded-2xl overflow-hidden shadow-xl" style={{ aspectRatio: "4/3" }}>
                 <img src={`/${service.photo}`} alt={service.title}
                   className="w-full h-full object-cover"
                   onError={e => { e.target.style.background = "#e2e8f0"; }} />
-                <div className="absolute inset-0" style={{ background: "linear-gradient(to top,rgba(15,23,42,0.75) 0%,transparent 45%)" }} />
-                <div className="absolute bottom-0 left-0 right-0 p-5">
-                  <p className="text-white font-bold text-lg leading-tight">{service.title}</p>
+                <div className="absolute bottom-0 left-0 right-0 px-5 py-4" style={{ background: "#0f172a" }}>
+                  <p className="text-white font-bold text-base leading-tight">{service.title}</p>
                 </div>
               </div>
             </Reveal>
 
             <Reveal delay={0.1}>
-              <div className="p-6 rounded-3xl bg-white border border-gray-100 shadow-sm">
-                <h4 className="font-bold text-gray-900 mb-1">Quick Contact</h4>
-                <p className="text-gray-400 text-xs mb-4">We're here to help, any time</p>
-                <div className="space-y-3">
-                  <a href="tel:+254722981621"
-                    className="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition-colors group">
-                    <div className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform" style={{ background: `${service.color}18` }}>
-                      <Phone className="w-4 h-4" style={{ color: service.color }} />
-                    </div>
-                    <div>
-                      <div className="text-xs text-gray-400 font-medium">Emergency Line</div>
-                      <div className="text-sm font-bold text-gray-900">+254 722 981 621</div>
-                    </div>
-                  </a>
-                  <a href="tel:+254710509780"
-                    className="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition-colors group">
-                    <div className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform" style={{ background: `${service.color}18` }}>
-                      <Phone className="w-4 h-4" style={{ color: service.color }} />
-                    </div>
-                    <div>
-                      <div className="text-xs text-gray-400 font-medium">Office Line</div>
-                      <div className="text-sm font-bold text-gray-900">+254 710 509 780</div>
-                    </div>
-                  </a>
+              <div className="rounded-2xl bg-white border border-gray-100 shadow-sm overflow-hidden">
+                <div className="px-6 pt-5 pb-4 border-b border-gray-100">
+                  <p className="text-xs font-bold tracking-widest uppercase mb-0.5" style={{ color: service.color }}>Get In Touch</p>
+                  <h4 className="font-bold text-gray-900 text-lg">Quick Contact</h4>
                 </div>
+                <a href="tel:+254722981621"
+                  className="flex items-center gap-3 px-6 py-4 border-b border-gray-100 active:bg-gray-50 transition-colors">
+                  <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0" style={{ background: service.color }}>
+                    <Phone className="w-4 h-4 text-white" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="text-xs text-gray-400 font-semibold uppercase tracking-wide">Emergency Line</div>
+                    <div className="text-base font-bold text-gray-900">+254 722 981 621</div>
+                  </div>
+                  <ChevronRight className="w-4 h-4 text-gray-300 shrink-0" />
+                </a>
+                <a href="tel:+254710509780"
+                  className="flex items-center gap-3 px-6 py-4 active:bg-gray-50 transition-colors">
+                  <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 bg-gray-900">
+                    <Phone className="w-4 h-4 text-white" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="text-xs text-gray-400 font-semibold uppercase tracking-wide">Office Line</div>
+                    <div className="text-base font-bold text-gray-900">+254 710 509 780</div>
+                  </div>
+                  <ChevronRight className="w-4 h-4 text-gray-300 shrink-0" />
+                </a>
               </div>
             </Reveal>
 
             <Reveal delay={0.15}>
-              <div className="p-6 rounded-3xl relative overflow-hidden" style={{ background: "linear-gradient(135deg,#dc2626,#991b1b)" }}>
-                <div className="absolute -top-8 -right-8 w-32 h-32 rounded-full bg-white opacity-10" />
-                <div className="relative">
-                  <div className="flex items-center gap-2 mb-3">
-                    <div className="w-2 h-2 rounded-full bg-white animate-pulse" />
-                    <span className="text-white/80 text-xs font-bold tracking-widest uppercase">24/7 Control Room</span>
+              <div className="rounded-2xl p-6" style={{ background: "#dc2626" }}>
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-9 h-9 rounded-full bg-white flex items-center justify-center shrink-0 relative">
+                    <div className="w-2.5 h-2.5 rounded-full bg-red-600 animate-pulse" />
                   </div>
-                  <p className="text-white text-sm font-medium leading-relaxed">Our control room is manned around the clock for immediate response to all emergencies.</p>
+                  <span className="text-white text-sm font-bold tracking-widest uppercase">24/7 Control Room</span>
                 </div>
+                <p className="text-white/90 text-sm leading-relaxed">Our control room is manned around the clock for immediate response to all emergencies.</p>
               </div>
             </Reveal>
           </div>
