@@ -694,7 +694,7 @@ export const services = [
     desc: "Electronic access control systems, biometric readers, intercoms and electronic management for all facility types — from small offices to large industrial complexes. We also manage an in-house technical department which allows us to deal with technical issues forthwith and efficiently.",
     color: "#b45309", bg: "#fffbeb", gradient: "linear-gradient(135deg,#fffbeb,#fef3c7)",
     bullets: ["Biometric & electronic access","Intercoms & keypad systems","Suitable for all facility sizes","In-house technical support team"],
-    photo: "security-systems.jpg",
+    photo: "access-control-hero.jpg",
     longDesc: "ENAMOS SECURITY provides comprehensive access control solutions for facilities of all types and sizes — from small offices to large industrial complexes. Our systems include electronic access control, biometric fingerprint readers, keypad systems, intercoms, and full electronic facility management. Our in-house technical department ensures any technical issues are resolved promptly and efficiently, minimising downtime and maintaining security integrity at all times."
   },
   {
