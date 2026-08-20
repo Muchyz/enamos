@@ -1,23 +1,9 @@
-import { useState } from "react";
-import { X } from "lucide-react";
+import { useState, useEffect, useCallback } from "react";
+import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
 const photos = [
-  { src: "/gallery-team-portrait.jpg", caption: "ENAMOS SECURITY Team" },
-  { src: "/about-action.jpg", caption: "Security Screening" },
-  { src: "/about-gate.jpg", caption: "On Duty" },
-  { src: "/gallery-squad-new.jpg", caption: "ENAMOS SECURITY Team" },
-  { src: "/hero-officers.jpg", caption: "Security Officers" },
-  { src: "/armed-officer.jpg", caption: "Armed Officer" },
   { src: "/director-matunda.jpg", caption: "Director Dr. Amos Matunda" },
-  { src: "/gallery-vip-new.jpg", caption: "Suiting Up for Service" },
-  { src: "/supervision-truck.jpg", caption: "Patrol Vehicle" },
-  { src: "/mission-team.jpg", caption: "Mission Team" },
-  { src: "/contact-officer.jpg", caption: "Professional Service" },
-  { src: "/clients-officer.jpg", caption: "Client Protection" },
-  { src: "/gallery-briefing.jpg", caption: "Pre-Shift Briefing" },
-  { src: "/supervision-officer.jpg", caption: "Supervision & Management Officer" },
-  { src: "/guarding-dog.jpg", caption: "K9 Unit & Patrol" },
-  { src: "/gallery-parade-lineup.jpg", caption: "Officers on Parade" },
+  { src: "/gallery-parade-lineup.jpg", caption: "Guards on Parade at the Compound Gate" },
   { src: "/gallery-team-indoor.jpg", caption: "Team with Management" },
   { src: "/gallery-field-inspection.jpg", caption: "Field Inspection" },
   { src: "/gallery-training-session.jpg", caption: "Training Session" },
@@ -40,42 +26,111 @@ const photos = [
 ];
 
 export default function GalleryPage() {
-  const [selected, setSelected] = useState(null);
+  const [selectedIndex, setSelectedIndex] = useState(null);
+
+  const close = useCallback(() => setSelectedIndex(null), []);
+  const prev = useCallback(
+    () => setSelectedIndex((i) => (i === null ? null : (i - 1 + photos.length) % photos.length)),
+    []
+  );
+  const next = useCallback(
+    () => setSelectedIndex((i) => (i === null ? null : (i + 1) % photos.length)),
+    []
+  );
+
+  useEffect(() => {
+    if (selectedIndex === null) return;
+    const onKey = (e) => {
+      if (e.key === "Escape") close();
+      if (e.key === "ArrowLeft") prev();
+      if (e.key === "ArrowRight") next();
+    };
+    window.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [selectedIndex, close, prev, next]);
+
   return (
-    <div className="min-h-screen pt-28 pb-20" style={{ background: "linear-gradient(160deg,#fef2f2,#fafafa,#eff6ff)" }}>
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-12">
-          <span className="inline-block bg-red-50 text-red-700 text-xs font-semibold tracking-widest uppercase px-3 py-1.5 rounded-full mb-4">
+    <div className="min-h-screen pt-28 pb-20 bg-white">
+      <div className="max-w-2xl mx-auto px-6">
+        {/* Header */}
+        <div className="mb-8">
+          <p className="text-red-600 text-sm font-bold tracking-widest uppercase mb-2">
+            See Us in Action
+          </p>
+          <h1 className="text-4xl sm:text-5xl font-extrabold text-red-600 mb-4 leading-tight">
             Our Gallery
-          </span>
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-3">
-            ENAMOS SECURITY in <span style={{ color: "#dc2626" }}>Action</span>
           </h1>
-          <p className="text-gray-500 max-w-xl mx-auto">A look at our team, operations and commitment to security excellence across Kenya.</p>
+          <p className="text-gray-500 text-lg">
+            Take a look at our guards, equipment, and operations in action.
+          </p>
         </div>
 
-        <div className="columns-2 md:columns-3 gap-4 space-y-4">
+        {/* Stacked cards */}
+        <div className="space-y-8">
           {photos.map((p, i) => (
-            <div key={i} className="break-inside-avoid rounded-2xl overflow-hidden shadow-md cursor-pointer hover:scale-105 transition-transform duration-300"
-              onClick={() => setSelected(p)}>
-              <img src={p.src} alt={p.caption} className="w-full h-auto object-cover"
-                onError={e => { e.target.parentElement.style.display = "none"; }} />
-            </div>
+            <button
+              key={p.src}
+              onClick={() => setSelectedIndex(i)}
+              className="group relative block w-full rounded-2xl overflow-hidden shadow-lg ring-1 ring-black/5"
+            >
+              <img
+                src={p.src}
+                alt={p.caption}
+                loading="lazy"
+                className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent pt-10 pb-4 px-5">
+                <p className="text-white text-lg font-semibold text-left">{p.caption}</p>
+              </div>
+            </button>
           ))}
         </div>
       </div>
 
-      {selected && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4"
-          style={{ background: "rgba(0,0,0,0.9)" }}
-          onClick={() => setSelected(null)}>
-          <button className="absolute top-6 right-6 text-white bg-white/20 rounded-full p-2 hover:bg-white/40">
+      {/* Lightbox */}
+      {selectedIndex !== null && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm animate-fadeIn"
+          onClick={close}
+        >
+          <button
+            onClick={(e) => { e.stopPropagation(); close(); }}
+            className="absolute top-5 right-5 text-white/80 hover:text-white bg-white/10 hover:bg-white/20 rounded-full p-2 transition-colors"
+          >
             <X className="w-6 h-6" />
           </button>
-          <div className="max-w-2xl w-full">
-            <img src={selected.src} alt={selected.caption} className="w-full rounded-2xl shadow-2xl" />
-            <p className="text-white text-center mt-3 font-medium">{selected.caption}</p>
+
+          <button
+            onClick={(e) => { e.stopPropagation(); prev(); }}
+            className="absolute left-3 md:left-6 text-white/80 hover:text-white bg-white/10 hover:bg-white/20 rounded-full p-2 transition-colors"
+          >
+            <ChevronLeft className="w-7 h-7" />
+          </button>
+
+          <div className="max-w-4xl max-h-[85vh] px-4" onClick={(e) => e.stopPropagation()}>
+            <img
+              src={photos[selectedIndex].src}
+              alt={photos[selectedIndex].caption}
+              className="max-h-[75vh] w-auto mx-auto rounded-xl shadow-2xl object-contain"
+            />
+            <p className="text-white text-center mt-4 text-sm tracking-wide">
+              {photos[selectedIndex].caption}
+              <span className="text-white/40 ml-2">
+                {selectedIndex + 1} / {photos.length}
+              </span>
+            </p>
           </div>
+
+          <button
+            onClick={(e) => { e.stopPropagation(); next(); }}
+            className="absolute right-3 md:right-6 text-white/80 hover:text-white bg-white/10 hover:bg-white/20 rounded-full p-2 transition-colors"
+          >
+            <ChevronRight className="w-7 h-7" />
+          </button>
         </div>
       )}
     </div>
