@@ -50,7 +50,7 @@ export default function ContactPage() {
         <img src="/contact-officer.jpg" alt="Contact ENAMOS SECURITY"
           className="absolute inset-0 w-full h-full object-cover object-top"
           onError={e => { e.target.style.background = "#0f172a"; }} />
-        <div className="absolute inset-0" style={{ background: "linear-gradient(135deg,rgba(220,38,38,0.90),rgba(30,58,138,0.84))" }} />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(to top,rgba(15,23,42,0.92) 0%,rgba(15,23,42,0.5) 45%,rgba(15,23,42,0.15) 100%)" }} />
         <div className="relative z-10 max-w-5xl mx-auto px-6 py-24">
           <span className="inline-block bg-white/10 text-white text-xs font-semibold tracking-widest uppercase px-3 py-1.5 rounded-full mb-4 border border-white/20">Contact Us</span>
           <h1 className="text-5xl md:text-6xl text-white mb-4" style={{ fontFamily: "'DM Serif Display',serif" }}>

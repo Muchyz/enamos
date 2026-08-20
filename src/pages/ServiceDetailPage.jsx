@@ -51,9 +51,9 @@ export default function ServiceDetailPage() {
       {/* Hero */}
       <div className="relative overflow-hidden" style={{ minHeight: "380px" }}>
         <img src={`/${service.photo}`} alt={service.title}
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover object-[center_35%]"
           onError={e => { e.target.style.background = "#0f172a"; }} />
-        <div className="absolute inset-0" style={{ background: "linear-gradient(135deg,rgba(15,23,42,0.9),rgba(30,27,75,0.8))" }} />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(to top,rgba(15,23,42,0.92) 0%,rgba(15,23,42,0.5) 45%,rgba(15,23,42,0.15) 100%)" }} />
         <div className="relative z-10 max-w-7xl mx-auto px-6 py-24">
           <button onClick={() => navigate("/services")}
             className="inline-flex items-center gap-2 text-white/60 hover:text-white text-sm mb-6 transition-colors">
