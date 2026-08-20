@@ -49,27 +49,28 @@ export default function ServiceDetailPage() {
   return (
     <div style={{ paddingTop: "80px" }}>
       {/* Hero */}
-      <div className="relative overflow-hidden" style={{ minHeight: "440px" }}>
+      <div className="relative overflow-hidden" style={{ minHeight: "360px" }}>
         <img src={`/${service.photo}`} alt={service.title}
-          className="absolute inset-0 w-full h-full object-cover object-[center_35%]"
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ objectPosition: "center 20%" }}
           onError={e => { e.target.style.background = "#0f172a"; }} />
-        <div className="absolute inset-0" style={{ background: "linear-gradient(to top,rgba(15,23,42,0.96) 0%,rgba(15,23,42,0.72) 40%,rgba(15,23,42,0.25) 100%)" }} />
-        <div className="relative z-10 max-w-7xl mx-auto px-6 pt-8 pb-16 md:pt-10 md:pb-20 flex flex-col justify-end" style={{ minHeight: "440px" }}>
+        <div className="absolute inset-0" style={{ background: "linear-gradient(180deg,rgba(15,23,42,0.75) 0%,rgba(15,23,42,0.55) 40%,rgba(15,23,42,0.92) 100%)" }} />
+        <div className="absolute inset-0" style={{ background: `${service.color}22`, mixBlendMode: "multiply" }} />
+        <div className="relative z-10 max-w-7xl mx-auto px-6 pt-8 pb-10 flex flex-col justify-end" style={{ minHeight: "360px" }}>
           <button onClick={() => navigate("/services")}
-            className="inline-flex items-center gap-2 text-white/90 hover:text-white text-sm font-medium mb-10 w-fit bg-white/10 hover:bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full transition-colors">
+            className="inline-flex items-center gap-2 text-white/80 hover:text-white text-sm font-medium mb-6 w-fit transition-colors">
             <ArrowLeft className="w-4 h-4" /> Back to Services
           </button>
-          <div className="flex items-center gap-4 mb-5">
-            <div className="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0 backdrop-blur-md ring-1 ring-white/20" style={{ background: `${service.color}26` }}>
-              <service.icon className="w-7 h-7" style={{ color: service.color }} />
-            </div>
+          <div className="flex items-center gap-3 mb-3">
+            <div className="w-6 h-[2px]" style={{ background: service.color }} />
+            <p className="text-white/60 text-xs font-semibold tracking-[0.15em] uppercase">Our Services</p>
             {service.tag && (
-              <span className="inline-block text-xs font-bold tracking-wide px-3.5 py-1.5 rounded-full text-white"
-                style={{ background: service.color }}>{service.tag.toUpperCase()}</span>
+              <span className="inline-flex items-center gap-1.5 text-[10px] font-semibold tracking-[0.1em] uppercase text-white px-2.5 py-1 rounded-full ml-1" style={{ background: service.color }}>
+                {service.tag}
+              </span>
             )}
           </div>
-          <p className="text-white/60 text-sm font-semibold tracking-widest uppercase mb-2">Our Services</p>
-          <h1 className="text-4xl md:text-6xl text-white leading-[1.1] max-w-3xl" style={{ fontFamily: "'DM Serif Display',serif" }}>
+          <h1 className="text-4xl md:text-6xl text-white leading-[1.1] max-w-3xl mb-1" style={{ fontFamily: "'DM Serif Display',serif" }}>
             {service.title}
           </h1>
         </div>
