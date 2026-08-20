@@ -98,22 +98,23 @@ export default function ServiceDetailPage() {
                   <h3 className="text-2xl font-bold text-gray-900 border-l-4 pl-4" style={{borderColor:"#dc2626"}}>
                     What We Offer
                   </h3>
+                  <div className="relative">
                   {service.subSystems.map((sys, i) => (
-                    <div key={i} className="rounded-2xl overflow-hidden" style={{ background: "#f8fafc" }}>
-                      <div className="p-7 md:p-8">
-                        <div className="flex items-baseline gap-3 mb-3">
-                          <span className="text-sm font-bold tabular-nums" style={{ color: sys.color }}>{sys.number}</span>
-                          <h4 className="text-xl font-bold text-gray-900">{sys.title}</h4>
-                        </div>
-                        <p className="text-gray-500 text-sm leading-relaxed mb-6">{sys.desc}</p>
+                    <div key={i} className="relative pl-16 pb-14 last:pb-0">
+                      {i !== service.subSystems.length - 1 && (
+                        <div className="absolute left-[19px] top-10 bottom-0 w-px" style={{ background: "#e5e7eb" }} />
+                      )}
+                      <div className="absolute left-0 top-0 w-10 h-10 rounded-full bg-white border-2 flex items-center justify-center text-sm font-bold" style={{ borderColor: sys.color, color: sys.color }}>
+                        {sys.number}
+                      </div>
+                      <div>
+                        <h4 className="text-xl font-bold text-gray-900 mb-3">{sys.title}</h4>
+                        <p className="text-gray-500 text-[15px] leading-relaxed mb-6 max-w-md">{sys.desc}</p>
                         <div className="grid md:grid-cols-2 gap-8 items-start">
-                          <ul className="space-y-3">
+                          <ul className="space-y-3.5">
                             {sys.bullets.map((b, j) => (
-                              <li key={j} className="flex items-start gap-2.5 text-sm text-gray-700">
-                                <svg className="w-4 h-4 mt-0.5 shrink-0" viewBox="0 0 20 20" fill="none">
-                                  <circle cx="10" cy="10" r="9" fill={sys.color} fillOpacity="0.12" />
-                                  <path d="M6 10.5L8.5 13L14 7" stroke={sys.color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-                                </svg>
+                              <li key={j} className="flex items-start gap-3 text-[15px] text-gray-700">
+                                <span className="w-1.5 h-1.5 rounded-full shrink-0 mt-2" style={{ background: sys.color }} />
                                 {b}
                               </li>
                             ))}
@@ -121,9 +122,9 @@ export default function ServiceDetailPage() {
                           {sys.photos && sys.photos.length > 0 && (
                             <div className={`grid gap-3 ${sys.photos.length > 1 ? "grid-cols-2" : "grid-cols-1"}`}>
                               {sys.photos.map((photo, k) => (
-                                <div key={k} className="rounded-xl overflow-hidden" style={{aspectRatio:"4/3"}}>
+                                <div key={k} className="rounded-xl overflow-hidden ring-1 ring-gray-100" style={{aspectRatio:"4/3"}}>
                                   <img src={`/${photo}`} alt={sys.title}
-                                    className="w-full h-full object-cover"
+                                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
                                     onError={e => { e.target.closest('[style*="aspect-ratio"]').style.display = "none"; }} />
                                 </div>
                               ))}
@@ -133,6 +134,7 @@ export default function ServiceDetailPage() {
                       </div>
                     </div>
                   ))}
+                  </div>
                 </div>
               )}
             </Reveal>
