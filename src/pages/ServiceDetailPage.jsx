@@ -170,21 +170,26 @@ export default function ServiceDetailPage() {
           {/* Right: Sidebar */}
           <div className="space-y-6">
             <Reveal delay={0.05}>
-              <div className="rounded-3xl overflow-hidden shadow-xl" style={{ aspectRatio: "4/3" }}>
+              <div className="relative rounded-3xl overflow-hidden shadow-xl" style={{ aspectRatio: "4/3" }}>
                 <img src={`/${service.photo}`} alt={service.title}
                   className="w-full h-full object-cover"
                   onError={e => { e.target.style.background = "#e2e8f0"; }} />
+                <div className="absolute inset-0" style={{ background: "linear-gradient(to top,rgba(15,23,42,0.75) 0%,transparent 45%)" }} />
+                <div className="absolute bottom-0 left-0 right-0 p-5">
+                  <p className="text-white font-bold text-lg leading-tight">{service.title}</p>
+                </div>
               </div>
             </Reveal>
 
             <Reveal delay={0.1}>
               <div className="p-6 rounded-3xl bg-white border border-gray-100 shadow-sm">
-                <h4 className="font-bold text-gray-900 mb-4">Quick Contact</h4>
+                <h4 className="font-bold text-gray-900 mb-1">Quick Contact</h4>
+                <p className="text-gray-400 text-xs mb-4">We're here to help, any time</p>
                 <div className="space-y-3">
                   <a href="tel:+254722981621"
-                    className="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition-colors">
-                    <div className="w-9 h-9 rounded-xl bg-red-50 flex items-center justify-center shrink-0">
-                      <Phone className="w-4 h-4 text-red-600" />
+                    className="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition-colors group">
+                    <div className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform" style={{ background: `${service.color}18` }}>
+                      <Phone className="w-4 h-4" style={{ color: service.color }} />
                     </div>
                     <div>
                       <div className="text-xs text-gray-400 font-medium">Emergency Line</div>
@@ -192,9 +197,9 @@ export default function ServiceDetailPage() {
                     </div>
                   </a>
                   <a href="tel:+254710509780"
-                    className="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition-colors">
-                    <div className="w-9 h-9 rounded-xl bg-blue-50 flex items-center justify-center shrink-0">
-                      <Phone className="w-4 h-4 text-blue-700" />
+                    className="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition-colors group">
+                    <div className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform" style={{ background: `${service.color}18` }}>
+                      <Phone className="w-4 h-4" style={{ color: service.color }} />
                     </div>
                     <div>
                       <div className="text-xs text-gray-400 font-medium">Office Line</div>
@@ -206,12 +211,15 @@ export default function ServiceDetailPage() {
             </Reveal>
 
             <Reveal delay={0.15}>
-              <div className="p-6 rounded-3xl" style={{ background: "linear-gradient(135deg,#dc2626,#991b1b)" }}>
-                <div className="flex items-center gap-2 mb-2">
-                  <div className="w-2 h-2 rounded-full bg-white animate-pulse" />
-                  <span className="text-white/70 text-xs font-bold tracking-widest uppercase">24/7 Control Room</span>
+              <div className="p-6 rounded-3xl relative overflow-hidden" style={{ background: "linear-gradient(135deg,#dc2626,#991b1b)" }}>
+                <div className="absolute -top-8 -right-8 w-32 h-32 rounded-full bg-white opacity-10" />
+                <div className="relative">
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="w-2 h-2 rounded-full bg-white animate-pulse" />
+                    <span className="text-white/80 text-xs font-bold tracking-widest uppercase">24/7 Control Room</span>
+                  </div>
+                  <p className="text-white text-sm font-medium leading-relaxed">Our control room is manned around the clock for immediate response to all emergencies.</p>
                 </div>
-                <p className="text-white text-sm font-medium">Our control room is manned around the clock for immediate response to all emergencies.</p>
               </div>
             </Reveal>
           </div>
