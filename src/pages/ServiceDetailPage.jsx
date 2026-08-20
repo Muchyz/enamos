@@ -96,11 +96,11 @@ export default function ServiceDetailPage() {
                     What We Offer
                   </h3>
                   {service.subSystems.map((sys, i) => (
-                    <div key={i} className="rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-lg transition-shadow bg-white">
-                      <div className="flex items-center gap-5 px-8 py-6 border-b border-gray-100" style={{background: `${sys.color}0d`}}>
-                        <span className="text-5xl font-black leading-none opacity-20" style={{color: sys.color}}>{sys.number}</span>
-                        <h4 className="text-xl font-bold text-gray-900">{sys.title}</h4>
-                      </div>
+                    <div key={i} className="border border-gray-200 rounded-2xl overflow-hidden">
+                        <div className="flex items-center gap-5 px-8 py-6 border-b border-gray-200">
+                          <span className="text-4xl leading-none text-gray-300" style={{ fontFamily: "'DM Serif Display',serif" }}>{sys.number}</span>
+                          <h4 className="text-xl" style={{ fontFamily: "'DM Serif Display',serif" }}>{sys.title}</h4>
+                        </div>
                       <div className="p-8 bg-white">
                         <p className="text-gray-500 mb-6">{sys.desc}</p>
                         <div className="grid md:grid-cols-2 gap-8 items-start">
@@ -133,98 +133,67 @@ export default function ServiceDetailPage() {
             </Reveal>
 
             <Reveal delay={0.1}>
-              <div className="p-8 rounded-3xl mb-8 bg-white border border-gray-100 shadow-sm border-t-4" style={{ borderTopColor: service.color }}>
-                <h3 className="font-bold text-gray-900 mb-5 text-lg">What's Included</h3>
-                <ul className="grid sm:grid-cols-2 gap-3">
-                  {service.bullets.map((b, i) => (
-                    <li key={i} className="flex items-center gap-3 text-gray-700">
-                      <div className="w-6 h-6 rounded-full flex items-center justify-center shrink-0" style={{ background: `${service.color}18` }}>
-                        <CheckCircle className="w-3.5 h-3.5" style={{ color: service.color }} />
-                      </div>
-                      <span className="font-medium text-sm">{b}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </Reveal>
+                <div className="border border-gray-200 rounded-2xl mb-8">
+                  <div className="px-8 py-5 border-b border-gray-200 flex items-center gap-2">
+                    <div className="w-6 h-[2px]" style={{ background: service.color }} />
+                    <h3 className="text-lg" style={{ fontFamily: "'DM Serif Display',serif" }}>What's Included</h3>
+                  </div>
+                  <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-4 px-8 py-6">
+                    {service.bullets.map((b, i) => (
+                      <li key={i} className="flex items-start gap-3 text-gray-700">
+                        <span className="mt-2 w-1 h-1 rounded-full shrink-0" style={{ background: service.color }} />
+                        <span className="text-sm">{b}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </Reveal>
 
             <Reveal delay={0.15}>
-                <div className="p-8 rounded-2xl" style={{ background: "#0f172a" }}>
-                  <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style={{ background: service.color }}>
-                    <service.icon className="w-6 h-6 text-white" />
-                  </div>
-                  <h3 className="font-bold text-white text-xl mb-2">Ready to Get Started?</h3>
-                  <p className="text-white/60 text-sm mb-6 leading-relaxed">Contact us today for a free site assessment and custom quote. Our team responds within 2 hours.</p>
-                  <div className="flex gap-3 flex-wrap">
-                    <button onClick={() => navigate("/contact")}
-                      className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white"
-                      style={{ background: service.color }}>
-                      Get Free Quote <ArrowRight className="w-4 h-4" />
-                    </button>
-                    <a href="tel:+254722981621"
-                      className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white border-2 border-white/25 active:bg-white/10 transition-colors">
-                      <Phone className="w-4 h-4" /> Call Now
-                    </a>
-                  </div>
+                <div className="p-9 rounded-2xl" style={{ background: "#0f172a" }}>
+                  <div className="w-8 h-[2px] mb-5" style={{ background: "#1e3a8a" }} />
+                  <h3 className="text-white text-[26px] leading-tight mb-3" style={{ fontFamily: "'DM Serif Display',serif" }}>
+                    Ready to get started?
+                  </h3>
+                  <p className="text-white/50 text-sm mb-8 leading-relaxed">A member of our team will conduct a free site assessment and provide a custom quote within two hours.</p>
+                  <button onClick={() => navigate("/contact")}
+                    className="w-full text-center py-4 rounded-lg font-semibold text-white text-sm tracking-wide border border-white/20 hover:bg-white/5 transition-colors mb-3">
+                    Request a Quote
+                  </button>
+                  <a href="tel:+254722981621"
+                    className="block w-full text-center py-4 rounded-lg font-semibold text-sm tracking-wide"
+                    style={{ background: "#1e3a8a", color: "#ffffff" }}>
+                    Call +254 722 981 621
+                  </a>
                 </div>
               </Reveal>
           </div>
 
           {/* Right: Sidebar */}
           <div className="space-y-6">
-            <Reveal delay={0.05}>
-              <div className="relative rounded-2xl overflow-hidden shadow-xl" style={{ aspectRatio: "4/3" }}>
-                <img src={`/${service.photo}`} alt={service.title}
-                  className="w-full h-full object-cover"
-                  onError={e => { e.target.style.background = "#e2e8f0"; }} />
-                <div className="absolute bottom-0 left-0 right-0 px-5 py-4" style={{ background: "#0f172a" }}>
-                  <p className="text-white font-bold text-base leading-tight">{service.title}</p>
-                </div>
-              </div>
-            </Reveal>
-
             <Reveal delay={0.1}>
-              <div className="rounded-2xl bg-white border border-gray-100 shadow-sm overflow-hidden">
-                <div className="px-6 pt-5 pb-4 border-b border-gray-100">
-                  <p className="text-xs font-bold tracking-widest uppercase mb-0.5" style={{ color: service.color }}>Get In Touch</p>
-                  <h4 className="font-bold text-gray-900 text-lg">Quick Contact</h4>
+              <div className="border border-gray-200 rounded-2xl overflow-hidden">
+                <div className="flex items-center justify-between px-7 py-4" style={{ background: "#1e3a8a" }}>
+                  <span className="text-[11px] font-semibold tracking-[0.15em] uppercase text-white/80">Control Room</span>
+                  <span className="flex items-center gap-1.5 text-[11px] font-semibold tracking-[0.1em] uppercase text-white">
+                    <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+                    Active 24/7
+                  </span>
                 </div>
-                <a href="tel:+254722981621"
-                  className="flex items-center gap-3 px-6 py-4 border-b border-gray-100 active:bg-gray-50 transition-colors">
-                  <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0" style={{ background: service.color }}>
-                    <Phone className="w-4 h-4 text-white" />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <div className="text-xs text-gray-400 font-semibold uppercase tracking-wide">Emergency Line</div>
-                    <div className="text-base font-bold text-gray-900">+254 722 981 621</div>
-                  </div>
-                  <ChevronRight className="w-4 h-4 text-gray-300 shrink-0" />
-                </a>
-                <a href="tel:+254710509780"
-                  className="flex items-center gap-3 px-6 py-4 active:bg-gray-50 transition-colors">
-                  <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 bg-gray-900">
-                    <Phone className="w-4 h-4 text-white" />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <div className="text-xs text-gray-400 font-semibold uppercase tracking-wide">Office Line</div>
-                    <div className="text-base font-bold text-gray-900">+254 710 509 780</div>
-                  </div>
-                  <ChevronRight className="w-4 h-4 text-gray-300 shrink-0" />
-                </a>
+                <div className="grid grid-cols-2">
+                  <a href="tel:+254722981621" className="px-4 py-6 border-r border-gray-200 active:bg-gray-50 transition-colors">
+                    <span className="text-[10px] font-semibold tracking-[0.15em] uppercase text-gray-400 block mb-2">Emergency</span>
+                    <span className="text-[15px] text-gray-900 tabular-nums block whitespace-nowrap" style={{ fontFamily: "'DM Serif Display',serif" }}>+254 722 981 621</span>
+                  </a>
+                  <a href="tel:+254710509780" className="px-4 py-6 active:bg-gray-50 transition-colors">
+                    <span className="text-[10px] font-semibold tracking-[0.15em] uppercase text-gray-400 block mb-2">Office</span>
+                    <span className="text-[15px] text-gray-900 tabular-nums block whitespace-nowrap" style={{ fontFamily: "'DM Serif Display',serif" }}>+254 710 509 780</span>
+                  </a>
+                </div>
               </div>
             </Reveal>
 
-            <Reveal delay={0.15}>
-              <div className="rounded-2xl p-6" style={{ background: "#dc2626" }}>
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="w-9 h-9 rounded-full bg-white flex items-center justify-center shrink-0 relative">
-                    <div className="w-2.5 h-2.5 rounded-full bg-red-600 animate-pulse" />
-                  </div>
-                  <span className="text-white text-sm font-bold tracking-widest uppercase">24/7 Control Room</span>
-                </div>
-                <p className="text-white/90 text-sm leading-relaxed">Our control room is manned around the clock for immediate response to all emergencies.</p>
-              </div>
-            </Reveal>
+            
           </div>
         </div>
       </section>
