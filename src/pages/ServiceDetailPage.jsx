@@ -49,30 +49,32 @@ export default function ServiceDetailPage() {
   return (
     <div style={{ paddingTop: "80px" }}>
       {/* Hero */}
-      <div className="relative overflow-hidden" style={{ minHeight: "360px" }}>
-        <img src={`/${service.photo}`} alt={service.title}
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{ objectPosition: "center 20%" }}
-          onError={e => { e.target.style.background = "#0f172a"; }} />
-        <div className="absolute inset-0" style={{ background: "linear-gradient(180deg,rgba(15,23,42,0.75) 0%,rgba(15,23,42,0.55) 40%,rgba(15,23,42,0.92) 100%)" }} />
-        <div className="absolute inset-0" style={{ background: `${service.color}22`, mixBlendMode: "multiply" }} />
-        <div className="relative z-10 max-w-7xl mx-auto px-6 pt-8 pb-10 flex flex-col justify-end" style={{ minHeight: "360px" }}>
+      <div className="px-4 pt-4 md:px-6 md:pt-6">
+        <div className="relative overflow-hidden rounded-3xl" style={{ minHeight: "360px" }}>
+          <img src={`/${service.photo}`} alt={service.title}
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{ objectPosition: "center 20%" }}
+            onError={e => { e.target.style.background = "#0f172a"; }} />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(180deg,rgba(15,23,42,0.75) 0%,rgba(15,23,42,0.55) 40%,rgba(15,23,42,0.92) 100%)" }} />
+          <div className="absolute inset-0" style={{ background: `${service.color}22`, mixBlendMode: "multiply" }} />
+          <div className="relative z-10 max-w-7xl mx-auto px-6 pt-8 pb-10 flex flex-col justify-end" style={{ minHeight: "360px" }}>
           <button onClick={() => navigate("/services")}
             className="inline-flex items-center gap-2 text-white/80 hover:text-white text-sm font-medium mb-6 w-fit transition-colors">
             <ArrowLeft className="w-4 h-4" /> Back to Services
           </button>
-          <div className="flex items-center gap-3 mb-3">
-            <div className="w-6 h-[2px]" style={{ background: service.color }} />
-            <p className="text-white/60 text-xs font-semibold tracking-[0.15em] uppercase">Our Services</p>
+          <div className="flex items-center gap-3 mb-3 flex-nowrap overflow-hidden">
+            <div className="w-6 h-[2px] shrink-0" style={{ background: service.color }} />
+            <p className="text-white/60 text-xs font-semibold tracking-[0.15em] uppercase whitespace-nowrap">Our Services</p>
             {service.tag && (
-              <span className="inline-flex items-center gap-1.5 text-[10px] font-semibold tracking-[0.1em] uppercase text-white px-2.5 py-1 rounded-full ml-1" style={{ background: service.color }}>
+              <span className="inline-flex items-center gap-1.5 text-[10px] font-semibold tracking-[0.1em] uppercase text-white px-2.5 py-1 rounded-full ml-1 whitespace-nowrap" style={{ background: service.color }}>
                 {service.tag}
               </span>
             )}
           </div>
-          <h1 className="text-4xl md:text-6xl text-white leading-[1.1] max-w-3xl mb-1" style={{ fontFamily: "'DM Serif Display',serif" }}>
+          <h1 className="leading-[1.15] max-w-3xl mb-1 whitespace-nowrap sm:whitespace-normal sm:text-4xl md:text-6xl" style={{ fontFamily: "'DM Serif Display',serif", color: "#93c5fd", fontSize: "clamp(20px, 6.5vw, 40px)" }}>
             {service.title}
           </h1>
+          </div>
         </div>
       </div>
 
@@ -97,34 +99,36 @@ export default function ServiceDetailPage() {
                     What We Offer
                   </h3>
                   {service.subSystems.map((sys, i) => (
-                    <div key={i} className="border border-gray-200 rounded-2xl overflow-hidden">
-                        <div className="flex items-center gap-5 px-8 py-6 border-b border-gray-200">
-                          <span className="text-4xl leading-none text-gray-300" style={{ fontFamily: "'DM Serif Display',serif" }}>{sys.number}</span>
-                          <h4 className="text-xl" style={{ fontFamily: "'DM Serif Display',serif" }}>{sys.title}</h4>
+                    <div key={i} className="rounded-2xl overflow-hidden" style={{ background: "#f8fafc" }}>
+                      <div className="p-7 md:p-8">
+                        <div className="flex items-baseline gap-3 mb-3">
+                          <span className="text-sm font-bold tabular-nums" style={{ color: sys.color }}>{sys.number}</span>
+                          <h4 className="text-xl font-bold text-gray-900">{sys.title}</h4>
                         </div>
-                      <div className="p-8 bg-white">
-                        <p className="text-gray-500 mb-6">{sys.desc}</p>
+                        <p className="text-gray-500 text-sm leading-relaxed mb-6">{sys.desc}</p>
                         <div className="grid md:grid-cols-2 gap-8 items-start">
-                          <div>
-                            <p className="text-xs font-bold tracking-wider uppercase mb-3" style={{color: sys.color}}>What to expect</p>
-                            <ul className="space-y-2">
-                              {sys.bullets.map((b, j) => (
-                                <li key={j} className="flex items-start gap-2.5 text-sm text-gray-700">
-                                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full shrink-0" style={{background: sys.color}} />
-                                  {b}
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                          <div className={`grid gap-3 ${sys.photos.length > 1 ? "grid-cols-2" : "grid-cols-1"}`}>
-                            {sys.photos.map((photo, k) => (
-                              <div key={k} className="rounded-2xl overflow-hidden shadow-sm ring-1 ring-black/5" style={{aspectRatio:"4/3"}}>
-                                <img src={`/${photo}`} alt={sys.title}
-                                  className="w-full h-full object-cover"
-                                  onError={e => { e.target.parentElement.style.background="#e2e8f0"; e.target.style.display="none"; }} />
-                              </div>
+                          <ul className="space-y-3">
+                            {sys.bullets.map((b, j) => (
+                              <li key={j} className="flex items-start gap-2.5 text-sm text-gray-700">
+                                <svg className="w-4 h-4 mt-0.5 shrink-0" viewBox="0 0 20 20" fill="none">
+                                  <circle cx="10" cy="10" r="9" fill={sys.color} fillOpacity="0.12" />
+                                  <path d="M6 10.5L8.5 13L14 7" stroke={sys.color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                                </svg>
+                                {b}
+                              </li>
                             ))}
-                          </div>
+                          </ul>
+                          {sys.photos && sys.photos.length > 0 && (
+                            <div className={`grid gap-3 ${sys.photos.length > 1 ? "grid-cols-2" : "grid-cols-1"}`}>
+                              {sys.photos.map((photo, k) => (
+                                <div key={k} className="rounded-xl overflow-hidden" style={{aspectRatio:"4/3"}}>
+                                  <img src={`/${photo}`} alt={sys.title}
+                                    className="w-full h-full object-cover"
+                                    onError={e => { e.target.closest('[style*="aspect-ratio"]').style.display = "none"; }} />
+                                </div>
+                              ))}
+                            </div>
+                          )}
                         </div>
                       </div>
                     </div>
