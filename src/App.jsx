@@ -131,7 +131,7 @@ function Navbar() {
       }}>
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         <button onClick={() => { navigate("/"); setTimeout(() => scrollTo("hero"), 100); }}>
-          <img src="/logo.png" alt="ENAMOS SECURITY" style={{ height: "88px", objectFit: "contain" }} />
+          <img src="/enamos-logo-navbar.png" alt="ENAMOS SECURITY" style={{ height: "72px", objectFit: "contain" }} />
         </button>
         <div className="hidden lg:flex items-center gap-8">
           {links.map((l) => (
@@ -187,15 +187,15 @@ function Hero() {
             <div className="animate-fadeUp inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-bold mb-5 border border-red-200"
               style={{ background: "linear-gradient(135deg,#fef2f2,#fff1f2)", color: "#dc2626" }}>
               <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
-              Your Security is Our Priority!
+              Protection You Can Rely On!
             </div>
 
             {/* Heading */}
             <h1 className="animate-fadeUp delay-100 text-4xl sm:text-5xl lg:text-7xl leading-[1.1] text-gray-900 mb-4">
-              Kenya's Premier<br />
+              Kenya's Trusted<br />
               <span style={{ background: "linear-gradient(135deg,#dc2626,#1e3a8a)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
                 Security
-              </span><br />Solutions
+              </span><br />Partner
             </h1>
 
             {/* Accent line */}
@@ -206,7 +206,7 @@ function Hero() {
 
             {/* Subtext */}
             <p className="animate-fadeUp delay-200 text-sm sm:text-base text-gray-500 leading-relaxed mb-5 max-w-lg">
-              ENAMOS SECURITY is dedicated to the provision of excellent security services. We offer a complete range of planning, system analysis, design and executive protection services across Kenya.
+              ENAMOS SECURITY is committed to delivering excellent security services, offering a complete range of risk assessment, private guarding and executive protection services across Kenya.
             </p>
 
             {/* Buttons */}
@@ -1373,9 +1373,9 @@ function Footer() {
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center">
             <div className="flex items-center justify-center mb-1">
-              <img src="/logo.png" alt="ENAMOS SECURITY" style={{ height: "72px", objectFit: "contain" }} />
+              <img src="/enamos-logo-footer.png" alt="ENAMOS SECURITY" style={{ height: "96px", objectFit: "contain" }} />
             </div>
-            <div className="text-white/40 text-xs tracking-widest uppercase">Your Security is Our Priority</div>
+            <div className="text-white/40 text-xs tracking-widest uppercase">Protection You Can Rely On</div>
           </div>
         </div>
       </div>
@@ -1446,7 +1446,7 @@ function Footer() {
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
             <span className="text-gray-500 text-xs">All systems operational</span>
           </div>
-          <p className="text-gray-600 text-sm">Your Security is Our Priority</p>
+          <p className="text-gray-600 text-sm">Protection You Can Rely On</p>
         </div>
       </div>
     </footer>
