@@ -57,29 +57,67 @@ export default function ContactPage() {
   };
 
   return (
-    <div style={{ paddingTop: "80px" }}>
+    <div style={{ paddingTop: "96px" }}>
       {/* Hero */}
-      <div className="relative overflow-hidden" style={{ minHeight: "300px" }}>
-        <img src="/contact-officer.jpg" alt="Contact ENAMOS SECURITY"
-          className="absolute inset-0 w-full h-full object-cover object-top"
-          onError={e => { e.target.style.background = "#0f172a"; }} />
-        <div className="absolute inset-0" style={{ background: "linear-gradient(to top,rgba(15,23,42,0.92) 0%,rgba(15,23,42,0.5) 45%,rgba(15,23,42,0.15) 100%)" }} />
-        <div className="relative z-10 max-w-5xl mx-auto px-6 py-24">
-          <span className="inline-flex items-center gap-2 bg-white/10 text-white text-xs font-semibold tracking-widest uppercase px-3 py-1.5 rounded-full mb-4 border border-white/20">
-            <span className="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse" />
-            Contact Us
-          </span>
-          <h1 className="text-5xl md:text-6xl text-white mb-4" style={{ fontFamily: "'DM Serif Display',serif" }}>
-            Let's Build Your<br />
-            <span style={{ background: "linear-gradient(135deg,#fca5a5,#bfdbfe)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
-              Security Plan
-            </span>
-          </h1>
-          <p className="text-white/70 text-lg max-w-lg">Free site assessment and custom quote. Our team responds within 2 hours.</p>
-        </div>
-      </div>
+        <div className="relative bg-white">
+          <div className="max-w-7xl mx-auto px-6 pt-10 pb-14 md:pt-14 md:pb-14 grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 mb-6 px-3 py-1.5 rounded-full" style={{ background: "#fef2f2", border: "1px solid #fecaca" }}>
+                <span className="w-1.5 h-1.5 rounded-full bg-red-600" />
+                <span className="text-xs font-bold tracking-wide uppercase" style={{ color: "#1e3a8a" }}>Open Now &middot; Dispatch Available</span>
+              </div>
 
-      {/* Contact Form + Info */}
+              <h1 className="text-4xl sm:text-5xl mb-5 leading-[1.15]" style={{ color: "#0f172a", fontFamily: "'DM Serif Display',serif" }}>
+                Let's build your<br />security plan
+              </h1>
+
+              <p className="text-gray-500 text-base sm:text-lg max-w-md leading-relaxed mb-8">
+                Free site assessment and a custom quote. Our team responds within 2 hours, day or night.
+              </p>
+
+              <div className="grid grid-cols-3 gap-4 max-w-sm">
+                {[
+                  { value: "24/7", label: "Dispatch" },
+                  { value: "2 hrs", label: "Response" },
+                  { value: "2", label: "Branches" },
+                ].map((s, i) => (
+                  <div key={i} className="rounded-xl px-3 py-3 hover:-translate-y-0.5 hover:shadow-md transition-all" style={{ background: "#f8fafc", border: "1px solid #e2e8f0" }}>
+                    <div className="text-xl font-extrabold" style={{ color: "#1e3a8a" }}>{s.value}</div>
+                    <div className="text-[11px] text-gray-500 font-semibold tracking-wide uppercase mt-0.5">{s.label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="relative pb-10 pr-3 sm:pr-4">
+              <div className="absolute -top-2 -right-2 w-[94%] h-[94%] rounded-2xl" style={{ background: "linear-gradient(135deg,#2563eb 0%,#1e3a8a 55%,#0a1230 100%)" }} />
+
+              <div className="relative rounded-2xl overflow-hidden" style={{ aspectRatio: "4/3", boxShadow: "0 20px 45px -14px rgba(15,23,42,0.35)" }}>
+                <img src="/contact-officer.jpg" alt="Contact ENAMOS SECURITY"
+                  className="w-full h-full object-cover"
+                  style={{ objectPosition: "center 30%" }}
+                  onError={e => { e.target.style.background = "#f1f5f9"; }} />
+                <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(15,23,42,0.08) 0%, transparent 25%, transparent 75%, rgba(15,23,42,0.25) 100%)" }} />
+                <div className="absolute top-3 left-3 flex items-center gap-1.5 px-2.5 py-1 rounded-full" style={{ background: "rgba(15,23,42,0.55)", backdropFilter: "blur(4px)" }}>
+                  <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
+                  <span className="text-white text-[10px] font-bold tracking-widest uppercase">On Duty</span>
+                </div>
+              </div>
+
+              <div className="absolute bottom-0 left-4 right-6 sm:right-14 bg-white rounded-xl px-5 py-4 flex items-center gap-3" style={{ boxShadow: "0 10px 30px -8px rgba(15,23,42,0.2)", border: "1px solid #f1f5f9" }}>
+                <div className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0" style={{ background: "linear-gradient(135deg,#2563eb,#0f172a)" }}>
+                  <Shield className="w-5 h-5 text-white" />
+                </div>
+                <div>
+                  <div className="text-sm leading-none" style={{ color: "#0f172a", fontWeight: 700 }}>2 Hour Response</div>
+                  <div className="text-gray-400 text-xs mt-1">Guaranteed or your assessment is free</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Contact Form + Info */}
       <section className="py-20" style={{ background: "linear-gradient(160deg,#fef2f2,#fafafa,#eff6ff)" }}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-5 gap-10 items-start">
@@ -188,16 +226,35 @@ export default function ContactPage() {
                 ))}
               </div>
 
-              <div className="rounded-3xl p-6 relative overflow-hidden shadow-lg" style={{ background: "linear-gradient(135deg,#dc2626,#7f1d1d)" }}>
-                <div className="absolute -top-6 -right-6 w-28 h-28 rounded-full opacity-15 bg-white" />
-                <div className="absolute -bottom-8 -left-8 w-24 h-24 rounded-full opacity-10 bg-white" />
-                <div className="relative flex items-center gap-2 mb-1">
-                  <div className="w-2 h-2 rounded-full bg-white animate-pulse" />
-                  <span className="text-white/80 text-xs font-bold tracking-widest uppercase">Emergency Line</span>
-                </div>
-                <a href="tel:+254722981621" className="relative text-4xl font-black text-white hover:opacity-80 transition-opacity block">0722 981 621</a>
-                <div className="relative text-white/60 text-xs mt-1">Available 24 hours, 7 days a week</div>
-              </div>
+              <a href="tel:+254722981621" className="block rounded-3xl p-6 relative overflow-hidden shadow-lg group" style={{ background: "linear-gradient(115deg,#1e3a8a 0%,#1e40af 22%,#7f1d1d 55%,#dc2626 78%,#ef4444 100%)" }}>
+                  <div className="absolute inset-0" style={{ background: "radial-gradient(circle at 10% 0%, rgba(56,189,248,0.25), transparent 45%), radial-gradient(circle at 95% 100%, rgba(255,255,255,0.15), transparent 45%)" }} />
+
+                  <div className="relative flex items-start justify-between gap-3">
+                    <div>
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="relative flex h-2 w-2">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-60" />
+                          <span className="relative inline-flex rounded-full h-2 w-2 bg-white" />
+                        </span>
+                        <span className="text-white/80 text-[11px] font-bold tracking-widest uppercase">24/7 Emergency Line</span>
+                      </div>
+                      <div className="text-3xl sm:text-4xl font-black text-white tracking-tight leading-none">0722 981 621</div>
+                      <div className="text-white/60 text-xs mt-2 font-medium">Available 24 hours, 7 days a week</div>
+                    </div>
+                    <div className="w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform" style={{ background: "rgba(255,255,255,0.15)", border: "1px solid rgba(255,255,255,0.3)" }}>
+                      <svg viewBox="0 0 24 24" fill="white" width="22" height="22">
+                        <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                      </svg>
+                    </div>
+                  </div>
+
+                  <div className="relative mt-4 pt-4 flex items-center justify-between" style={{ borderTop: "1px solid rgba(255,255,255,0.15)" }}>
+                    <span className="text-white/70 text-xs font-semibold">Tap to call now</span>
+                    <span className="inline-flex items-center gap-1 text-white text-xs font-bold bg-white/15 px-3 py-1.5 rounded-full group-hover:bg-white/25 transition-colors">
+                      Call Now &rarr;
+                    </span>
+                  </div>
+                </a>
 
               <div className="grid grid-cols-3 gap-3">
                 {[
