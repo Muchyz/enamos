@@ -371,7 +371,7 @@ function About() {
         </Reveal>
         <Reveal delay={0.15}>
           <div>
-            <span className="inline-block bg-blue-50 text-blue-700 text-xs font-semibold tracking-widest uppercase px-3 py-1.5 rounded-full mb-4">
+            <span className="inline-block bg-red-50 text-red-700 text-xs font-semibold tracking-widest uppercase px-3 py-1.5 rounded-full mb-4">
               About ENAMOS SECURITY
             </span>
             <h2 className="text-4xl md:text-5xl text-gray-900 mb-5 leading-tight">
@@ -521,7 +521,7 @@ function VisionMission() {
       <div className="max-w-7xl mx-auto px-6">
         <Reveal>
           <div className="text-center mb-8 md:mb-14">
-            <span className="inline-block bg-blue-50 text-blue-700 text-xs font-semibold tracking-widest uppercase px-3 py-1.5 rounded-full mb-4">
+            <span className="inline-block bg-red-50 text-red-700 text-xs font-semibold tracking-widest uppercase px-3 py-1.5 rounded-full mb-4">
               Our Foundation
             </span>
             <h2 className="text-4xl md:text-5xl text-gray-900 mb-4">
@@ -748,7 +748,7 @@ function Services() {
       <div className="max-w-7xl mx-auto px-6">
         <Reveal>
           <div className="text-center mb-8 md:mb-14">
-            <span className="inline-block bg-blue-50 text-blue-700 text-xs font-semibold tracking-widest uppercase px-3 py-1.5 rounded-full mb-4">
+            <span className="inline-block bg-red-50 text-red-700 text-xs font-semibold tracking-widest uppercase px-3 py-1.5 rounded-full mb-4">
               Our Services
             </span>
             <h2 className="text-4xl md:text-5xl text-gray-900 mb-4 leading-tight">
@@ -1028,7 +1028,7 @@ function Team() {
       <div className="max-w-7xl mx-auto px-6">
         <Reveal>
           <div className="text-center mb-8 md:mb-14">
-            <span className="inline-block bg-blue-50 text-blue-700 text-xs font-semibold tracking-widest uppercase px-3 py-1.5 rounded-full mb-4">
+            <span className="inline-block bg-red-50 text-red-700 text-xs font-semibold tracking-widest uppercase px-3 py-1.5 rounded-full mb-4">
               Our Team
             </span>
             <h2 className="text-4xl md:text-5xl text-gray-900 mb-4">
@@ -1157,11 +1157,11 @@ function Clients() {
       <div className="max-w-7xl mx-auto px-6">
         <Reveal>
           <div className="text-center mb-8 md:mb-14">
-            <span className="inline-block bg-blue-50 text-blue-700 text-xs font-semibold tracking-widest uppercase px-3 py-1.5 rounded-full mb-4">
+            <span className="inline-block bg-red-50 text-red-700 text-xs font-semibold tracking-widest uppercase px-3 py-1.5 rounded-full mb-4">
               Who We Serve
             </span>
             <h2 className="text-4xl md:text-5xl text-gray-900 mb-4">
-              Our <span style={{ color: "#1e40af" }}>Clients</span> &amp; Industries
+              Our <span style={{ color: "#dc2626" }}>Clients</span> &amp; Industries
             </h2>
             <p className="text-gray-500 max-w-xl mx-auto">
               Our invaluable experience provides all of our customers with a level of service and confidence unsurpassed in the industry.
