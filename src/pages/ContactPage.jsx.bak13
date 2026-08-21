@@ -91,7 +91,7 @@ export default function ContactPage() {
 </div>
 
             <div className="relative pb-10 pr-3 sm:pr-4">
-              <div className="absolute -top-2 -right-2 w-[94%] h-[94%] rounded-2xl" style={{ background: "linear-gradient(135deg,#0a1730 0%,#102a4d 55%,#050b17 100%)" }} />
+              <div className="absolute -top-2 -right-2 w-[94%] h-[94%] rounded-2xl" style={{ background: "linear-gradient(135deg,#2563eb 0%,#1e3a8a 55%,#0a1230 100%)" }} />
 
               <div className="relative rounded-2xl overflow-hidden" style={{ aspectRatio: "4/3", boxShadow: "0 20px 45px -14px rgba(15,23,42,0.35)" }}>
                 <img src="/contact-officer.jpg" alt="Contact ENAMOS SECURITY"

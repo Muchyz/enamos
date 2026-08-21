@@ -59,19 +59,19 @@ export default function ContactPage() {
   return (
     <div style={{ paddingTop: "96px" }}>
       {/* Hero */}
-        <div className="relative" style={{ background: "linear-gradient(180deg, #050b17 0%, #0a1730 55%, #102a4d 100%)" }}>
+        <div className="relative" style={{ background: "#f8fafc" }}>
           <div className="max-w-7xl mx-auto px-6 pt-10 pb-14 md:pt-14 md:pb-14 grid md:grid-cols-2 gap-12 md:gap-16 items-center">
             <div>
-              <div className="inline-flex items-center gap-2 mb-6 px-3 py-1.5 rounded-full" style={{ background: "rgba(220,38,38,0.15)", border: "1px solid rgba(248,113,113,0.4)" }}>
-                <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
-                <span className="text-xs font-bold tracking-wide uppercase text-red-300">Open Now &middot; Dispatch Available</span>
+              <div className="inline-flex items-center gap-2 mb-6 px-3 py-1.5 rounded-full" style={{ background: "#fef2f2", border: "1px solid #fecaca" }}>
+                <span className="w-1.5 h-1.5 rounded-full bg-red-600" />
+                <span className="text-xs font-bold tracking-wide uppercase" style={{ color: "#1e3a8a" }}>Open Now &middot; Dispatch Available</span>
               </div>
 
-              <h1 className="text-4xl sm:text-5xl mb-5 leading-[1.15] text-white" style={{ fontFamily: "'DM Serif Display',serif" }}>
+              <h1 className="text-4xl sm:text-5xl mb-5 leading-[1.15]" style={{ color: "#0f172a", fontFamily: "'DM Serif Display',serif" }}>
                 Let's build your<br />security plan
               </h1>
 
-              <p className="text-white/60 text-base sm:text-lg max-w-md leading-relaxed mb-8">
+              <p className="text-gray-500 text-base sm:text-lg max-w-md leading-relaxed mb-8">
                 Free site assessment and a custom quote. Our team responds within 2 hours, day or night.
               </p>
 
@@ -91,7 +91,7 @@ export default function ContactPage() {
 </div>
 
             <div className="relative pb-10 pr-3 sm:pr-4">
-              <div className="absolute -top-2 -right-2 w-[94%] h-[94%] rounded-2xl" style={{ background: "linear-gradient(135deg,#0a1730 0%,#102a4d 55%,#050b17 100%)" }} />
+              <div className="absolute -top-2 -right-2 w-[94%] h-[94%] rounded-2xl" style={{ background: "linear-gradient(135deg,#2563eb 0%,#1e3a8a 55%,#0a1230 100%)" }} />
 
               <div className="relative rounded-2xl overflow-hidden" style={{ aspectRatio: "4/3", boxShadow: "0 20px 45px -14px rgba(15,23,42,0.35)" }}>
                 <img src="/contact-officer.jpg" alt="Contact ENAMOS SECURITY"
