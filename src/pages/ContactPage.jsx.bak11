@@ -38,7 +38,7 @@ function Reveal({ children, className = "", delay = 0 }) {
   );
 }
 
-const inputClass = "w-full px-4 py-3 rounded-xl border-2 border-gray-200 text-sm text-gray-900 placeholder-gray-400 bg-white transition-all focus:outline-none focus:ring-2 focus:ring-blue-500/25 focus:border-blue-500";
+const inputClass = "w-full px-4 py-3 rounded-xl border border-blue-100 text-sm text-gray-800 placeholder-gray-400 bg-blue-50/40 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400 focus:bg-white";
 
 export default function ContactPage() {
   const [form, setForm] = useState({ name: "", businessName: "", propertyType: "", location: "", email: "", phone: "", service: "", message: "" });
