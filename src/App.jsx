@@ -649,7 +649,7 @@ export const services = [
         desc: "We provide end-to-end surveillance solutions that enhance monitoring and incident response.",
         color: "#7c3aed",
         bullets: ["Supply and installation of high-quality CCTV systems","24/7 surveillance capability","Integration with control rooms","Regular maintenance and system support"],
-        photos: ["cctv-install.jpg","cctv-monitor.jpg"]
+        photos: ["services/cctv-install-1.jpg","services/cctv-install-2.jpg"]
       },
       {
         number: "02",
@@ -657,7 +657,7 @@ export const services = [
         desc: "We secure perimeters with reliable electric fencing systems that act as a strong deterrent to intrusions.",
         color: "#dc2626",
         bullets: ["Professional installation of electric fences","Routine inspection and maintenance","Enhanced perimeter protection","Reduced dependency on manual guarding"],
-        photos: ["electric-fence.jpg"]
+        photos: ["services/electric-fence-1.jpg","services/electric-fence-2.jpg"]
       },
       {
         number: "03",
@@ -665,7 +665,7 @@ export const services = [
         desc: "Advanced biometric access control systems ensuring only authorised personnel gain entry to your premises.",
         color: "#1e3a8a",
         bullets: ["Supply and installation of fingerprint readers","Multi-user enrollment and management","Integration with existing access control","Tamper alerts and audit trails"],
-        photos: ["fingerprint-reader.jpg"]
+        photos: ["services/fingerprint-1.jpg","services/fingerprint-2.jpg"]
       },
       {
         number: "04",
@@ -673,7 +673,7 @@ export const services = [
         desc: "Professional intercom solutions for seamless communication and visitor management at all entry points.",
         color: "#15803d",
         bullets: ["Video and audio intercom systems","Gate and door release integration","Multi-apartment & office configurations","Remote access via smartphone"],
-        photos: ["intercom-system.jpg"]
+        photos: ["services/intercom-1.jpg"]
       },
     ]
   },

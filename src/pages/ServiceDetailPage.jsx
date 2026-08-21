@@ -49,32 +49,29 @@ export default function ServiceDetailPage() {
   return (
     <div style={{ paddingTop: "80px" }}>
       {/* Hero */}
-      <div className="px-4 pt-4 md:px-6 md:pt-6">
-        <div className="relative overflow-hidden rounded-3xl" style={{ minHeight: "360px" }}>
-          <img src={`/${service.photo}`} alt={service.title}
-            className="absolute inset-0 w-full h-full object-cover"
-            style={{ objectPosition: "center 20%" }}
-            onError={e => { e.target.style.background = "#0f172a"; }} />
-          <div className="absolute inset-0" style={{ background: "linear-gradient(180deg,rgba(15,23,42,0.75) 0%,rgba(15,23,42,0.55) 40%,rgba(15,23,42,0.92) 100%)" }} />
-          <div className="absolute inset-0" style={{ background: `${service.color}22`, mixBlendMode: "multiply" }} />
-          <div className="relative z-10 max-w-7xl mx-auto px-6 pt-8 pb-10 flex flex-col justify-end" style={{ minHeight: "360px" }}>
+      <div className="relative overflow-hidden" style={{ minHeight: "440px" }}>
+        <img src={`/${service.photo}`} alt={service.title}
+          className="absolute inset-0 w-full h-full object-cover object-[center_35%]"
+          onError={e => { e.target.style.background = "#0f172a"; }} />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(to top,rgba(15,23,42,0.96) 0%,rgba(15,23,42,0.72) 40%,rgba(15,23,42,0.25) 100%)" }} />
+        <div className="relative z-10 max-w-7xl mx-auto px-6 pt-8 pb-16 md:pt-10 md:pb-20 flex flex-col justify-end" style={{ minHeight: "440px" }}>
           <button onClick={() => navigate("/services")}
-            className="inline-flex items-center gap-2 text-white/80 hover:text-white text-sm font-medium mb-6 w-fit transition-colors">
+            className="inline-flex items-center gap-2 text-white/90 hover:text-white text-sm font-medium mb-10 w-fit bg-white/10 hover:bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full transition-colors">
             <ArrowLeft className="w-4 h-4" /> Back to Services
           </button>
-          <div className="flex items-center gap-3 mb-3 flex-nowrap overflow-hidden">
-            <div className="w-6 h-[2px] shrink-0" style={{ background: service.color }} />
-            <p className="text-white/60 text-xs font-semibold tracking-[0.15em] uppercase whitespace-nowrap">Our Services</p>
+          <div className="flex items-center gap-4 mb-5">
+            <div className="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0 backdrop-blur-md ring-1 ring-white/20" style={{ background: `${service.color}26` }}>
+              <service.icon className="w-7 h-7" style={{ color: service.color }} />
+            </div>
             {service.tag && (
-              <span className="inline-flex items-center gap-1.5 text-[10px] font-semibold tracking-[0.1em] uppercase text-white px-2.5 py-1 rounded-full ml-1 whitespace-nowrap" style={{ background: service.color }}>
-                {service.tag}
-              </span>
+              <span className="inline-block text-xs font-bold tracking-wide px-3.5 py-1.5 rounded-full text-white"
+                style={{ background: service.color }}>{service.tag.toUpperCase()}</span>
             )}
           </div>
-          <h1 className="leading-[1.15] max-w-3xl mb-1 whitespace-nowrap sm:whitespace-normal sm:text-4xl md:text-6xl" style={{ fontFamily: "'DM Serif Display',serif", color: "#93c5fd", fontSize: "clamp(20px, 6.5vw, 40px)" }}>
+          <p className="text-white/60 text-sm font-semibold tracking-widest uppercase mb-2">Our Services</p>
+          <h1 className="text-4xl md:text-6xl text-white leading-[1.1] max-w-3xl" style={{ fontFamily: "'DM Serif Display',serif" }}>
             {service.title}
           </h1>
-          </div>
         </div>
       </div>
 
@@ -98,109 +95,147 @@ export default function ServiceDetailPage() {
                   <h3 className="text-2xl font-bold text-gray-900 border-l-4 pl-4" style={{borderColor:"#dc2626"}}>
                     What We Offer
                   </h3>
-                  <div className="relative">
                   {service.subSystems.map((sys, i) => (
-                    <div key={i} className="relative pl-16 pb-14 last:pb-0">
-                      {i !== service.subSystems.length - 1 && (
-                        <div className="absolute left-[19px] top-10 bottom-0 w-px" style={{ background: "#e5e7eb" }} />
-                      )}
-                      <div className="absolute left-0 top-0 w-10 h-10 rounded-full bg-white border-2 flex items-center justify-center text-sm font-bold" style={{ borderColor: sys.color, color: sys.color }}>
-                        {sys.number}
+                    <div key={i} className="rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-lg transition-shadow bg-white">
+                      <div className="relative flex items-center gap-5 px-8 py-7 overflow-hidden" style={{
+                        background: `linear-gradient(135deg, ${sys.color}1a 0%, ${sys.color}08 100%)`,
+                        backdropFilter: "blur(12px)",
+                        borderBottom: `1px solid ${sys.color}22`
+                      }}>
+                        <div className="absolute inset-0 pointer-events-none" style={{
+                          background: `radial-gradient(circle at 20% 20%, ${sys.color}20 0%, transparent 60%)`
+                        }} />
+                        <span className="relative text-5xl font-black leading-none" style={{
+                          color: sys.color,
+                          opacity: 0.85,
+                          textShadow: `0 1px 12px ${sys.color}40`
+                        }}>{sys.number}</span>
+                        <h4 className="relative text-2xl font-bold text-gray-900 tracking-tight">{sys.title}</h4>
                       </div>
-                      <div>
-                        <h4 className="text-xl font-bold text-gray-900 mb-3">{sys.title}</h4>
-                        <p className="text-gray-500 text-[15px] leading-relaxed mb-6 max-w-md">{sys.desc}</p>
+                      <div className="p-8 bg-white">
+                        <p className="text-gray-500 mb-6">{sys.desc}</p>
                         <div className="grid md:grid-cols-2 gap-8 items-start">
-                          <ul className="space-y-3.5">
-                            {sys.bullets.map((b, j) => (
-                              <li key={j} className="flex items-start gap-3 text-[15px] text-gray-700">
-                                <span className="w-1.5 h-1.5 rounded-full shrink-0 mt-2" style={{ background: sys.color }} />
-                                {b}
-                              </li>
-                            ))}
-                          </ul>
-                          {sys.photos && sys.photos.length > 0 && (
-                            <div className={`grid gap-3 ${sys.photos.length > 1 ? "grid-cols-2" : "grid-cols-1"}`}>
-                              {sys.photos.map((photo, k) => (
-                                <div key={k} className="rounded-xl overflow-hidden ring-1 ring-gray-100" style={{aspectRatio:"4/3"}}>
-                                  <img src={`/${photo}`} alt={sys.title}
-                                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-                                    onError={e => { e.target.closest('[style*="aspect-ratio"]').style.display = "none"; }} />
-                                </div>
+                          <div>
+                            <p className="text-xs font-bold tracking-wider uppercase mb-3" style={{color: sys.color}}>What to expect</p>
+                            <ul className="space-y-2">
+                              {sys.bullets.map((b, j) => (
+                                <li key={j} className="flex items-start gap-2.5 text-sm text-gray-700">
+                                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full shrink-0" style={{background: sys.color}} />
+                                  {b}
+                                </li>
                               ))}
-                            </div>
-                          )}
+                            </ul>
+                          </div>
+                          <div className={`grid gap-3 ${sys.photos.length > 1 ? "grid-cols-2" : "grid-cols-1"}`}>
+                            {sys.photos.map((photo, k) => (
+                              <div key={k} className="rounded-2xl overflow-hidden shadow-sm ring-1 ring-black/5" style={{aspectRatio:"4/3"}}>
+                                <img src={`/${photo}`} alt={sys.title}
+                                  className="w-full h-full object-cover"
+                                  onError={e => { e.target.parentElement.style.background="#e2e8f0"; e.target.style.display="none"; }} />
+                              </div>
+                            ))}
+                          </div>
                         </div>
                       </div>
                     </div>
                   ))}
-                  </div>
                 </div>
               )}
             </Reveal>
 
             <Reveal delay={0.1}>
-                <div className="border border-gray-200 rounded-2xl mb-8">
-                  <div className="px-8 py-5 border-b border-gray-200 flex items-center gap-2">
-                    <div className="w-6 h-[2px]" style={{ background: service.color }} />
-                    <h3 className="text-lg" style={{ fontFamily: "'DM Serif Display',serif" }}>What's Included</h3>
-                  </div>
-                  <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-4 px-8 py-6">
-                    {service.bullets.map((b, i) => (
-                      <li key={i} className="flex items-start gap-3 text-gray-700">
-                        <span className="mt-2 w-1 h-1 rounded-full shrink-0" style={{ background: service.color }} />
-                        <span className="text-sm">{b}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </Reveal>
+              <div className="p-8 rounded-3xl mb-8 bg-white border border-gray-100 shadow-sm border-t-4" style={{ borderTopColor: service.color }}>
+                <h3 className="font-bold text-gray-900 mb-5 text-lg">What's Included</h3>
+                <ul className="grid sm:grid-cols-2 gap-3">
+                  {service.bullets.map((b, i) => (
+                    <li key={i} className="flex items-center gap-3 text-gray-700">
+                      <div className="w-6 h-6 rounded-full flex items-center justify-center shrink-0" style={{ background: `${service.color}18` }}>
+                        <CheckCircle className="w-3.5 h-3.5" style={{ color: service.color }} />
+                      </div>
+                      <span className="font-medium text-sm">{b}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Reveal>
 
             <Reveal delay={0.15}>
-                <div className="p-9 rounded-2xl" style={{ background: "#0f172a" }}>
-                  <div className="w-8 h-[2px] mb-5" style={{ background: "#1e3a8a" }} />
-                  <h3 className="text-white text-[26px] leading-tight mb-3" style={{ fontFamily: "'DM Serif Display',serif" }}>
-                    Ready to get started?
-                  </h3>
-                  <p className="text-white/50 text-sm mb-8 leading-relaxed">A member of our team will conduct a free site assessment and provide a custom quote within two hours.</p>
-                  <button onClick={() => navigate("/contact")}
-                    className="w-full text-center py-4 rounded-lg font-semibold text-white text-sm tracking-wide border border-white/20 hover:bg-white/5 transition-colors mb-3">
-                    Request a Quote
-                  </button>
-                  <a href="tel:+254722981621"
-                    className="block w-full text-center py-4 rounded-lg font-semibold text-sm tracking-wide"
-                    style={{ background: "#1e3a8a", color: "#ffffff" }}>
-                    Call +254 722 981 621
-                  </a>
+                <div className="p-8 rounded-2xl" style={{ background: "#0f172a" }}>
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style={{ background: service.color }}>
+                    <service.icon className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="font-bold text-white text-xl mb-2">Ready to Get Started?</h3>
+                  <p className="text-white/60 text-sm mb-6 leading-relaxed">Contact us today for a free site assessment and custom quote. Our team responds within 2 hours.</p>
+                  <div className="flex gap-3 flex-wrap">
+                    <button onClick={() => navigate("/contact")}
+                      className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white"
+                      style={{ background: service.color }}>
+                      Get Free Quote <ArrowRight className="w-4 h-4" />
+                    </button>
+                    <a href="tel:+254722981621"
+                      className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white border-2 border-white/25 active:bg-white/10 transition-colors">
+                      <Phone className="w-4 h-4" /> Call Now
+                    </a>
+                  </div>
                 </div>
               </Reveal>
           </div>
 
           {/* Right: Sidebar */}
           <div className="space-y-6">
-            <Reveal delay={0.1}>
-              <div className="border border-gray-200 rounded-2xl overflow-hidden">
-                <div className="flex items-center justify-between px-7 py-4" style={{ background: "#1e3a8a" }}>
-                  <span className="text-[11px] font-semibold tracking-[0.15em] uppercase text-white/80">Control Room</span>
-                  <span className="flex items-center gap-1.5 text-[11px] font-semibold tracking-[0.1em] uppercase text-white">
-                    <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-                    Active 24/7
-                  </span>
-                </div>
-                <div className="grid grid-cols-2">
-                  <a href="tel:+254722981621" className="px-4 py-6 border-r border-gray-200 active:bg-gray-50 transition-colors">
-                    <span className="text-[10px] font-semibold tracking-[0.15em] uppercase text-gray-400 block mb-2">Emergency</span>
-                    <span className="text-[15px] text-gray-900 tabular-nums block whitespace-nowrap" style={{ fontFamily: "'DM Serif Display',serif" }}>+254 722 981 621</span>
-                  </a>
-                  <a href="tel:+254710509780" className="px-4 py-6 active:bg-gray-50 transition-colors">
-                    <span className="text-[10px] font-semibold tracking-[0.15em] uppercase text-gray-400 block mb-2">Office</span>
-                    <span className="text-[15px] text-gray-900 tabular-nums block whitespace-nowrap" style={{ fontFamily: "'DM Serif Display',serif" }}>+254 710 509 780</span>
-                  </a>
+            <Reveal delay={0.05}>
+              <div className="relative rounded-2xl overflow-hidden shadow-xl" style={{ aspectRatio: "4/3" }}>
+                <img src={`/${service.photo}`} alt={service.title}
+                  className="w-full h-full object-cover"
+                  onError={e => { e.target.style.background = "#e2e8f0"; }} />
+                <div className="absolute bottom-0 left-0 right-0 px-5 py-4" style={{ background: "#0f172a" }}>
+                  <p className="text-white font-bold text-base leading-tight">{service.title}</p>
                 </div>
               </div>
             </Reveal>
 
-            
+            <Reveal delay={0.1}>
+              <div className="rounded-2xl bg-white border border-gray-100 shadow-sm overflow-hidden">
+                <div className="px-6 pt-5 pb-4 border-b border-gray-100">
+                  <p className="text-xs font-bold tracking-widest uppercase mb-0.5" style={{ color: service.color }}>Get In Touch</p>
+                  <h4 className="font-bold text-gray-900 text-lg">Quick Contact</h4>
+                </div>
+                <a href="tel:+254722981621"
+                  className="flex items-center gap-3 px-6 py-4 border-b border-gray-100 active:bg-gray-50 transition-colors">
+                  <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0" style={{ background: service.color }}>
+                    <Phone className="w-4 h-4 text-white" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="text-xs text-gray-400 font-semibold uppercase tracking-wide">Emergency Line</div>
+                    <div className="text-base font-bold text-gray-900">+254 722 981 621</div>
+                  </div>
+                  <ChevronRight className="w-4 h-4 text-gray-300 shrink-0" />
+                </a>
+                <a href="tel:+254710509780"
+                  className="flex items-center gap-3 px-6 py-4 active:bg-gray-50 transition-colors">
+                  <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 bg-gray-900">
+                    <Phone className="w-4 h-4 text-white" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="text-xs text-gray-400 font-semibold uppercase tracking-wide">Office Line</div>
+                    <div className="text-base font-bold text-gray-900">+254 710 509 780</div>
+                  </div>
+                  <ChevronRight className="w-4 h-4 text-gray-300 shrink-0" />
+                </a>
+              </div>
+            </Reveal>
+
+            <Reveal delay={0.15}>
+              <div className="rounded-2xl p-6" style={{ background: "#dc2626" }}>
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-9 h-9 rounded-full bg-white flex items-center justify-center shrink-0 relative">
+                    <div className="w-2.5 h-2.5 rounded-full bg-red-600 animate-pulse" />
+                  </div>
+                  <span className="text-white text-sm font-bold tracking-widest uppercase">24/7 Control Room</span>
+                </div>
+                <p className="text-white/90 text-sm leading-relaxed">Our control room is manned around the clock for immediate response to all emergencies.</p>
+              </div>
+            </Reveal>
           </div>
         </div>
       </section>
