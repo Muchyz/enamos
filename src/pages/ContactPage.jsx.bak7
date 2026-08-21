@@ -38,7 +38,7 @@ function Reveal({ children, className = "", delay = 0 }) {
   );
 }
 
-const inputClass = "w-full px-4 py-3 rounded-xl border border-blue-100 text-sm text-gray-800 placeholder-gray-400 bg-blue-50/40 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400 focus:bg-white";
+const inputClass = "w-full px-4 py-3 rounded-xl border border-blue-100 text-sm text-gray-800 placeholder-gray-300 bg-blue-50/40 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400 focus:bg-white";
 
 export default function ContactPage() {
   const [form, setForm] = useState({ name: "", businessName: "", propertyType: "", location: "", email: "", phone: "", service: "", message: "" });
@@ -119,13 +119,12 @@ export default function ContactPage() {
         </div>
 
         {/* Contact Form + Info */}
-      <section className="pt-10 pb-20" style={{ background: "linear-gradient(180deg, #050b17 0%, #0a1730 55%, #102a4d 100%)" }}>
+      <section className="pt-6 pb-20" style={{ background: "#f8fafc" }}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-5 gap-10 items-start">
             {/* Form */}
             <Reveal className="lg:col-span-3">
-              <div className="relative rounded-3xl p-10" style={{ background: "#ffffff", boxShadow: "0 25px 60px -15px rgba(0,0,0,0.5)", border: "1px solid #ffffff" }}>
-                <div className="absolute top-0 left-8 right-8 h-1 rounded-full" style={{ background: "linear-gradient(90deg,#2563eb,#1e3a8a)" }} />
+              <div className="bg-white rounded-3xl shadow-xl p-10 border border-gray-100">
                 <div className="flex items-center gap-3 mb-7">
                   <div className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0"
                     style={{ background: "linear-gradient(135deg,#2563eb,#1e40af)" }}>
@@ -172,13 +171,13 @@ export default function ContactPage() {
                         className={inputClass} />
                     </div>
                       <div>
-                        <label className="block text-xs font-bold mb-2 uppercase tracking-wider" style={{ color: "#1e3a8a" }}>Business / Organization Name <span className="text-gray-500 normal-case font-normal">(optional)</span></label>
+                        <label className="block text-xs font-bold mb-2 uppercase tracking-wider" style={{ color: "#1e3a8a" }}>Business / Organization Name <span className="text-gray-300 normal-case font-normal">(optional)</span></label>
                         <input type="text" placeholder="Your company or organization" value={form.businessName}
                           onChange={e => setForm({ ...form, businessName: e.target.value })}
                           className={inputClass} />
                       </div>
                       <div>
-                        <label className="block text-xs font-bold mb-2 uppercase tracking-wider" style={{ color: "#1e3a8a" }}>Property Type <span className="text-gray-500 normal-case font-normal">(optional)</span></label>
+                        <label className="block text-xs font-bold mb-2 uppercase tracking-wider" style={{ color: "#1e3a8a" }}>Property Type <span className="text-gray-300 normal-case font-normal">(optional)</span></label>
                         <select value={form.propertyType}
                           onChange={e => setForm({ ...form, propertyType: e.target.value })}
                           className={inputClass}>
@@ -191,7 +190,7 @@ export default function ContactPage() {
                         </select>
                       </div>
                       <div>
-                        <label className="block text-xs font-bold mb-2 uppercase tracking-wider" style={{ color: "#1e3a8a" }}>Location / Address <span className="text-gray-500 normal-case font-normal">(optional)</span></label>
+                        <label className="block text-xs font-bold mb-2 uppercase tracking-wider" style={{ color: "#1e3a8a" }}>Location / Address <span className="text-gray-300 normal-case font-normal">(optional)</span></label>
                         <input type="text" placeholder="e.g. Nairobi, Westlands" value={form.location}
                           onChange={e => setForm({ ...form, location: e.target.value })}
                           className={inputClass} />
