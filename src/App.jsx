@@ -433,24 +433,38 @@ function About() {
 function Director() {
   const navigate = useNavigate();
   return (
-    <section className="relative py-16 overflow-hidden" style={{ background: "linear-gradient(180deg, #050b17 0%, #0a1730 45%, #102a4d 100%)" }}>
+    <section className="relative py-20 overflow-hidden" style={{ background: "linear-gradient(180deg, #050b17 0%, #0a1730 45%, #102a4d 100%)" }}>
       <div style={{ height: "3px", background: "linear-gradient(90deg, transparent, #2563a8, #7dd3fc, #2563a8, transparent)" }} className="absolute top-0 left-0 right-0" />
       <div className="absolute -top-24 -left-24 w-72 h-72 rounded-full blur-3xl opacity-20 pointer-events-none" style={{ background: "#2563a8" }} />
       <div className="absolute top-1/3 -right-20 w-80 h-80 rounded-full blur-3xl opacity-10 pointer-events-none" style={{ background: "#7dd3fc" }} />
+      <div className="absolute bottom-0 left-1/3 w-64 h-64 rounded-full blur-3xl opacity-10 pointer-events-none" style={{ background: "#38bdf8" }} />
       <div className="max-w-5xl mx-auto px-6 relative">
         <Reveal>
-          <div className="text-center mb-6">
+          <div className="text-center mb-10">
             <span className="inline-flex items-center gap-2 text-sky-300 text-xs font-medium tracking-widest uppercase px-4 py-1.5 rounded-full mb-4" style={{ background: "rgba(56,189,248,0.08)", border: "1px solid rgba(56,189,248,0.25)" }}>
+              <span className="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse" />
               Director Statement
             </span>
           </div>
         </Reveal>
         <Reveal delay={0.1}>
           <div className="grid lg:grid-cols-3 gap-8 items-start">
-            <div className="rounded-3xl overflow-hidden shadow-2xl ring-1" style={{ aspectRatio: "3/4", borderColor: "rgba(56,189,248,0.2)" }}>
-              <img src="/director-matunda.jpg"
-                alt="Dr. Amos Matunda - Director" className="w-full h-full object-cover object-top"
-                onError={e => { e.target.style.background="#0a1730"; }} />
+            <div className="space-y-4">
+              <div className="rounded-3xl overflow-hidden shadow-2xl ring-1" style={{ aspectRatio: "3/4", borderColor: "rgba(56,189,248,0.2)" }}>
+                <img src="/director-matunda.jpg"
+                  alt="Dr. Amos Matunda - Director" className="w-full h-full object-cover object-top"
+                  onError={e => { e.target.style.background="#0a1730"; }} />
+              </div>
+              <div className="p-5 rounded-2xl text-center relative overflow-hidden" style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(56,189,248,0.2)" }}>
+                <div className="absolute top-0 left-0 right-0 h-0.5" style={{ background: "linear-gradient(90deg, transparent, #38bdf8, transparent)" }} />
+                <div className="text-white font-bold text-lg" style={{ fontFamily: "'DM Serif Display',serif" }}>Dr. Matunda Amos Kong'a</div>
+                <div className="text-sky-400 text-sm font-medium mt-1 tracking-wide">Chief Executive Officer</div>
+                <div className="text-white/40 text-xs mt-1 tracking-widest uppercase">ENAMOS SECURITY SERVICES LTD</div>
+                <div className="flex items-center justify-center gap-2 mt-3 p-3 rounded-xl" style={{ background: "rgba(56,189,248,0.08)" }}>
+                  <Award className="w-4 h-4 text-amber-400" />
+                  <span className="text-white/70 text-xs font-medium">Protection You Can Rely On</span>
+                </div>
+              </div>
             </div>
             <div className="lg:col-span-2 space-y-6">
               <div className="text-sky-400 opacity-50">
@@ -470,14 +484,9 @@ function Director() {
               <p className="text-white/70 leading-relaxed">
                 Safety is a shared duty. ENAMOS SECURITY SERVICES believes in strong community partnerships, standing ready to serve and protect the wider community, building a culture of alertness and mutual respect. Your safety is our watch — Protection You Can Rely On.
               </p>
-              <div className="pt-4 border-t flex items-center justify-between flex-wrap gap-4" style={{ borderColor: "rgba(56,189,248,0.15)" }}>
-                <div>
-                  <div className="text-sky-300 text-2xl" style={{ fontFamily: "'Dancing Script',cursive" }}>Dr. Amos Matunda</div>
-                  <div className="text-sky-400 text-sm font-medium mt-0.5">Chief Executive Officer</div>
-                  <div className="text-white/40 text-xs tracking-widest uppercase mt-0.5">ENAMOS SECURITY SERVICES LIMITED</div>
-                </div>
+              <div className="pt-4 border-t flex items-center justify-center" style={{ borderColor: "rgba(56,189,248,0.15)" }}>
                 <button onClick={() => navigate("/director")}
-                  className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-white border transition-all hover:shadow-lg hover:shadow-sky-500/20"
+                  className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-white border transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-sky-500/25"
                   style={{ borderColor: "rgba(56,189,248,0.3)", background: "rgba(56,189,248,0.08)" }}>
                   Full Statement <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
