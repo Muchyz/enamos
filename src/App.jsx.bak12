@@ -1206,6 +1206,21 @@ function Clients() {
           </div>
         </Reveal>
 
+        <Reveal delay={0.12}>
+          <div className="grid md:grid-cols-2 gap-6 mb-6">
+            <div className="rounded-3xl overflow-hidden shadow-lg" style={{ height: "220px" }}>
+              <img src="/officers-squad.jpg" alt="ENAMOS SECURITY squad"
+                className="w-full h-full object-cover"
+                onError={e => { e.target.style.background="#e2e8f0"; }} />
+            </div>
+            <div className="rounded-3xl overflow-hidden shadow-lg" style={{ height: "220px" }}>
+              <img src="/clients-officer.jpg" alt="ENAMOS SECURITY officer on duty"
+                className="w-full h-full object-cover"
+                onError={e => { e.target.style.background="#e2e8f0"; }} />
+            </div>
+          </div>
+        </Reveal>
+
         <Reveal delay={0.15}>
           <div className="rounded-3xl overflow-hidden relative shadow-xl" style={{ height: "200px" }}>
             <img src="/hero-officers.jpg"
