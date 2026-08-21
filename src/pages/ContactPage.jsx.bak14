@@ -57,9 +57,9 @@ export default function ContactPage() {
   };
 
   return (
-    <div style={{ paddingTop: "96px", background: "linear-gradient(180deg, #050b17 0%, #0a1730 35%, #102a4d 65%, #0a1730 100%)" }}>
+    <div style={{ paddingTop: "96px" }}>
       {/* Hero */}
-        <div className="relative">
+        <div className="relative" style={{ background: "linear-gradient(180deg, #050b17 0%, #0a1730 55%, #102a4d 100%)" }}>
           <div className="max-w-7xl mx-auto px-6 pt-10 pb-14 md:pt-14 md:pb-14 grid md:grid-cols-2 gap-12 md:gap-16 items-center">
             <div>
               <div className="inline-flex items-center gap-2 mb-6 px-3 py-1.5 rounded-full" style={{ background: "rgba(220,38,38,0.15)", border: "1px solid rgba(248,113,113,0.4)" }}>
@@ -119,7 +119,7 @@ export default function ContactPage() {
         </div>
 
         {/* Contact Form + Info */}
-      <section className="pt-10 pb-20">
+      <section className="pt-10 pb-20" style={{ background: "linear-gradient(180deg, #050b17 0%, #0a1730 55%, #102a4d 100%)" }}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-5 gap-10 items-start">
             {/* Form */}
