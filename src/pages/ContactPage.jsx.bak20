@@ -236,7 +236,7 @@ export default function ContactPage() {
                 <h3 className="text-white font-bold text-base tracking-wide">Get In Touch</h3>
                 {[
                   { icon: Phone, label: "Call Us", lines: [{ text: "+254 722 981 621", href: "tel:+254722981621" }, { text: "+254 710 509 780", href: "tel:+254710509780" }] },
-                  { icon: Mail, label: "Email Us", lines: [{ text: "info@enamos.co.ke", href: "mailto:info@enamos.co.ke" }] },
+                  { icon: Mail, label: "Email Us", lines: [{ text: "info@enamossecurity.co.ke", href: "mailto:info@enamossecurity.co.ke" }] },
                   { icon: MapPin, label: "Nairobi HQ", lines: [{ text: "Mlolongo, End of Expressway, Opp. Total Petrol Station", href: null }, { text: "P.O. Box 132, City Square, Nairobi, Kenya", href: null }] },
                   { icon: MapPin, label: "Eldoret Branch", lines: [{ text: "West Indies Building, 1st Floor, Next to Columbus Hotel, Opp. Kheits Wholesale", href: null }] },
                   { icon: Globe, label: "Website", lines: [{ text: "www.enamos.co.ke", href: "https://www.enamos.co.ke" }] },
