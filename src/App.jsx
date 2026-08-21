@@ -434,7 +434,12 @@ function Director() {
   const navigate = useNavigate();
   return (
     <section className="relative pt-20 pb-10 overflow-hidden" style={{ background: "linear-gradient(180deg, #050b17 0%, #0a1730 45%, #102a4d 100%)" }}>
-      <div style={{ height: "3px", background: "linear-gradient(90deg, transparent, #2563a8, #7dd3fc, #2563a8, transparent)" }} className="absolute top-0 left-0 right-0" />
+      <div className="absolute top-0 left-0 right-0 -translate-y-px" style={{ lineHeight: 0 }}>
+        <svg viewBox="0 0 1440 60" className="w-full" style={{ display: "block" }} preserveAspectRatio="none">
+          <path d="M0,20 C360,70 1080,-20 1440,20 L1440,0 L0,0 Z" fill="#ffffff" />
+        </svg>
+      </div>
+      <div className="absolute top-8 left-0 right-0 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(56,189,248,0.5), transparent)" }} />
       <div className="absolute -top-24 -left-24 w-72 h-72 rounded-full blur-3xl opacity-20 pointer-events-none" style={{ background: "#2563a8" }} />
       <div className="absolute top-1/3 -right-20 w-80 h-80 rounded-full blur-3xl opacity-10 pointer-events-none" style={{ background: "#7dd3fc" }} />
       <div className="absolute bottom-0 left-1/3 w-64 h-64 rounded-full blur-3xl opacity-10 pointer-events-none" style={{ background: "#38bdf8" }} />
