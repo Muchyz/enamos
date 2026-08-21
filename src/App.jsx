@@ -495,6 +495,11 @@ function Director() {
           </div>
         </Reveal>
       </div>
+      <div className="absolute bottom-0 left-0 right-0" style={{ lineHeight: 0 }}>
+        <svg viewBox="0 0 1440 80" className="w-full" style={{ display: "block" }} preserveAspectRatio="none">
+          <path d="M0,40 C360,90 1080,0 1440,40 L1440,80 L0,80 Z" fill="#ffffff" />
+        </svg>
+      </div>
     </section>
   );
 }
