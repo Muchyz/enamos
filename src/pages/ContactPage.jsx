@@ -118,7 +118,7 @@ export default function ContactPage() {
         </div>
 
         {/* Contact Form + Info */}
-      <section className="py-20" style={{ background: "linear-gradient(160deg,#fef2f2,#fafafa,#eff6ff)" }}>
+      <section className="py-20" style={{ background: "#f8fafc" }}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-5 gap-10 items-start">
             {/* Form */}
