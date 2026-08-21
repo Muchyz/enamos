@@ -57,19 +57,16 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="relative" style={{ paddingTop: "96px", background: "linear-gradient(180deg, #050b17 0%, #0a1730 35%, #102a4d 65%, #0a1730 100%)" }}>
-      <div className="absolute top-24 -left-24 w-80 h-80 rounded-full blur-3xl opacity-10 pointer-events-none" style={{ background: "#dc2626" }} />
-      <div className="absolute top-96 -right-24 w-80 h-80 rounded-full blur-3xl opacity-10 pointer-events-none" style={{ background: "#38bdf8" }} />
+    <div style={{ paddingTop: "96px", background: "linear-gradient(180deg, #050b17 0%, #0a1730 35%, #102a4d 65%, #0a1730 100%)" }}>
       {/* Hero */}
         <div className="relative">
           <div className="max-w-7xl mx-auto px-6 pt-10 pb-14 md:pt-14 md:pb-14 grid md:grid-cols-2 gap-12 md:gap-16 items-center">
             <div>
-              <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full backdrop-blur-sm" style={{ background: "rgba(220,38,38,0.12)", border: "1px solid rgba(248,113,113,0.35)", boxShadow: "0 4px 20px -4px rgba(220,38,38,0.3)" }}>
+              <div className="inline-flex items-center gap-2 mb-6 px-3 py-1.5 rounded-full" style={{ background: "rgba(220,38,38,0.15)", border: "1px solid rgba(248,113,113,0.4)" }}>
                 <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
                 <span className="text-xs font-bold tracking-wide uppercase text-red-300">Open Now &middot; Dispatch Available</span>
               </div>
 
-              <div className="h-1 w-14 rounded-full mb-5" style={{ background: "linear-gradient(90deg,#38bdf8,#dc2626)" }} />
               <h1 className="text-4xl sm:text-5xl mb-5 leading-[1.15] text-white" style={{ fontFamily: "'DM Serif Display',serif" }}>
                 Let's build your<br />security plan
               </h1>
