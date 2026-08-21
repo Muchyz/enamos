@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useRef, useState, useEffect } from "react";
-import { Phone, Mail, MapPin, Send, CheckCircle, Zap, Shield, Globe, Clock } from "lucide-react";
+import { Phone, Mail, MapPin, Send, CheckCircle, Zap, Shield, Globe } from "lucide-react";
 import { services } from "../App";
 
 
@@ -75,20 +75,19 @@ export default function ContactPage() {
                 Free site assessment and a custom quote. Our team responds within 2 hours, day or night.
               </p>
 
-              <div className="grid grid-cols-3 gap-3">
+              <div className="grid grid-cols-3 gap-4 max-w-sm">
                 {[
-                  { icon: Clock, value: "24/7", label: "Dispatch" },
-                  { icon: Zap, value: "2 hrs", label: "Response" },
-                  { icon: MapPin, value: "2", label: "Branches" },
+                  { value: "24/7", label: "Dispatch" },
+                  { value: "2 hrs", label: "Response" },
+                  { value: "2", label: "Branches" },
                 ].map((s, i) => (
-                  <div key={i} className="p-4 rounded-2xl text-center bg-white border border-gray-100 shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-all">
-                    <s.icon className="w-5 h-5 mx-auto mb-1.5 text-blue-600" />
-                    <div className="text-base font-extrabold text-gray-900 leading-tight">{s.value}</div>
-                    <div className="text-[11px] font-semibold text-gray-500 uppercase tracking-wide mt-0.5">{s.label}</div>
+                  <div key={i} className="rounded-xl px-3 py-3 hover:-translate-y-0.5 hover:shadow-md transition-all" style={{ background: "#f8fafc", border: "1px solid #e2e8f0" }}>
+                    <div className="text-xl font-extrabold" style={{ color: "#1e3a8a" }}>{s.value}</div>
+                    <div className="text-[11px] text-gray-500 font-semibold tracking-wide uppercase mt-0.5">{s.label}</div>
                   </div>
                 ))}
               </div>
-</div>
+            </div>
 
             <div className="relative pb-10 pr-3 sm:pr-4">
               <div className="absolute -top-2 -right-2 w-[94%] h-[94%] rounded-2xl" style={{ background: "linear-gradient(135deg,#2563eb 0%,#1e3a8a 55%,#0a1230 100%)" }} />
@@ -119,7 +118,7 @@ export default function ContactPage() {
         </div>
 
         {/* Contact Form + Info */}
-      <section className="pt-6 pb-20" style={{ background: "#f8fafc" }}>
+      <section className="py-20" style={{ background: "#f8fafc" }}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-5 gap-10 items-start">
             {/* Form */}
