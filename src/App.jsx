@@ -433,7 +433,7 @@ function About() {
 function Director() {
   const navigate = useNavigate();
   return (
-    <section className="relative py-20 overflow-hidden" style={{ background: "linear-gradient(180deg, #050b17 0%, #0a1730 45%, #102a4d 100%)" }}>
+    <section className="relative pt-20 pb-10 overflow-hidden" style={{ background: "linear-gradient(180deg, #050b17 0%, #0a1730 45%, #102a4d 100%)" }}>
       <div style={{ height: "3px", background: "linear-gradient(90deg, transparent, #2563a8, #7dd3fc, #2563a8, transparent)" }} className="absolute top-0 left-0 right-0" />
       <div className="absolute -top-24 -left-24 w-72 h-72 rounded-full blur-3xl opacity-20 pointer-events-none" style={{ background: "#2563a8" }} />
       <div className="absolute top-1/3 -right-20 w-80 h-80 rounded-full blur-3xl opacity-10 pointer-events-none" style={{ background: "#7dd3fc" }} />
