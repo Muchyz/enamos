@@ -520,7 +520,7 @@ function VisionMission() {
     <section className="py-28 bg-white">
       <div className="max-w-7xl mx-auto px-6">
         <Reveal>
-          <div className="text-center mb-8 md:mb-14">
+          <div className="text-center mb-16">
             <span className="inline-block bg-red-50 text-red-700 text-xs font-semibold tracking-widest uppercase px-3 py-1.5 rounded-full mb-4">
               Our Foundation
             </span>
@@ -747,7 +747,7 @@ function Services() {
     <section id="services" className="py-28 overflow-hidden" style={{ background: "linear-gradient(180deg,#fafafa,#f8fafc)" }}>
       <div className="max-w-7xl mx-auto px-6">
         <Reveal>
-          <div className="text-center mb-8 md:mb-14">
+          <div className="text-center mb-16">
             <span className="inline-block bg-red-50 text-red-700 text-xs font-semibold tracking-widest uppercase px-3 py-1.5 rounded-full mb-4">
               Our Services
             </span>
@@ -1027,7 +1027,7 @@ function Team() {
     <section id="our-team" className="py-28 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <Reveal>
-          <div className="text-center mb-8 md:mb-14">
+          <div className="text-center mb-16">
             <span className="inline-block bg-red-50 text-red-700 text-xs font-semibold tracking-widest uppercase px-3 py-1.5 rounded-full mb-4">
               Our Team
             </span>
@@ -1153,10 +1153,10 @@ function Clients() {
     { icon: Star, title: "VIP & Executive", color: "#15803d", bg: "#f0fdf4", photo: "sector-vip.jpg", desc: "Close protection and motorcade security for executives and dignitaries." },
   ];
   return (
-    <section id="clients" className="py-12 md:py-24" style={{ background: "#f4f6f9" }}>
+    <section id="clients" className="py-10" style={{ background: "linear-gradient(180deg,#f8fafc,#ffffff)" }}>
       <div className="max-w-7xl mx-auto px-6">
         <Reveal>
-          <div className="text-center mb-8 md:mb-14">
+          <div className="text-center mb-16">
             <span className="inline-block bg-red-50 text-red-700 text-xs font-semibold tracking-widest uppercase px-3 py-1.5 rounded-full mb-4">
               Who We Serve
             </span>
@@ -1168,30 +1168,31 @@ function Clients() {
             </p>
           </div>
         </Reveal>
-        <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-5 mb-16">
+        <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4 mb-16">
           {industries.map((item, i) => (
             <Reveal key={i} delay={i * 0.04}>
-              <div className="relative rounded-2xl bg-white transition-all duration-300 group cursor-pointer p-5 md:p-7 flex flex-col items-center text-center"
-                style={{ boxShadow: "0 4px 20px -4px rgba(15,23,42,0.10)" }}
-                onMouseEnter={e => e.currentTarget.style.boxShadow = "0 14px 32px -8px rgba(15,23,42,0.22)"}
-                onMouseLeave={e => e.currentTarget.style.boxShadow = "0 4px 20px -4px rgba(15,23,42,0.10)"}>
-                <div className="w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110" style={{background: "#0f172a"}}>
-                  <item.icon className="w-7 h-7 md:w-8 md:h-8" style={{color: "#3b82f6"}} />
+              <div className="relative rounded-2xl bg-white transition-all duration-300 group cursor-pointer p-5"
+                style={{ boxShadow: "0 4px 20px -4px rgba(30,58,138,0.10)" }}
+                onMouseEnter={e => e.currentTarget.style.boxShadow = "0 12px 30px -8px rgba(30,58,138,0.25)"}
+                onMouseLeave={e => e.currentTarget.style.boxShadow = "0 4px 20px -4px rgba(30,58,138,0.10)"}>
+                <div className="absolute top-0 left-5 right-5 h-1 rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" style={{background: "linear-gradient(90deg,#2563eb,#1e3a8a)"}} />
+                <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110" style={{background: "#eff6ff"}}>
+                  <item.icon className="w-6 h-6" style={{color: "#1e40af"}} />
                 </div>
-                <h4 className="font-bold text-gray-900 mb-1 text-xs md:text-sm leading-snug uppercase tracking-wide">{item.title}</h4>
-                <p className="text-gray-500 text-[11px] md:text-xs leading-relaxed">{item.desc}</p>
+                <h4 className="font-semibold text-gray-800 text-sm mb-1">{item.title}</h4>
+                <p className="text-xs text-gray-500 leading-snug">{item.desc}</p>
               </div>
             </Reveal>
           ))}
         </div>
         <Reveal delay={0.1}>
-          <div className="mb-10">
-            <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-6 text-center" style={{ fontFamily: "'DM Serif Display',serif" }}>We Serve All Client Types</h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
+          <div className="bg-white rounded-3xl border border-gray-100 shadow-sm p-8 mb-10">
+            <h3 className="text-xl font-bold text-gray-900 mb-6 text-center">We Serve All Client Types</h3>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
               {clientList.map((c, i) => (
-                <div key={i} className="flex items-center gap-2.5 text-xs md:text-sm text-gray-700 bg-white hover:bg-blue-50 border border-gray-200 hover:border-blue-200 rounded-xl px-3.5 py-2.5 transition-colors" style={{ boxShadow: "0 2px 8px -2px rgba(15,23,42,0.06)" }}>
-                  <CheckCircle className="w-4 h-4 shrink-0" style={{color: "#2563eb"}} fill="#dbeafe" strokeWidth={2.2} />
-                  <span className="leading-snug">{c}</span>
+                <div key={i} className="flex items-center gap-2 text-sm text-slate-500">
+                  <div className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: "#dc2626" }} />
+                  {c}
                 </div>
               ))}
             </div>
