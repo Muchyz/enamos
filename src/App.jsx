@@ -878,82 +878,133 @@ function Services() {
 /* ── WHY US ── */
 function WhyUs() {
   const points = [
-    { icon: Zap, color: "#dc2626", bg: "#fef2f2", title: "Swift Response", desc: "Reliable fleet of tactical response vehicles. Area-based response ensures rapid call-out resolution." },
-    { icon: Users, color: "#1e3a8a", bg: "#eff6ff", title: "Disciplined Personnel", desc: "Senior management with Disciplined Forces experience. Stringent training above and beyond average standards." },
-    { icon: Eye, color: "#7c3aed", bg: "#f5f3ff", title: "24/7 Control Room", desc: "Modern, secure control room manned around the clock. Alarm activations dealt with immediately." },
-    { icon: Cpu, color: "#15803d", bg: "#f0fdf4", title: "Smart Technology", desc: "State of the art systems installed by trained certified technicians. In-house technical department." },
-    { icon: Globe, color: "#b45309", bg: "#fffbeb", title: "Kenya-Wide Coverage", desc: "Serving clients across Kenya with vision to expand into targeted East Africa markets." },
-    { icon: CheckCircle, color: "#0891b2", bg: "#ecfeff", title: "Unbiased Advice", desc: "Independent firm — we give objective, impartial advice and recommend only what is right for your business." },
-    { icon: Layers, color: "#7c3aed", bg: "#f5f3ff", title: "Custom Packages", desc: "Security packages designed around your specific needs and financial capabilities." },
-    { icon: TrendingUp, color: "#dc2626", bg: "#fef2f2", title: "International Standards", desc: "Partnered with international companies to equip our clients with the very best solutions available." },
+    { icon: Zap, title: "Swift Response", desc: "Reliable fleet of tactical response vehicles. Area-based response ensures rapid call-out resolution." },
+    { icon: Users, title: "Disciplined Personnel", desc: "Senior management with Disciplined Forces experience. Stringent training above and beyond average standards." },
+    { icon: Eye, title: "24/7 Control Room", desc: "Modern, secure control room manned around the clock. Alarm activations dealt with immediately." },
+    { icon: Cpu, title: "Smart Technology", desc: "State of the art systems installed by trained certified technicians. In-house technical department." },
+    { icon: Globe, title: "Kenya-Wide Coverage", desc: "Serving clients across Kenya with vision to expand into targeted East Africa markets." },
+    { icon: CheckCircle, title: "Unbiased Advice", desc: "Independent firm — we give objective, impartial advice and recommend only what is right for your business." },
+    { icon: Layers, title: "Custom Packages", desc: "Security packages designed around your specific needs and financial capabilities." },
+    { icon: TrendingUp, title: "International Standards", desc: "Partnered with international companies to equip our clients with the very best solutions available." },
+  ];
+  const stats = [
+    { value: "10+", label: "Years of Service" },
+    { value: "500+", label: "Trained Officers" },
+    { value: "24/7", label: "Control Room" },
+    { value: "2", label: "Regions Covered" },
   ];
   return (
-    <section id="why-us" className="py-28 relative overflow-hidden">
-      <div className="absolute inset-0">
-        <img src="/supervision-truck.jpg"
-          alt="Security background" className="w-full h-full object-cover"
-          onError={e => { e.target.style.background="#0f172a"; }} />
-        <div className="absolute inset-0" style={{ background: "linear-gradient(135deg,rgba(15,23,42,0.95),rgba(30,27,75,0.92))" }} />
+    <section id="why-us" className="relative py-24 overflow-hidden" style={{ background: "linear-gradient(180deg, #050b17 0%, #0a1730 45%, #102a4d 100%)" }}>
+      <div className="absolute top-0 left-0 right-0 -translate-y-px" style={{ lineHeight: 0 }}>
+        <svg viewBox="0 0 1440 60" className="w-full" style={{ display: "block" }} preserveAspectRatio="none">
+          <path d="M0,20 C360,70 1080,-20 1440,20 L1440,0 L0,0 Z" fill="#ffffff" />
+        </svg>
       </div>
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{
+        backgroundImage: "linear-gradient(rgba(125,211,252,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(125,211,252,0.5) 1px, transparent 1px)",
+        backgroundSize: "48px 48px"
+      }} />
+      <div className="absolute -top-24 -left-24 w-72 h-72 rounded-full blur-3xl opacity-20 pointer-events-none" style={{ background: "#2563a8" }} />
+      <div className="absolute top-1/3 -right-20 w-80 h-80 rounded-full blur-3xl opacity-10 pointer-events-none" style={{ background: "#7dd3fc" }} />
+      <div className="absolute bottom-0 left-1/4 w-64 h-64 rounded-full blur-3xl opacity-10 pointer-events-none" style={{ background: "#38bdf8" }} />
+
       <div className="relative max-w-7xl mx-auto px-6">
         <Reveal>
-          <div className="text-center mb-16">
-            <span className="inline-block bg-white/10 text-white text-xs font-semibold tracking-widest uppercase px-3 py-1.5 rounded-full mb-4 border border-white/20">
+          <div className="text-center mb-14">
+            <span className="inline-flex items-center gap-2 text-sky-300 text-xs font-medium tracking-widest uppercase px-4 py-1.5 rounded-full mb-5" style={{ background: "rgba(56,189,248,0.08)", border: "1px solid rgba(56,189,248,0.25)" }}>
+              <span className="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse" />
               Why Enamos
             </span>
-            <h2 className="text-4xl md:text-5xl text-white mb-4">
+            <h2 className="text-4xl md:text-5xl text-white mb-4" style={{ fontFamily: "'DM Serif Display',serif" }}>
               Excellence, Value for Money<br />
-              <span style={{ background: "linear-gradient(135deg,#fca5a5,#93c5fd)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+              <span style={{ background: "linear-gradient(135deg,#7dd3fc,#38bdf8)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
                 &amp; Innovation
               </span>
             </h2>
-            <p className="text-white/60 max-w-xl mx-auto">
+            <p className="text-white/50 max-w-xl mx-auto leading-relaxed">
               ENAMOS SECURITY is committed to providing exceptional services by delivering personalized, high-quality and cost efficient solutions to meet the needs of our clients.
             </p>
           </div>
         </Reveal>
+
+        {/* Stats strip */}
+        <Reveal delay={0.05}>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-14">
+            {stats.map((s, i) => (
+              <div key={i} className="relative text-center py-6 rounded-2xl overflow-hidden"
+                style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(56,189,248,0.15)" }}>
+                <div className="absolute top-0 left-0 right-0 h-0.5" style={{ background: "linear-gradient(90deg, transparent, #38bdf8, transparent)" }} />
+                <div className="text-3xl md:text-4xl font-bold text-sky-400 mb-1" style={{ fontFamily: "'DM Serif Display',serif" }}>{s.value}</div>
+                <div className="text-white/40 text-[11px] tracking-widest uppercase">{s.label}</div>
+              </div>
+            ))}
+          </div>
+        </Reveal>
+
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
           {points.map((p, i) => (
             <Reveal key={i} delay={i * 0.06}>
-              <div className="p-6 rounded-2xl border border-white/10 backdrop-blur-sm hover:border-white/30 transition-all duration-300 group card-hover"
-                style={{ background: "rgba(255,255,255,0.06)" }}>
-                <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform"
-                  style={{ background: p.bg }}>
-                  <p.icon className="w-5 h-5" style={{ color: p.color }} />
+              <div className="group relative p-6 rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1.5"
+                style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(56,189,248,0.15)" }}>
+                <div className="absolute top-0 left-0 right-0 h-0.5 opacity-0 group-hover:opacity-100 transition-opacity" style={{ background: "linear-gradient(90deg, transparent, #38bdf8, transparent)" }} />
+                <div className="absolute -right-4 -top-4 text-white/[0.03] text-7xl font-bold select-none pointer-events-none group-hover:text-white/[0.06] transition-colors" style={{ fontFamily: "'DM Serif Display',serif" }}>
+                  {String(i + 1).padStart(2, "0")}
                 </div>
-                <h4 className="text-white font-semibold text-sm mb-2">{p.title}</h4>
-                <p className="text-white/50 text-xs leading-relaxed">{p.desc}</p>
+                <div className="relative w-11 h-11 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform"
+                  style={{ background: "rgba(56,189,248,0.1)", border: "1px solid rgba(56,189,248,0.2)" }}>
+                  <p.icon className="w-5 h-5 text-sky-400" />
+                </div>
+                <h4 className="relative text-white font-semibold text-sm mb-2">{p.title}</h4>
+                <p className="relative text-white/45 text-xs leading-relaxed">{p.desc}</p>
               </div>
             </Reveal>
           ))}
         </div>
 
         <Reveal delay={0.2}>
-          <div className="mt-12 rounded-3xl p-8 md:p-12 grid md:grid-cols-2 gap-8 items-center"
-            style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)" }}>
-            <div>
-              <h3 className="text-2xl font-bold text-white mb-4" style={{ fontFamily: "'DM Serif Display',serif" }}>
+          <div className="mt-12 rounded-3xl p-8 md:p-12 grid md:grid-cols-2 gap-8 items-center relative overflow-hidden"
+            style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(56,189,248,0.15)" }}>
+            <div className="absolute top-0 left-0 right-0 h-0.5" style={{ background: "linear-gradient(90deg, transparent, #38bdf8, transparent)" }} />
+            <div className="absolute -bottom-16 -left-16 w-56 h-56 rounded-full blur-3xl opacity-10 pointer-events-none" style={{ background: "#38bdf8" }} />
+            <div className="relative">
+              <span className="inline-block text-sky-400 text-xs font-medium tracking-widest uppercase mb-3">Our People</span>
+              <h3 className="text-2xl md:text-3xl text-white mb-4" style={{ fontFamily: "'DM Serif Display',serif" }}>
                 Our Personnel Are Our Strength
               </h3>
-              <p className="text-white/70 leading-relaxed mb-4">
+              <p className="text-white/60 leading-relaxed mb-4">
                 Our senior management has Disciplined Forces experience and have used this knowledge to pass it onto other personnel. This has helped in acquiring an in depth perspective of Kenyan trends and conditions.
               </p>
-              <p className="text-white/70 leading-relaxed">
+              <p className="text-white/60 leading-relaxed mb-6">
                 Our personnel have and will continue to acquire the professional knowledge and skills required to perform their tasks and will implement them while striving continuously to perfect their personal and collective achievements.
               </p>
+              <div className="flex flex-wrap gap-2">
+                {["Vetted & Licensed", "Continuously Trained", "Field Supervised"].map((tag, i) => (
+                  <span key={i} className="inline-flex items-center gap-1.5 text-xs text-sky-300 px-3 py-1.5 rounded-full"
+                    style={{ background: "rgba(56,189,248,0.08)", border: "1px solid rgba(56,189,248,0.2)" }}>
+                    <CheckCircle className="w-3 h-3" />
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </div>
-            <div className="rounded-2xl overflow-hidden shadow-xl" style={{ aspectRatio: "4/3" }}>
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl ring-1" style={{ aspectRatio: "4/3", borderColor: "rgba(56,189,248,0.25)" }}>
               <img src="/officers-squad.jpg"
                 alt="ENAMOS SECURITY team" className="w-full h-full object-cover"
-                onError={e => { e.target.style.background="#1e293b"; }} />
+                onError={e => { e.target.style.background="#0a1730"; }} />
+              <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(180deg, transparent 60%, rgba(5,11,23,0.4) 100%)" }} />
             </div>
           </div>
         </Reveal>
       </div>
+
+      <div className="absolute bottom-0 left-0 right-0" style={{ lineHeight: 0 }}>
+        <svg viewBox="0 0 1440 60" className="w-full" style={{ display: "block" }} preserveAspectRatio="none">
+          <path d="M0,20 C360,-20 1080,70 1440,20 L1440,60 L0,60 Z" fill="#ffffff" />
+        </svg>
+      </div>
     </section>
   );
 }
-
 /* ── TEAM ── */
 function Team() {
   const credentials = [
