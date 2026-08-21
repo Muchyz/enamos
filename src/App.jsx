@@ -589,26 +589,34 @@ function VisionMission() {
         </Reveal>
 
         <Reveal delay={0.14}>
-          <div className="mb-16 grid md:grid-cols-3 gap-6 p-8 rounded-3xl" style={{ background: "linear-gradient(135deg,#0f172a,#1e1b4b)" }}>
-            <div className="md:col-span-3 mb-4">
-              <h3 className="text-xl font-bold text-white">Why Choose ENAMOS SECURITY?</h3>
-              <p className="text-white/50 text-sm mt-1">Since inception, ENAMOS SECURITY has delivered a wide range of security services. Our security packages are designed to cater for clients with respect to their specific needs and financial capabilities.</p>
+          <div className="mb-16 relative overflow-hidden rounded-3xl p-8 md:p-10" style={{ background: "linear-gradient(180deg, #050b17 0%, #0a1730 45%, #102a4d 100%)" }}>
+            <div className="absolute top-0 left-0 right-0 h-0.5" style={{ background: "linear-gradient(90deg, transparent, #38bdf8, transparent)" }} />
+            <div className="absolute -top-20 -right-20 w-64 h-64 rounded-full blur-3xl opacity-10 pointer-events-none" style={{ background: "#38bdf8" }} />
+            <div className="relative mb-8">
+              <span className="inline-flex items-center gap-2 text-sky-300 text-xs font-medium tracking-widest uppercase px-4 py-1.5 rounded-full mb-4" style={{ background: "rgba(56,189,248,0.08)", border: "1px solid rgba(56,189,248,0.25)" }}>
+                <span className="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse" />
+                The ENAMOS Difference
+              </span>
+              <h3 className="text-2xl md:text-3xl text-white mb-3" style={{ fontFamily: "'DM Serif Display',serif" }}>Why Choose ENAMOS SECURITY?</h3>
+              <p className="text-white/50 text-sm max-w-2xl leading-relaxed">Since inception, ENAMOS SECURITY has delivered a wide range of security services. Our security packages are designed to cater for clients with respect to their specific needs and financial capabilities.</p>
             </div>
-            {[
-              { icon: Users, color: "#fca5a5", title: "Independent & Unbiased", desc: "As an independent firm, we offer unbiased, objective and impartial advice. We make recommendations right for your business — at your budget." },
-              { icon: Shield, color: "#93c5fd", title: "Full Risk Assessment", desc: "We take the time to understand your needs and your environment as well as a full risk assessment to ensure our officers fit your requirements." },
-              { icon: TrendingUp, color: "#6ee7b7", title: "Above-Average Training", desc: "We implement stringent training for our entire force over and above the average, ensuring a disciplined, well-prepared security workforce." },
-            ].map((p, i) => (
-              <div key={i} className="flex items-start gap-4 p-4 rounded-2xl" style={{ background: "rgba(255,255,255,0.05)" }}>
-                <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0" style={{ background: "rgba(255,255,255,0.1)" }}>
-                  <p.icon className="w-5 h-5" style={{ color: p.color }} />
-                </div>
-                <div>
-                  <div className="text-white text-sm font-semibold mb-1">{p.title}</div>
+            <div className="relative grid md:grid-cols-3 gap-5">
+              {[
+                { icon: Users, title: "Independent & Unbiased", desc: "As an independent firm, we offer unbiased, objective and impartial advice. We make recommendations right for your business — at your budget." },
+                { icon: Shield, title: "Full Risk Assessment", desc: "We take the time to understand your needs and your environment as well as a full risk assessment to ensure our officers fit your requirements." },
+                { icon: TrendingUp, title: "Above-Average Training", desc: "We implement stringent training for our entire force over and above the average, ensuring a disciplined, well-prepared security workforce." },
+              ].map((p, i) => (
+                <div key={i} className="group p-5 rounded-2xl transition-all duration-300 hover:-translate-y-1" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(56,189,248,0.15)" }}>
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform" style={{ background: "rgba(56,189,248,0.1)", border: "1px solid rgba(56,189,248,0.2)" }}>
+                      <p.icon className="w-5 h-5 text-sky-400" />
+                    </div>
+                    <div className="text-white text-sm font-semibold">{p.title}</div>
+                  </div>
                   <div className="text-white/50 text-xs leading-relaxed">{p.desc}</div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </Reveal>
 
