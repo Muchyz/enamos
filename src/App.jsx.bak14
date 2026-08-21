@@ -1171,13 +1171,12 @@ function Clients() {
         <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4 mb-16">
           {industries.map((item, i) => (
             <Reveal key={i} delay={i * 0.04}>
-              <div className="relative rounded-2xl bg-white transition-all duration-300 group cursor-pointer p-5"
-                style={{ boxShadow: "0 4px 20px -4px rgba(30,58,138,0.10)" }}
-                onMouseEnter={e => e.currentTarget.style.boxShadow = "0 12px 30px -8px rgba(30,58,138,0.25)"}
-                onMouseLeave={e => e.currentTarget.style.boxShadow = "0 4px 20px -4px rgba(30,58,138,0.10)"}>
-                <div className="absolute top-0 left-5 right-5 h-1 rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" style={{background: "linear-gradient(90deg,#2563eb,#1e3a8a)"}} />
-                <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110" style={{background: "#eff6ff"}}>
-                  <item.icon className="w-6 h-6" style={{color: "#1e40af"}} />
+              <div className="relative rounded-2xl border border-gray-100 bg-white card-hover cursor-pointer transition-all overflow-hidden group p-5"
+                onMouseEnter={e => e.currentTarget.style.borderColor = item.color + "40"}
+                onMouseLeave={e => e.currentTarget.style.borderColor = "#f1f5f9"}>
+                <div className="absolute top-0 left-0 right-0 h-1 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" style={{background: item.color}} />
+                <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110" style={{background: item.bg}}>
+                  <item.icon className="w-6 h-6" style={{color: item.color}} />
                 </div>
                 <h4 className="font-semibold text-gray-800 text-sm mb-1">{item.title}</h4>
                 <p className="text-xs text-gray-500 leading-snug">{item.desc}</p>

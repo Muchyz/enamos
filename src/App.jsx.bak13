@@ -1171,16 +1171,23 @@ function Clients() {
         <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4 mb-16">
           {industries.map((item, i) => (
             <Reveal key={i} delay={i * 0.04}>
-              <div className="relative rounded-2xl bg-white transition-all duration-300 group cursor-pointer p-5"
-                style={{ boxShadow: "0 4px 20px -4px rgba(30,58,138,0.10)" }}
-                onMouseEnter={e => e.currentTarget.style.boxShadow = "0 12px 30px -8px rgba(30,58,138,0.25)"}
-                onMouseLeave={e => e.currentTarget.style.boxShadow = "0 4px 20px -4px rgba(30,58,138,0.10)"}>
-                <div className="absolute top-0 left-5 right-5 h-1 rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" style={{background: "linear-gradient(90deg,#2563eb,#1e3a8a)"}} />
-                <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110" style={{background: "#eff6ff"}}>
-                  <item.icon className="w-6 h-6" style={{color: "#1e40af"}} />
+              <div className="rounded-2xl border border-gray-100 bg-white card-hover cursor-pointer transition-all overflow-hidden group"
+                onMouseEnter={e => e.currentTarget.style.borderColor = item.color + "40"}
+                onMouseLeave={e => e.currentTarget.style.borderColor = "#f1f5f9"}>
+                <div className="relative overflow-hidden" style={{aspectRatio:"16/9"}}>
+                  <img src={`/${item.photo}`} alt={item.title}
+                    className="w-full h-full object-contain object-center transition-transform duration-500 group-hover:scale-105"
+                    style={{background:"#f1f5f9"}}
+                    onError={e => { e.target.parentElement.style.background = item.bg; e.target.style.display="none"; }} />
+                  <div className="absolute inset-0" style={{background:"linear-gradient(to top,rgba(0,0,0,0.55),transparent)"}} />
+                  <div className="absolute bottom-3 left-3 w-9 h-9 rounded-xl flex items-center justify-center" style={{background: item.color}}>
+                    <item.icon className="w-4 h-4 text-white" />
+                  </div>
                 </div>
-                <h4 className="font-semibold text-gray-800 text-sm mb-1">{item.title}</h4>
-                <p className="text-xs text-gray-500 leading-snug">{item.desc}</p>
+                <div className="p-4">
+                  <h4 className="font-semibold text-gray-800 text-sm mb-1">{item.title}</h4>
+                  <p className="text-xs text-gray-500 leading-snug">{item.desc}</p>
+                </div>
               </div>
             </Reveal>
           ))}
