@@ -136,7 +136,7 @@ function Navbar() {
         <div className="hidden lg:flex items-center gap-8">
           {links.map((l) => (
             <button key={l.label} onClick={() => { l.action(); setOpen(false); }}
-              className="text-sm font-medium text-gray-600 hover:text-red-600 transition-colors">{l.label}</button>
+              className="text-sm font-medium text-slate-500 hover:text-red-600 transition-colors">{l.label}</button>
           ))}
           <button onClick={() => navigate("/contact")}
             className="px-5 py-2.5 rounded-xl text-sm font-semibold text-white shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200"
@@ -144,7 +144,7 @@ function Navbar() {
             Get a Quote
           </button>
         </div>
-        <button className="lg:hidden p-2 rounded-lg text-gray-600 hover:bg-gray-100" onClick={() => setOpen(!open)}>
+        <button className="lg:hidden p-2 rounded-lg text-slate-500 hover:bg-gray-100" onClick={() => setOpen(!open)}>
           {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
       </div>
@@ -516,7 +516,7 @@ function VisionMission() {
                 <Eye className="w-6 h-6 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Vision</h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-slate-500 leading-relaxed">
                 To be the pre-eminent provider of integrated services protecting the assets of our clients in Kenya and targeted East Africa markets through the consistent achievement of excellence in every sphere of security provision and client service.
               </p>
             </div>
@@ -529,7 +529,7 @@ function VisionMission() {
                 <Target className="w-6 h-6 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Mission</h3>
-              <ul className="space-y-3 text-gray-600">
+              <ul className="space-y-3 text-slate-500">
                 {[
                   "To ensure the client remains the focus and centre of our activities",
                   "To provide operational excellence",
@@ -807,7 +807,7 @@ function Services() {
                   <p className="text-gray-500 text-sm leading-relaxed mb-4">{s.desc}</p>
                   <ul className="space-y-1.5 mb-5">
                     {s.bullets.map((b, j) => (
-                      <li key={j} className="flex items-center gap-2 text-xs text-gray-600">
+                      <li key={j} className="flex items-center gap-2 text-xs text-slate-500">
                         <CheckCircle className="w-3.5 h-3.5 shrink-0" style={{ color: s.color }} />
                         {b}
                       </li>
@@ -1114,7 +1114,7 @@ function Clients() {
             <h3 className="text-xl font-bold text-gray-900 mb-6 text-center">We Serve All Client Types</h3>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
               {clientList.map((c, i) => (
-                <div key={i} className="flex items-center gap-2 text-sm text-gray-600">
+                <div key={i} className="flex items-center gap-2 text-sm text-slate-500">
                   <div className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: "#dc2626" }} />
                   {c}
                 </div>
@@ -1364,44 +1364,46 @@ function Footer() {
     ],
   };
   return (
-    <footer style={{ background: "#0f172a" }}>
+    <footer style={{ background: "linear-gradient(180deg, #050b17 0%, #0a1730 45%, #102a4d 100%)" }}>
+      <div style={{ height: "3px", background: "linear-gradient(90deg, transparent, #2563a8, #7dd3fc, #2563a8, transparent)" }} />
       <div className="relative h-40 overflow-hidden">
         <img src="/nairobi-cover.jpg" alt="Nairobi skyline"
           className="w-full h-full object-cover object-top opacity-30"
           onError={e => { e.target.style.display="none"; }} />
-        <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, transparent 0%, #0f172a 100%)" }} />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, transparent 0%, #0a1730 100%)" }} />
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center">
             <div className="flex items-center justify-center mb-1">
               <img src="/enamos-logo-footer.png" alt="ENAMOS SECURITY" style={{ height: "96px", objectFit: "contain" }} />
             </div>
-            <div className="text-white/40 text-xs tracking-widest uppercase">Protection You Can Rely On</div>
+            <div className="text-sky-300/50 text-xs tracking-widest uppercase">Protection You Can Rely On</div>
           </div>
         </div>
       </div>
       <div className="max-w-7xl mx-auto px-6 pt-4 pb-8">
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
           <div className="lg:col-span-2">
-            <p className="text-gray-400 text-sm leading-relaxed mb-5 max-w-xs">
+            <p className="text-slate-400 text-sm leading-relaxed mb-5 max-w-xs">
               Kenya's premier security company. Protecting homes, businesses and enterprises with excellence, innovation and commitment.
             </p>
-            <div className="text-gray-500 text-xs space-y-1">
+            <div className="text-slate-500 text-xs space-y-1">
               <div>Nairobi HQ: Mlolongo, End of Expressway, Opp. Total Petrol Station</div>
               <div>Eldoret: West Indies Building, 1st Flr, Next to Columbus Hotel, Opp. Kheits Wholesale</div>
               <div>P.O. Box 132, City Square, Nairobi, Kenya</div>
-              <div><a href="tel:+254722981621" className="hover:text-red-400 transition-colors">+254 722 981 621</a> | <a href="tel:+254710509780" className="hover:text-red-400 transition-colors">+254 710 509 780</a></div>
-              <a href="mailto:info@enamossecurity.co.ke" className="hover:text-red-400 transition-colors">info@enamossecurity.co.ke</a>
+              <div><a href="tel:+254722981621" className="hover:text-sky-400 transition-colors">+254 722 981 621</a> | <a href="tel:+254710509780" className="hover:text-sky-400 transition-colors">+254 710 509 780</a></div>
+              <a href="mailto:info@enamossecurity.co.ke" className="hover:text-sky-400 transition-colors">info@enamossecurity.co.ke</a>
             </div>
           </div>
           {Object.entries(links).map(([heading, items]) => (
             <div key={heading}>
-              <h5 className="text-white text-sm font-semibold mb-4 tracking-wider uppercase">{heading}</h5>
+              <h5 className="text-white text-sm font-semibold mb-1 tracking-wider uppercase">{heading}</h5>
+              <div className="w-8 h-0.5 mb-4" style={{ background: "linear-gradient(90deg, #38bdf8, transparent)" }} />
               <ul className="space-y-2.5">
                 {items.slice(0, 6).map(item => (
                   <li key={item.label}>
                     <button onClick={() => navigate(item.path)}
-                      className="text-gray-500 text-sm hover:text-red-400 transition-colors flex items-center gap-1">
-                      <ChevronRight className="w-3 h-3" /> {item.label}
+                      className="text-slate-400 text-sm hover:text-sky-400 transition-colors flex items-center gap-1">
+                      <ChevronRight className="w-3 h-3 text-sky-500/60" /> {item.label}
                     </button>
                   </li>
                 ))}
@@ -1440,13 +1442,13 @@ function Footer() {
             </svg>
           </a>
         </div>
-        <div className="pt-8 border-t border-gray-800 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-gray-600 text-sm">© {new Date().getFullYear()} ENAMOS SECURITY SERVICES LIMITED. All rights reserved.</p>
+        <div className="pt-8 border-t border-sky-900/30 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-slate-500 text-sm">© {new Date().getFullYear()} ENAMOS SECURITY SERVICES LIMITED. All rights reserved.</p>
           <div className="flex items-center gap-3">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span className="text-gray-500 text-xs">All systems operational</span>
+            <span className="w-2 h-2 rounded-full bg-sky-400 animate-pulse" />
+            <span className="text-slate-500 text-xs">All systems operational</span>
           </div>
-          <p className="text-gray-600 text-sm">Protection You Can Rely On</p>
+          <p className="text-slate-500 text-sm">Protection You Can Rely On</p>
         </div>
       </div>
     </footer>
