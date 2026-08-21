@@ -947,14 +947,16 @@ function WhyUs() {
               <div className="group relative p-6 rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1.5"
                 style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(56,189,248,0.15)" }}>
                 <div className="absolute top-0 left-0 right-0 h-0.5 opacity-0 group-hover:opacity-100 transition-opacity" style={{ background: "linear-gradient(90deg, transparent, #38bdf8, transparent)" }} />
-                <div className="absolute -right-4 -top-4 text-white/[0.03] text-7xl font-bold select-none pointer-events-none group-hover:text-white/[0.06] transition-colors" style={{ fontFamily: "'DM Serif Display',serif" }}>
+                <div className="absolute right-2 top-2 text-white/[0.06] text-6xl font-bold select-none pointer-events-none group-hover:text-white/[0.1] transition-colors leading-none" style={{ fontFamily: "'DM Serif Display',serif" }}>
                   {String(i + 1).padStart(2, "0")}
                 </div>
-                <div className="relative w-11 h-11 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform"
-                  style={{ background: "rgba(56,189,248,0.1)", border: "1px solid rgba(56,189,248,0.2)" }}>
-                  <p.icon className="w-5 h-5 text-sky-400" />
+                <div className="relative flex items-center gap-3 mb-3">
+                  <div className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform"
+                    style={{ background: "rgba(56,189,248,0.1)", border: "1px solid rgba(56,189,248,0.2)" }}>
+                    <p.icon className="w-5 h-5 text-sky-400" />
+                  </div>
+                  <h4 className="relative text-white font-semibold text-sm">{p.title}</h4>
                 </div>
-                <h4 className="relative text-white font-semibold text-sm mb-2">{p.title}</h4>
                 <p className="relative text-white/45 text-xs leading-relaxed">{p.desc}</p>
               </div>
             </Reveal>
