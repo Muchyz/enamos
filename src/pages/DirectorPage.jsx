@@ -134,11 +134,13 @@ export default function DirectorPage() {
                       </div>
                     ))}
                   </div>
-                  <button onClick={() => navigate("/contact")}
-                    className="group inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white shadow-lg hover:-translate-y-0.5 transition-all hover:shadow-sky-500/30"
-                    style={{ background: "linear-gradient(135deg,#2563a8,#0369a1)" }}>
-                    Work With Us <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </button>
+                  <div className="flex justify-center lg:justify-start">
+                    <button onClick={() => navigate("/contact")}
+                      className="group inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white shadow-lg hover:-translate-y-0.5 transition-all hover:shadow-sky-500/30"
+                      style={{ background: "linear-gradient(135deg,#2563a8,#0369a1)" }}>
+                      Work With Us <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </button>
+                  </div>
                 </div>
               </div>
             </Reveal>
