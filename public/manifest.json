@@ -1,0 +1,13 @@
+{
+  "name": "Enamos Security Services Limited",
+  "short_name": "Enamos Security",
+  "description": "Kenya's trusted security company — guards, armed response, CCTV, VIP protection, electric fencing and access control.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1e3a8a",
+  "icons": [
+    { "src": "/enamos-logo-navbar.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/enamos-logo-navbar.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
