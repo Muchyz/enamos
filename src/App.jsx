@@ -729,7 +729,7 @@ export const services = [
     desc: "ENAMOS SECURITY offers professional cleaning services for residential, commercial, and industrial properties. Our trained cleaning staff deliver thorough, reliable service using quality equipment and eco-friendly products, tailored to your schedule and needs.",
     color: "#059669", bg: "#ecfdf5", gradient: "linear-gradient(135deg,#ecfdf5,#d1fae5)",
     bullets: ["Residential & commercial cleaning","Trained and vetted cleaning staff","Eco-friendly cleaning products","Flexible scheduling to suit your needs"],
-    photo: "about-main.jpg",
+    photo: "cleaning-team.jpg",
     longDesc: "ENAMOS SECURITY offers professional cleaning services designed to keep your home, office, or facility spotless and hygienic. Our trained and vetted cleaning staff use quality equipment and eco-friendly products to deliver thorough, reliable results every time. Whether you need a one-time deep clean or a regular scheduled service, we tailor our offering to fit your property size, budget, and timeline. From residential apartments to commercial premises and industrial facilities, our cleaning teams work efficiently and professionally, giving you a consistently clean and welcoming environment."
   },
 ];
