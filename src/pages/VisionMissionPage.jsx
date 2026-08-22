@@ -56,7 +56,7 @@ export default function VisionMissionPage() {
                 </div>
                 <h2 className="text-3xl font-bold text-gray-900 mb-5" style={{ fontFamily: "'DM Serif Display',serif" }}>Our Vision</h2>
                 <p className="text-gray-600 leading-relaxed text-lg">
-                  To be the pre-eminent provider of integrated services protecting the assets of our clients in Kenya and targeted East Africa markets through the consistent achievement of excellence in every sphere of security provision and client service.
+                  Enamos Security Services' vision is to be the security company of choice in and outside Kenya by offering the best services tailor-made to suit individual customer needs.
                 </p>
               </div>
             </Reveal>
@@ -67,22 +67,9 @@ export default function VisionMissionPage() {
                   <Target className="w-7 h-7 text-white" />
                 </div>
                 <h2 className="text-3xl font-bold text-gray-900 mb-5" style={{ fontFamily: "'DM Serif Display',serif" }}>Our Mission</h2>
-                <ul className="space-y-4">
-                  {[
-                    "To ensure the client remains the focus and centre of our activities",
-                    "To provide operational excellence",
-                    "To stay up to date with innovation and tech around the security industry",
-                    "To be the market leaders",
-                    "To continually invest in employees growth",
-                    "To maintain superior services that add value but remain affordable",
-                    "To ensure operational areas are safe and secure for day to day activities",
-                  ].map((m, i) => (
-                    <li key={i} className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 text-blue-700 shrink-0 mt-0.5" />
-                      <span className="text-gray-600">{m}</span>
-                    </li>
-                  ))}
-                </ul>
+                <p className="text-gray-600 leading-relaxed text-lg">
+                  Enamos Security Services' mission is to exceed our clients' specific and customized security needs by delivering the highest quality of professional private security services based on trust and confidence.
+                </p>
               </div>
             </Reveal>
           </div>
@@ -125,14 +112,15 @@ export default function VisionMissionPage() {
             <div className="absolute inset-0 pointer-events-none" style={{
               backgroundImage: "radial-gradient(circle at 15% 10%, rgba(37,99,235,0.08) 0%, transparent 40%), radial-gradient(circle at 90% 30%, rgba(96,165,250,0.10) 0%, transparent 45%)"
             }} />
-            <div className="relative z-10 grid md:grid-cols-3 gap-6">
+            <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
               {[
-                { icon: Shield, gradient: "linear-gradient(135deg,#dc2626,#f59e0b)", title: "Safety and Quality", desc: "Safety and quality are the top priorities considered as we render every service to our clients. We never compromise on either — your protection is our purpose." },
-                { icon: Users, gradient: "linear-gradient(135deg,#2563eb,#1e3a8a)", title: "Commitment to People Development", desc: "We strive to work as a team so as to create value to the customer and invest in continuous employee growth, training, and career development." },
-                { icon: Award, gradient: "linear-gradient(135deg,#15803d,#22c55e)", title: "Professionalism", desc: "As a company we are always determined to constantly achieve high standards in what we do and what we have. Excellence is a non-negotiable standard, not an aspiration." },
+                { icon: Users, gradient: "linear-gradient(135deg,#2563eb,#1e3a8a)", title: "Human Resource", desc: "We endeavor to hire and maintain highly trained and well-motivated human resource." },
+                { icon: Shield, gradient: "linear-gradient(135deg,#dc2626,#f59e0b)", title: "Absolute Integrity", desc: "We deliver true value of our esteemed clients' money through open liaison and consultation." },
+                { icon: Award, gradient: "linear-gradient(135deg,#15803d,#22c55e)", title: "Solution Provider", desc: "We use proprietary process and extensive experience to deliver expert solutions in each product area, ensuring improved management, increased safety and demonstrable risk and loss reduction." },
+                { icon: TrendingUp, gradient: "linear-gradient(135deg,#7c3aed,#a78bfa)", title: "Innovation", desc: "We are a professional and progressive company with staff who work hard and proactively in the delivery of security solutions to our esteemed clients." },
               ].map((v, i) => (
                 <Reveal key={i} delay={i * 0.08}>
-                  <div className="p-8 rounded-3xl text-center group h-full transition-all duration-300 hover:-translate-y-1"
+                  <div className="p-8 rounded-3xl text-center group h-full flex flex-col items-center transition-all duration-300 hover:-translate-y-1"
                     style={{
                       background: "rgba(255,255,255,0.55)",
                       backdropFilter: "blur(20px)",

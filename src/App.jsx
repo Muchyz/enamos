@@ -497,9 +497,10 @@ function Director() {
 function VisionMission() {
   const navigate = useNavigate();
   const values = [
-    { title: "Safety and Quality", desc: "Safety and quality are the top priorities considered as we render every service to our clients.", icon: Shield, gradient: "linear-gradient(135deg,#dc2626,#f59e0b)" },
-    { title: "Commitment to People Development", desc: "We strive to work as a team so as to create value to the customer and invest in employee growth.", icon: Users, gradient: "linear-gradient(135deg,#2563eb,#1e3a8a)" },
-    { title: "Professionalism", desc: "As a company we are always determined to constantly achieve high standards in what we do and what we have.", icon: Award, gradient: "linear-gradient(135deg,#15803d,#22c55e)" },
+    { title: "Human Resource", desc: "We endeavor to hire and maintain highly trained and well-motivated human resource.", icon: Users, gradient: "linear-gradient(135deg,#2563eb,#1e3a8a)" },
+    { title: "Absolute Integrity", desc: "We deliver true value of our esteemed clients' money through open liaison and consultation.", icon: Shield, gradient: "linear-gradient(135deg,#dc2626,#f59e0b)" },
+    { title: "Solution Provider", desc: "We use proprietary process and extensive experience to deliver expert solutions in each product area, ensuring improved management, increased safety and demonstrable risk and loss reduction.", icon: Award, gradient: "linear-gradient(135deg,#15803d,#22c55e)" },
+    { title: "Innovation", desc: "We are a professional and progressive company with staff who work hard and proactively in the delivery of security solutions to our esteemed clients.", icon: TrendingUp, gradient: "linear-gradient(135deg,#7c3aed,#a78bfa)" },
   ];
   return (
     <section className="py-28 bg-white">
@@ -524,7 +525,7 @@ function VisionMission() {
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Vision</h3>
               <p className="text-slate-500 leading-relaxed">
-                To be the pre-eminent provider of integrated services protecting the assets of our clients in Kenya and targeted East Africa markets through the consistent achievement of excellence in every sphere of security provision and client service.
+                Enamos Security Services' vision is to be the security company of choice in and outside Kenya by offering the best services tailor-made to suit individual customer needs.
               </p>
             </div>
           </Reveal>
@@ -536,22 +537,9 @@ function VisionMission() {
                 <Target className="w-6 h-6 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Mission</h3>
-              <ul className="space-y-3 text-slate-500">
-                {[
-                  "To ensure the client remains the focus and centre of our activities",
-                  "To provide operational excellence",
-                  "To stay up to date with innovation and tech around the security industry",
-                  "To be the market leaders",
-                  "To continually invest in employees growth",
-                  "To maintain superior services that add value but remain affordable",
-                  "To ensure operational areas are safe and secure for day to day activities",
-                ].map((m, i) => (
-                  <li key={i} className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-blue-700 shrink-0 mt-0.5" />
-                    <span className="text-sm">{m}</span>
-                  </li>
-                ))}
-              </ul>
+              <p className="text-slate-500 leading-relaxed">
+                Enamos Security Services' mission is to exceed our clients' specific and customized security needs by delivering the highest quality of professional private security services based on trust and confidence.
+              </p>
             </div>
           </Reveal>
         </div>
@@ -622,9 +610,9 @@ function VisionMission() {
             <div className="absolute inset-0 pointer-events-none" style={{
               backgroundImage: "radial-gradient(circle at 15% 10%, rgba(37,99,235,0.08) 0%, transparent 40%), radial-gradient(circle at 90% 30%, rgba(96,165,250,0.10) 0%, transparent 45%)"
             }} />
-            <div className="relative z-10 grid md:grid-cols-3 gap-6">
+            <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
               {values.map((v, i) => (
-                <div key={i} className="p-8 rounded-3xl text-center group h-full transition-all duration-300 hover:-translate-y-1"
+                <div key={i} className="p-8 rounded-3xl text-center group h-full flex flex-col items-center transition-all duration-300 hover:-translate-y-1"
                   style={{
                     background: "rgba(255,255,255,0.55)",
                     backdropFilter: "blur(20px)",
