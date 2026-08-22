@@ -870,7 +870,7 @@ function Services() {
               alt="ENAMOS SECURITY patrol vehicle" className="w-full h-full object-cover"
               onError={e => { e.target.style.background="#0f172a"; }} />
             <div className="absolute inset-0 flex items-center justify-center"
-              style={{ background: "linear-gradient(135deg,rgba(220,38,38,0.82),rgba(30,58,138,0.78))" }}>
+              style={{ background: "linear-gradient(160deg,rgba(15,31,69,0.88) 0%,rgba(30,58,138,0.82) 45%,rgba(37,99,235,0.80) 100%)" }}>
               <div className="text-center text-white px-6">
                 <h3 className="text-3xl md:text-4xl font-bold mb-3" style={{ fontFamily: "'DM Serif Display',serif" }}>
                   Tailored to Your Needs
@@ -879,7 +879,7 @@ function Services() {
                   Every security package is custom-designed to cater for clients with respect to their specific needs and financial capabilities.
                 </p>
                 <button onClick={() => navigate("/contact")}
-                  className="px-6 py-3 rounded-xl font-semibold text-red-700 bg-white hover:-translate-y-0.5 transition-transform shadow-md">
+                  className="px-6 py-3 rounded-xl font-semibold text-blue-900 bg-white hover:-translate-y-0.5 transition-transform shadow-md">
                   Get a Free Assessment
                 </button>
               </div>
