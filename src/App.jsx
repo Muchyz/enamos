@@ -181,6 +181,17 @@ function Navbar() {
 function Hero() {
   const navigate = useNavigate();
   const badges = ["PSRA Licensed", "Fully Insured", "24/7 Available"];
+  const heroImages = [
+    { src: "/hero-truck-source.png", alt: "ENAMOS SECURITY alarm response vehicle" },
+    { src: "/hero-guard-dog.png", alt: "ENAMOS SECURITY officer with K9 unit" },
+  ];
+  const [activeIndex, setActiveIndex] = useState(0);
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % heroImages.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <section id="hero" className="relative overflow-hidden"
@@ -188,18 +199,20 @@ function Hero() {
 
       {/* Background photo - full-bleed cover, slow zoom animation */}
       <div className="absolute inset-0 z-0">
-        <img src="/hero-truck-source.png" alt="ENAMOS SECURITY alarm response vehicle"
-          className="absolute inset-0 w-full h-full object-cover hero-zoom"
-          style={{ objectPosition: "center 30%" }}
-          onError={e => { e.target.style.background = "#1e3a8a"; }} />
+        {heroImages.map((img, i) => (
+          <img key={img.src} src={img.src} alt={img.alt}
+            className="absolute inset-0 w-full h-full object-cover hero-zoom"
+            style={{ objectPosition: "center 30%", opacity: i === activeIndex ? 1 : 0, transition: "opacity 1.4s ease" }}
+            onError={e => { e.target.style.background = "#1e3a8a"; }} />
+        ))}
         <div className="absolute inset-0" style={{
           background: "linear-gradient(180deg, rgba(15,23,42,0.5) 0%, rgba(15,23,42,0.3) 40%, rgba(15,23,42,0.2) 70%, rgba(15,23,42,0.6) 100%)"
         }} />
       </div>
 
       {/* Flex layout: badges / spacer / center / spacer */}
-      <div className="relative z-10 h-full flex flex-col"
-        style={{ paddingTop: "calc(var(--nav-h, 88px) + clamp(14px,3vh,24px))", paddingBottom: "clamp(14px,3vh,24px)" }}>
+      <div className="relative z-10 h-full flex flex-col overflow-y-auto"
+        style={{ paddingTop: "calc(var(--nav-h, 64px) + clamp(8px,2vh,24px))", paddingBottom: "clamp(8px,2vh,24px)" }}>
 
         <div className="flex justify-center gap-2 flex-wrap px-4" style={{ opacity: 0, animation: "heroFadeUp 0.7s ease both", animationDelay: "0.10s" }}>
           {badges.map((b) => (
