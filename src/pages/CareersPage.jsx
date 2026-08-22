@@ -131,12 +131,12 @@ export default function CareersPage() {
               <img src="/officers-squad.jpg" alt="Apply to Enamos"
                 className="absolute inset-0 w-full h-full object-cover"
                 onError={e => { e.target.style.background = "#0f172a"; }} />
-              <div className="relative z-10 p-12 md:p-16" style={{ background: "linear-gradient(135deg,rgba(220,38,38,0.90),rgba(30,58,138,0.84))" }}>
+              <div className="relative z-10 p-12 md:p-16" style={{ background: "linear-gradient(160deg,rgba(15,31,69,0.90) 0%,rgba(30,58,138,0.85) 50%,rgba(37,99,235,0.82) 100%)" }}>
                 <h2 className="text-3xl font-bold text-white mb-4" style={{ fontFamily: "'DM Serif Display',serif" }}>How to Apply</h2>
                 <p className="text-white/80 mb-6 max-w-xl">Send your CV and a brief cover letter to our HR team. Please indicate the position you're applying for in the subject line.</p>
                 <div className="flex flex-wrap gap-4">
                   <a href="mailto:info@enamossecurity.co.ke?subject=Job Application - ENAMOS SECURITY"
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold bg-white text-red-700 hover:-translate-y-0.5 transition-all shadow-md">
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold bg-white text-blue-900 hover:-translate-y-0.5 transition-all shadow-md">
                     <Mail className="w-4 h-4" /> Email Your Application
                   </a>
                   <a href="tel:+254722981621"

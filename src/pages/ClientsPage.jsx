@@ -141,7 +141,7 @@ export default function ClientsPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20" style={{ background: "linear-gradient(160deg,#fef2f2,#fafafa,#eff6ff)" }}>
+      <section className="py-20" style={{ background: "linear-gradient(160deg,#eff6ff,#fafafa,#eff6ff)" }}>
         <div className="max-w-3xl mx-auto px-6 text-center">
           <Reveal>
             <h2 className="text-4xl text-gray-900 mb-4" style={{ fontFamily: "'DM Serif Display',serif" }}>
@@ -150,7 +150,7 @@ export default function ClientsPage() {
             <p className="text-gray-500 mb-8">Contact our team today for a free, no-obligation security assessment tailored to your industry and specific needs.</p>
             <button onClick={() => navigate("/contact")}
               className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-white shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all"
-              style={{ background: "linear-gradient(135deg,#dc2626,#1e3a8a)" }}>
+              style={{ background: "linear-gradient(135deg,#1e3a8a,#2563eb)" }}>
               Get Free Assessment <ArrowRight className="w-4 h-4" />
             </button>
           </Reveal>
