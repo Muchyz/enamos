@@ -497,9 +497,9 @@ function Director() {
 function VisionMission() {
   const navigate = useNavigate();
   const values = [
-    { title: "Safety and Quality", desc: "Safety and quality are the top priorities considered as we render every service to our clients.", icon: Shield, color: "#dc2626", bg: "#fef2f2" },
-    { title: "Commitment to People Development", desc: "We strive to work as a team so as to create value to the customer and invest in employee growth.", icon: Users, color: "#1e3a8a", bg: "#eff6ff" },
-    { title: "Professionalism", desc: "As a company we are always determined to constantly achieve high standards in what we do and what we have.", icon: Award, color: "#15803d", bg: "#f0fdf4" },
+    { title: "Safety and Quality", desc: "Safety and quality are the top priorities considered as we render every service to our clients.", icon: Shield, gradient: "linear-gradient(135deg,#dc2626,#f59e0b)" },
+    { title: "Commitment to People Development", desc: "We strive to work as a team so as to create value to the customer and invest in employee growth.", icon: Users, gradient: "linear-gradient(135deg,#2563eb,#1e3a8a)" },
+    { title: "Professionalism", desc: "As a company we are always determined to constantly achieve high standards in what we do and what we have.", icon: Award, gradient: "linear-gradient(135deg,#15803d,#22c55e)" },
   ];
   return (
     <section className="py-28 bg-white">
@@ -606,13 +606,34 @@ function VisionMission() {
         </Reveal>
 
         <Reveal delay={0.15}>
-          <div>
-            <h3 className="text-2xl font-bold text-gray-900 text-center mb-8">Our Core Values</h3>
-            <div className="grid md:grid-cols-3 gap-6">
+          <div className="relative overflow-hidden text-center mb-8 rounded-3xl" style={{ padding: "32px 24px", background: "linear-gradient(160deg,#0f1f45 0%,#1e3a8a 45%,#2563eb 100%)" }}>
+            <div className="absolute inset-0" style={{
+              backgroundImage: "radial-gradient(circle at 20% 20%, rgba(255,255,255,0.08) 0%, transparent 40%), radial-gradient(circle at 85% 75%, rgba(96,165,250,0.15) 0%, transparent 45%)"
+            }} />
+            <div className="relative z-10">
+              <span className="inline-flex items-center gap-2 bg-white/10 text-white text-xs font-semibold tracking-widest uppercase px-3.5 py-1.5 rounded-full mb-4 border border-white/20 backdrop-blur-sm">
+                <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#60a5fa" }} />
+                Core Values
+              </span>
+              <h3 className="text-2xl md:text-3xl text-white" style={{ fontFamily: "'DM Serif Display',serif" }}>What Guides Us Daily</h3>
+            </div>
+          </div>
+          <div className="relative rounded-3xl p-6 md:p-8 overflow-hidden" style={{ background: "linear-gradient(180deg,#eff6ff 0%,#f8fafc 45%,#ffffff 100%)" }}>
+            <div className="absolute inset-0 pointer-events-none" style={{
+              backgroundImage: "radial-gradient(circle at 15% 10%, rgba(37,99,235,0.08) 0%, transparent 40%), radial-gradient(circle at 90% 30%, rgba(96,165,250,0.10) 0%, transparent 45%)"
+            }} />
+            <div className="relative z-10 grid md:grid-cols-3 gap-6">
               {values.map((v, i) => (
-                <div key={i} className="p-6 rounded-2xl border border-gray-100 bg-white card-hover text-center">
-                  <div className="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4" style={{ background: v.bg }}>
-                    <v.icon className="w-7 h-7" style={{ color: v.color }} />
+                <div key={i} className="p-8 rounded-3xl text-center group h-full transition-all duration-300 hover:-translate-y-1"
+                  style={{
+                    background: "rgba(255,255,255,0.55)",
+                    backdropFilter: "blur(20px)",
+                    WebkitBackdropFilter: "blur(20px)",
+                    border: "1px solid rgba(255,255,255,0.9)",
+                    boxShadow: "0 8px 32px rgba(30,58,138,0.10)"
+                  }}>
+                  <div className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform" style={{ background: v.gradient }}>
+                    <v.icon className="w-8 h-8 text-white" />
                   </div>
                   <h4 className="font-bold text-gray-900 mb-2">{v.title}</h4>
                   <p className="text-gray-500 text-sm leading-relaxed">{v.desc}</p>
