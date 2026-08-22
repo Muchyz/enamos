@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import SEO from "../components/SEO";
 import { useRef, useState, useEffect } from "react";
 import { ArrowRight, Shield } from "lucide-react";
 
@@ -30,6 +31,7 @@ export default function PrivacyPage() {
   const navigate = useNavigate();
   return (
     <div style={{ paddingTop: "80px" }}>
+      <SEO title="Privacy Policy | Enamos Security Services" description="Read the privacy policy of Enamos Security Services Limited covering how we collect, use, and protect client information." path="/privacy" />
       {/* Header */}
       <div style={{ background: "linear-gradient(135deg,#0f172a,#1e1b4b)", padding: "80px 24px", textAlign: "center" }}>
         <span className="inline-block bg-white/10 text-white text-xs font-semibold tracking-widest uppercase px-3 py-1.5 rounded-full mb-4 border border-white/20">Legal</span>

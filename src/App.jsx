@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, useLayoutEffect } from "react";
+import SEO from "./components/SEO";
 import { Routes, Route, useNavigate, Link, useLocation } from "react-router-dom";
 import {
   Shield, Camera, Bell, UserCheck, Lock, Car, Zap,
@@ -1652,6 +1653,7 @@ function WhatsApp() {
 function HomePage() {
   return (
     <>
+      <SEO title="Enamos Security Services | Protection You Can Rely On" description="Kenya's trusted PSRA-licensed security company. Guarding, armed response, CCTV, VIP protection, electric fencing & access control. Free assessment." path="/" />
       <Hero />
       <About />
       <Director />

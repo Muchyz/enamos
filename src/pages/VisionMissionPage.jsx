@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import SEO from "../components/SEO";
 import { useRef, useState, useEffect } from "react";
 import { Shield, Users, Award, Eye, Target, CheckCircle, ArrowRight, TrendingUp } from "lucide-react";
 
@@ -30,6 +31,7 @@ export default function VisionMissionPage() {
   const navigate = useNavigate();
   return (
     <div style={{ paddingTop: "80px" }}>
+      <SEO title="Vision, Mission & Values | Enamos Security Services" description="Discover the vision, mission, and core values that drive Enamos Security Services Limited to deliver trusted security across Kenya." path="/vision-mission" />
       {/* Hero */}
       <div className="relative overflow-hidden" style={{ minHeight: "300px", background: "linear-gradient(135deg,#1e3a8a,#0f172a)" }}>
         <div className="relative z-10 max-w-5xl mx-auto px-6 py-20 text-center">

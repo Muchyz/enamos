@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import SEO from "../components/SEO";
 import { useRef, useState, useEffect } from "react";
 import { Shield, Users, Award, CheckCircle, ArrowRight, Mail, Phone, Star, BookOpen } from "lucide-react";
 
@@ -49,6 +50,7 @@ export default function CareersPage() {
 
   return (
     <div style={{ paddingTop: "80px" }}>
+      <SEO title="Careers | Join Enamos Security Services Kenya" description="Explore security jobs in Nairobi with Enamos Security Services — guard, armed response, CCTV technician, VIP protection and supervisor roles available." path="/careers" />
       {/* Hero */}
       <div className="relative overflow-hidden" style={{ minHeight: "340px" }}>
         <img src="/officers-squad.jpg" alt="ENAMOS SECURITY Careers"

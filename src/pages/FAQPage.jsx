@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import SEO from "../components/SEO";
 import { useRef, useState, useEffect } from "react";
 import { ChevronDown, ChevronUp, ArrowRight, Phone, Mail } from "lucide-react";
 
@@ -61,6 +62,7 @@ export default function FAQPage() {
 
   return (
     <div style={{ paddingTop: "80px" }}>
+      <SEO title="FAQs | Enamos Security Services Nairobi Kenya" description="Answers to common questions about security guards, armed response, CCTV installation, VIP protection, and electric fencing from Enamos Security Services." path="/faq" />
       {/* Hero */}
       <div style={{ background: "linear-gradient(135deg,#1e3a8a,#0f172a)", padding: "80px 24px", textAlign: "center" }}>
         <span className="inline-block bg-white/10 text-white text-xs font-semibold tracking-widest uppercase px-3 py-1.5 rounded-full mb-4 border border-white/20">FAQs</span>

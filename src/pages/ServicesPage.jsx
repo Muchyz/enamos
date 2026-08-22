@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import SEO from "../components/SEO";
 import { useRef, useState, useEffect } from "react";
 import { CheckCircle, ChevronRight, ArrowRight } from "lucide-react";
 import { services } from "../App";
@@ -33,6 +34,7 @@ export default function ServicesPage() {
 
   return (
     <div style={{ paddingTop: "80px" }}>
+      <SEO title="Security Services | Guards, CCTV & Armed Response Nairobi Kenya" description="Explore Enamos Security Services' full range: guarding, armed response, CCTV installation, VIP protection, access control, and electric fencing across Kenya." path="/services" />
       {/* Hero */}
       <div className="relative overflow-hidden" style={{ minHeight: "320px", background: "linear-gradient(160deg,#0f1f45 0%,#1e3a8a 45%,#2563eb 100%)" }}>
         <div className="absolute inset-0" style={{

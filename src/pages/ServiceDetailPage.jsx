@@ -1,4 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom";
+import SEO from "../components/SEO";
 import { useRef, useState, useEffect } from "react";
 import { CheckCircle, ArrowRight, ChevronRight, ArrowLeft, Phone } from "lucide-react";
 import { services } from "../App";
@@ -48,6 +49,7 @@ export default function ServiceDetailPage() {
 
   return (
     <div style={{ paddingTop: "80px" }}>
+      <SEO title={`${service.title} | Enamos Security Services Kenya`} description={service.description || `Professional ${service.title} from Enamos Security Services, Kenya's trusted security company.`} path={`/services/${service.slug}`} />
       {/* Hero */}
       <div className="px-4 pt-4 md:px-6 md:pt-6">
         <div className="relative overflow-hidden rounded-3xl" style={{ minHeight: "360px" }}>

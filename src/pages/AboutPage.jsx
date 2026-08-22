@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import SEO from "../components/SEO";
 import { useRef, useState, useEffect } from "react";
 import { Shield, Cpu, Users, Globe, Award, ArrowRight, CheckCircle, Eye, Target, TrendingUp, BadgeCheck, FileCheck, BookOpen } from "lucide-react";
 
@@ -39,6 +40,7 @@ export default function AboutPage() {
 
   return (
     <div style={{ paddingTop: "80px" }}>
+      <SEO title="About Us | Enamos Security Services Nairobi Kenya" description="Learn about Enamos Security Services Limited — PSRA licensed, Nairobi-based security company with a 24/7 control room, trained guard force, and free security assessments." path="/about" />
       {/* Hero Banner */}
       <div className="relative overflow-hidden" style={{ minHeight: "320px", background: "linear-gradient(135deg,#0f172a,#1e1b4b)" }}>
         <img src="/officers-squad.jpg" alt="ENAMOS SECURITY Team"

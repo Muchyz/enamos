@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import SEO from "../components/SEO";
 import { useRef, useState, useEffect } from "react";
 import {
   Building, Home, ShoppingBag, Factory, Mic, Globe,
@@ -60,6 +61,7 @@ export default function ClientsPage() {
 
   return (
     <div style={{ paddingTop: "80px" }}>
+      <SEO title="Our Clients | Enamos Security Services Kenya" description="See the residential, corporate, and institutional clients who trust Enamos Security Services for guarding, armed response, and CCTV across Kenya." path="/clients" />
       {/* Hero */}
       <div className="relative overflow-hidden" style={{ minHeight: "320px" }}>
         <img src="/hero-officers.jpg" alt="ENAMOS SECURITY Clients"

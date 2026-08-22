@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { X, ChevronLeft, ChevronRight, Camera } from "lucide-react";
+import SEO from "../components/SEO";
 
 const photos = [
   { src: "/director-matunda.jpg", caption: "Director Dr. Amos Matunda", tag: "Leadership" },
@@ -82,6 +83,7 @@ export default function GalleryPage() {
 
   return (
     <div className="min-h-screen pt-28 pb-24" style={{ background: "linear-gradient(160deg,#fef2f2,#fafafa,#eff6ff)" }}>
+      <SEO title="Gallery | Enamos Security Services Kenya" description="Browse photos of Enamos Security Services guards, vehicles, and deployments across Kenya." path="/gallery" />
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-10">
           <span className="inline-flex items-center gap-1.5 bg-red-50 text-red-700 text-xs font-semibold tracking-widest uppercase px-3 py-1.5 rounded-full mb-4">

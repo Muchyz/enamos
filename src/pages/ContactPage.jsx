@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import SEO from "../components/SEO";
 import { useRef, useState, useEffect } from "react";
 import { Phone, Mail, MapPin, Send, CheckCircle, Zap, Shield, Globe, Clock } from "lucide-react";
 import { services } from "../App";
@@ -58,6 +59,7 @@ export default function ContactPage() {
 
   return (
     <div className="relative overflow-x-hidden" style={{ paddingTop: "96px", background: "linear-gradient(180deg, #050b17 0%, #0a1730 35%, #102a4d 65%, #0a1730 100%)" }}>
+      <SEO title="Contact Us | Enamos Security Services Nairobi Kenya" description="Get in touch with Enamos Security Services for a free security assessment. Call, WhatsApp, or fill out our contact form for guards, CCTV, and armed response." path="/contact" />
       <div className="absolute top-24 -left-24 w-80 h-80 rounded-full blur-3xl opacity-10 pointer-events-none" style={{ background: "#dc2626" }} />
       <div className="absolute top-96 -right-24 w-80 h-80 rounded-full blur-3xl opacity-10 pointer-events-none" style={{ background: "#38bdf8" }} />
       {/* Hero */}

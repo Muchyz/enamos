@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import SEO from "../components/SEO";
 import { useRef, useState, useEffect } from "react";
 import { Shield, Users, Award, CheckCircle, ArrowRight, BadgeCheck, FileCheck, BookOpen, Star } from "lucide-react";
 
@@ -49,6 +50,7 @@ export default function TeamPage() {
 
   return (
     <div style={{ paddingTop: "80px" }}>
+      <SEO title="Our Team | Licensed Security Professionals Kenya" description="Meet the vetted, PSRA-licensed security professionals at Enamos Security Services — National Police Clearance certified guards and management team." path="/team" />
       {/* Hero */}
       <div className="relative overflow-hidden" style={{ minHeight: "340px" }}>
         <img src="/officers-squad.jpg" alt="ENAMOS SECURITY Team"

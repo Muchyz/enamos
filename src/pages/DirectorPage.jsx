@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import SEO from "../components/SEO";
 import { useRef, useState, useEffect } from "react";
 import { ArrowRight, CheckCircle, Award, ShieldCheck } from "lucide-react";
 
@@ -30,6 +31,7 @@ export default function DirectorPage() {
   const navigate = useNavigate();
   return (
     <div style={{ paddingTop: "80px" }}>
+      <SEO title="Our Director | Enamos Security Services Kenya" description="Meet the leadership behind Enamos Security Services Limited, Kenya's trusted security company committed to community partnership and professional guarding." path="/director" />
       <section className="relative py-20 overflow-hidden" style={{ background: "linear-gradient(180deg, #050b17 0%, #0a1730 45%, #102a4d 100%)" }}>
         <div style={{ height: "3px", background: "linear-gradient(90deg, transparent, #2563a8, #7dd3fc, #2563a8, transparent)" }} className="absolute top-0 left-0 right-0" />
         <div className="absolute -top-24 -left-24 w-72 h-72 rounded-full blur-3xl opacity-20 pointer-events-none" style={{ background: "#2563a8" }} />
