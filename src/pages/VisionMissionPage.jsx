@@ -47,27 +47,25 @@ export default function VisionMissionPage() {
       {/* Vision & Mission */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-10 mb-16">
+          <div className="mb-16 grid md:grid-cols-2 gap-10 md:gap-14">
             <Reveal>
-              <div className="p-10 rounded-3xl border-2 border-red-100 bg-red-50 h-full relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-40 h-40 rounded-full opacity-10 -translate-y-10 translate-x-10" style={{ background: "#dc2626" }} />
-                <div className="w-14 h-14 rounded-2xl bg-red-600 flex items-center justify-center mb-6">
-                  <Eye className="w-7 h-7 text-white" />
+              <div className="relative pl-8" style={{ borderLeft: "4px solid #dc2626" }}>
+                <div className="flex items-center gap-3 mb-4">
+                  <Eye className="w-6 h-6" style={{ color: "#dc2626" }} />
+                  <span className="text-sm font-bold tracking-widest uppercase" style={{ color: "#dc2626" }}>Our Vision</span>
                 </div>
-                <h2 className="text-3xl font-bold text-gray-900 mb-5" style={{ fontFamily: "'DM Serif Display',serif" }}>Our Vision</h2>
-                <p className="text-gray-600 leading-relaxed text-lg">
+                <p className="text-2xl md:text-3xl text-gray-900 leading-snug" style={{ fontFamily: "'DM Serif Display',serif" }}>
                   Enamos Security Services' vision is to be the security company of choice in and outside Kenya by offering the best services tailor-made to suit individual customer needs.
                 </p>
               </div>
             </Reveal>
             <Reveal delay={0.1}>
-              <div className="p-10 rounded-3xl border-2 border-blue-100 bg-blue-50 h-full relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-40 h-40 rounded-full opacity-10 -translate-y-10 translate-x-10" style={{ background: "#1e3a8a" }} />
-                <div className="w-14 h-14 rounded-2xl bg-blue-800 flex items-center justify-center mb-6">
-                  <Target className="w-7 h-7 text-white" />
+              <div className="relative pl-8" style={{ borderLeft: "4px solid #1e3a8a" }}>
+                <div className="flex items-center gap-3 mb-4">
+                  <Target className="w-6 h-6" style={{ color: "#1e3a8a" }} />
+                  <span className="text-sm font-bold tracking-widest uppercase" style={{ color: "#1e3a8a" }}>Our Mission</span>
                 </div>
-                <h2 className="text-3xl font-bold text-gray-900 mb-5" style={{ fontFamily: "'DM Serif Display',serif" }}>Our Mission</h2>
-                <p className="text-gray-600 leading-relaxed text-lg">
+                <p className="text-2xl md:text-3xl text-gray-900 leading-snug" style={{ fontFamily: "'DM Serif Display',serif" }}>
                   Enamos Security Services' mission is to exceed our clients' specific and customized security needs by delivering the highest quality of professional private security services based on trust and confidence.
                 </p>
               </div>
