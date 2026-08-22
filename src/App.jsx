@@ -1105,26 +1105,27 @@ function Team() {
 /* ── STATS ── */
 function Stats() {
   const stats = [
-    { val: 200, suffix: "+", label: "Clients Served", icon: Shield, color: "#dc2626", bg: "#fef2f2" },
-    { val: 300, suffix: "+", label: "Security Officers", icon: Users, color: "#1e3a8a", bg: "#eff6ff" },
-    { val: 7, suffix: "/7", label: "Days Control Room", icon: Eye, color: "#15803d", bg: "#f0fdf4" },
-    { val: 100, suffix: "%", label: "Client Commitment", icon: BarChart3, color: "#b45309", bg: "#fffbeb" },
+    { val: 200, suffix: "+", label: "Clients Served", icon: Shield },
+    { val: 300, suffix: "+", label: "Security Officers", icon: Users },
+    { val: 7, suffix: "/7", label: "Days Control Room", icon: Eye },
+    { val: 100, suffix: "%", label: "Client Commitment", icon: BarChart3 },
   ];
   return (
-    <section className="py-20 bg-white">
+    <section className="py-16" style={{ background: "linear-gradient(180deg,#f8fafc,#fafafa)" }}>
       <div className="max-w-7xl mx-auto px-6">
         <Reveal>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
             {stats.map((s, i) => (
-              <div key={i} className="relative p-8 rounded-3xl border border-gray-100 text-center overflow-hidden card-hover bg-white">
-                <div className="absolute -top-6 -right-6 w-24 h-24 rounded-full opacity-40" style={{ background: s.bg }} />
-                <div className="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4" style={{ background: s.bg }}>
-                  <s.icon className="w-7 h-7" style={{ color: s.color }} />
+              <div key={i} className="relative px-4 py-5 sm:py-6 rounded-2xl text-center overflow-hidden"
+                style={{ background: "#fff", border: "1px solid #e5e9f0", boxShadow: "0 1px 3px rgba(15,23,42,0.04)" }}>
+                <div className="w-10 h-10 rounded-xl flex items-center justify-center mx-auto mb-2.5"
+                  style={{ background: "linear-gradient(135deg,#eff6ff,#dbeafe)" }}>
+                  <s.icon className="w-5 h-5" style={{ color: "#1e3a8a" }} />
                 </div>
-                <div className="text-4xl font-bold mb-1" style={{ color: s.color }}>
+                <div className="text-2xl sm:text-3xl font-bold mb-0.5" style={{ color: "#1e3a8a" }}>
                   <Counter target={s.val} suffix={s.suffix} />
                 </div>
-                <div className="text-sm text-gray-500 font-medium">{s.label}</div>
+                <div className="text-xs sm:text-sm text-gray-500 font-medium leading-tight">{s.label}</div>
               </div>
             ))}
           </div>
