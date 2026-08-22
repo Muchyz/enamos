@@ -786,7 +786,7 @@ function Services() {
             <img src="/armed-officer.jpg" alt="Armed Security Officer Nairobi"
               className="w-full h-full object-cover absolute inset-0" style={{ height: "100%" }}
               onError={e => { e.target.style.background="#0f172a"; }} />
-            <div className="relative z-10 grid md:grid-cols-2 gap-0" style={{ background: "linear-gradient(90deg,rgba(220,38,38,0.88) 0%,rgba(15,23,42,0.75) 100%)" }}>
+            <div className="relative z-10 grid md:grid-cols-2 gap-0" style={{ background: "linear-gradient(90deg,rgba(15,31,69,0.88) 0%,rgba(30,58,138,0.82) 50%,rgba(37,99,235,0.80) 100%)" }}>
               <div className="p-10 md:p-14">
                 <div className="inline-flex items-center gap-2 bg-white/20 rounded-full px-3 py-1 text-xs font-bold text-white mb-4">
                   <div className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" /> Armed Response
