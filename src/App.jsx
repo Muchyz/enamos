@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useLayoutEffect } from "react";
 import { Routes, Route, useNavigate, Link, useLocation } from "react-router-dom";
 import {
   Shield, Camera, Bell, UserCheck, Lock, Car, Zap,
@@ -104,11 +104,23 @@ function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const navigate = useNavigate();
+  const navRef = useRef(null);
 
   useEffect(() => {
     const h = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", h);
     return () => window.removeEventListener("scroll", h);
+  }, []);
+
+  useLayoutEffect(() => {
+    const setNavH = () => {
+      if (navRef.current) {
+        document.documentElement.style.setProperty("--nav-h", `${navRef.current.offsetHeight}px`);
+      }
+    };
+    setNavH();
+    window.addEventListener("resize", setNavH);
+    return () => window.removeEventListener("resize", setNavH);
   }, []);
 
   // Links: label → anchor id (for home page scroll) OR route path
@@ -122,7 +134,7 @@ function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+    <nav ref={navRef} className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
       style={{
         background: "rgba(255,255,255,0.98)",
         backdropFilter: scrolled ? "blur(20px)" : "none",
@@ -168,136 +180,96 @@ function Navbar() {
 /* ── HERO ── */
 function Hero() {
   const navigate = useNavigate();
+  const badges = ["PSRA Licensed", "Fully Insured", "24/7 Available"];
+
   return (
-    <section id="hero" className="relative flex flex-col overflow-hidden"
-      style={{ background: "linear-gradient(160deg,#fef2f2 0%,#fafafa 45%,#eff6ff 100%)", minHeight: "100svh" }}>
-      {/* Blobs */}
-      <div className="absolute top-10 -left-20 w-72 h-72 rounded-full opacity-25 blur-3xl pointer-events-none"
-        style={{ background: "linear-gradient(135deg,#fecaca,#bfdbfe)" }} />
-      <div className="absolute bottom-32 -right-20 w-64 h-64 rounded-full opacity-20 blur-3xl pointer-events-none"
-        style={{ background: "linear-gradient(135deg,#fca5a5,#93c5fd)" }} />
-      <div className="absolute inset-0 opacity-20 pointer-events-none"
-        style={{ backgroundImage: "radial-gradient(circle,#94a3b8 1px,transparent 1px)", backgroundSize: "32px 32px" }} />
+    <section id="hero" className="relative overflow-hidden"
+      style={{ height: "100dvh", minHeight: "560px", maxHeight: "920px" }}>
 
-      {/* Main Content */}
-      <div className="relative flex-1 flex items-center">
-        <div className="w-full max-w-7xl mx-auto px-5 pt-24 pb-6 grid lg:grid-cols-2 gap-10 items-center">
-          <div>
-            {/* Badge */}
-            <div className="animate-fadeUp inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-bold mb-5 border border-red-200"
-              style={{ background: "linear-gradient(135deg,#fef2f2,#fff1f2)", color: "#dc2626" }}>
-              <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
-              Protection You Can Rely On!
-            </div>
-
-            {/* Heading */}
-            <h1 className="animate-fadeUp delay-100 text-4xl sm:text-5xl lg:text-7xl leading-[1.1] text-gray-900 mb-4">
-              Kenya's Trusted<br />
-              <span style={{ background: "linear-gradient(135deg,#dc2626,#1e3a8a)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
-                Security
-              </span><br />Partner
-            </h1>
-
-            {/* Accent line */}
-            <div className="flex items-center gap-3 mb-4">
-              <div className="h-0.5 w-10 rounded-full" style={{ background: "linear-gradient(90deg,#dc2626,#1e3a8a)" }} />
-              <span className="text-xs font-semibold text-gray-400 tracking-widest uppercase">Est. in Kenya</span>
-            </div>
-
-            {/* Subtext */}
-            <p className="animate-fadeUp delay-200 text-sm sm:text-base text-gray-500 leading-relaxed mb-5 max-w-lg">
-              ENAMOS SECURITY is committed to delivering excellent security services, offering a complete range of risk assessment, private guarding and executive protection services across Kenya.
-            </p>
-
-            {/* Buttons */}
-            <div className="animate-fadeUp delay-300 flex flex-row gap-2 mb-5">
-              <button onClick={() => navigate("/contact")}
-                className="flex-1 inline-flex items-center justify-center gap-2 py-3.5 rounded-xl font-bold text-white text-sm shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all"
-                style={{ background: "linear-gradient(135deg,#dc2626,#7f1d1d)" }}>
-                Get Started <ArrowRight className="w-4 h-4" />
-              </button>
-              <button onClick={() => navigate("/services")}
-                className="flex-1 inline-flex items-center justify-center gap-2 py-3.5 rounded-xl font-bold text-gray-700 text-sm border border-gray-200 hover:border-red-200 hover:text-red-700 hover:-translate-y-0.5 transition-all"
-                style={{ background: "rgba(255,255,255,0.9)" }}>
-                <Play className="w-3.5 h-3.5 text-red-600" /> Our Services
-              </button>
-            </div>
-
-            {/* Glass Badges */}
-            <div className="animate-fadeUp delay-400 grid grid-cols-3 gap-2">
-              {[
-                { icon: Activity, color: "#dc2626", bg: "linear-gradient(135deg,rgba(220,38,38,0.08),rgba(220,38,38,0.04))", border: "rgba(220,38,38,0.20)", label: "Control Room", val: "24/7 Active" },
-                { icon: Shield, color: "#1e3a8a", bg: "linear-gradient(135deg,rgba(30,58,138,0.08),rgba(30,58,138,0.04))", border: "rgba(30,58,138,0.20)", label: "Response", val: "Swift & Sure" },
-                { icon: Users, color: "#15803d", bg: "linear-gradient(135deg,rgba(21,128,61,0.08),rgba(21,128,61,0.04))", border: "rgba(21,128,61,0.20)", label: "Officers", val: "300+ Strong" },
-              ].map((b, i) => (
-                <div key={i} className="flex flex-col items-center gap-1.5 py-4 px-2 rounded-2xl border"
-                  style={{
-                    background: b.bg,
-                    borderColor: b.border,
-                    backdropFilter: "blur(16px)",
-                    WebkitBackdropFilter: "blur(16px)",
-                    boxShadow: `0 2px 16px ${b.border}, inset 0 1px 0 rgba(255,255,255,0.6)`
-                  }}>
-                  <div className="w-8 h-8 rounded-xl flex items-center justify-center mb-0.5"
-                    style={{ background: `${b.border}` }}>
-                    <b.icon className="w-4 h-4" style={{ color: b.color }} />
-                  </div>
-                  <div className="font-bold text-gray-800 text-xs text-center leading-tight">{b.val}</div>
-                  <div className="text-gray-400 text-[10px] text-center">{b.label}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Desktop right column */}
-          <div className="animate-fadeIn delay-200 relative hidden lg:block">
-            <div className="animate-float absolute -left-8 top-16 z-20 bg-white rounded-2xl shadow-xl p-4 flex items-center gap-3 border border-red-50">
-              <div className="w-10 h-10 rounded-xl bg-red-50 flex items-center justify-center">
-                <Activity className="w-5 h-5 text-red-500" />
-              </div>
-              <div>
-                <div className="text-xs text-gray-400 font-medium">Control Room</div>
-                <div className="text-sm font-bold text-gray-900">Active 24/7</div>
-              </div>
-            </div>
-            <div className="animate-float absolute -right-4 bottom-24 z-20 bg-white rounded-2xl shadow-xl p-4 flex items-center gap-3 border border-blue-50"
-              style={{ animationDelay: "1s" }}>
-              <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center">
-                <Shield className="w-5 h-5 text-blue-800" />
-              </div>
-              <div>
-                <div className="text-xs text-gray-400 font-medium">Response Time</div>
-                <div className="text-sm font-bold text-gray-900">Swift & Reliable</div>
-              </div>
-            </div>
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl" style={{ aspectRatio: "4/3" }}>
-              <img src="/hero-officers.jpg" alt="ENAMOS SECURITY Officers"
-                className="w-full h-full object-cover"
-                onError={e => { e.target.style.background="#e2e8f0"; }} />
-              <div className="absolute inset-0" style={{ background: "linear-gradient(to top right,rgba(220,38,38,0.15),transparent)" }} />
-            </div>
-            <div className="absolute -bottom-6 -right-6 w-40 h-40 rounded-full border-2 border-dashed border-red-200 opacity-60" />
-          </div>
-        </div>
+      {/* Background photo - full-bleed cover, fits every screen */}
+      <div className="absolute inset-0 z-0">
+        <img src="/hero-truck-source.png" alt="ENAMOS SECURITY alarm response vehicle"
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ objectPosition: "center 30%" }}
+          onError={e => { e.target.style.background = "#1e3a8a"; }} />
+        <div className="absolute inset-0" style={{
+          background: "linear-gradient(180deg, rgba(15,23,42,0.5) 0%, rgba(15,23,42,0.3) 40%, rgba(15,23,42,0.2) 70%, rgba(15,23,42,0.6) 100%)"
+        }} />
       </div>
 
-      {/* Stats Bar */}
-      <div className="relative z-10"
-        style={{ background: "linear-gradient(135deg,#1e3a8a 0%,#7f1d1d 100%)" }}>
-        <div className="px-4 py-6 grid grid-cols-3">
-          {[
-            { val: "200+", label: "Clients Served", icon: Shield, border: true },
-            { val: "24/7", label: "Control Room", icon: Eye, border: true },
-            { val: "100%", label: "Commitment", icon: CheckCircle, border: false },
-          ].map((s, i) => (
-            <div key={s.label} className="flex flex-col items-center gap-1.5 py-1"
-              style={{ borderRight: s.border ? "1px solid rgba(255,255,255,0.15)" : "none" }}>
-              <s.icon className="w-4 h-4 text-white/40" />
-              <div className="text-2xl font-bold text-white leading-none">{s.val}</div>
-              <div className="text-white/55 text-[10px] font-semibold tracking-widest uppercase text-center leading-tight px-1">{s.label}</div>
-            </div>
+      {/* Flex layout: badges / spacer / center / spacer */}
+      <div className="relative z-10 h-full flex flex-col"
+        style={{ paddingTop: "calc(var(--nav-h, 88px) + clamp(14px,3vh,24px))", paddingBottom: "clamp(14px,3vh,24px)" }}>
+
+        <div className="flex justify-center gap-2 flex-wrap px-4" style={{ opacity: 0, animation: "heroFadeUp 0.7s ease both", animationDelay: "0.10s" }}>
+          {badges.map((b) => (
+            <span key={b} className="text-[11px] font-semibold px-2.5 py-1 rounded-full border"
+              style={{ background: "rgba(15,23,42,0.5)", borderColor: "rgba(255,255,255,0.2)", color: "#fff" }}>
+              ✓ {b}
+            </span>
           ))}
         </div>
+
+        <div className="flex-1" />
+
+        <div className="flex flex-col items-center text-center mx-auto px-5 sm:px-8 rounded-3xl"
+          style={{
+            maxWidth: "640px",
+            gap: "clamp(10px,2vh,16px)",
+            padding: "clamp(16px,3vh,28px) clamp(16px,5vw,32px)",
+            background: "linear-gradient(180deg, rgba(15,23,42,0) 0%, rgba(15,23,42,0.68) 15%, rgba(15,23,42,0.78) 85%, rgba(15,23,42,0) 100%)"
+          }}>
+
+          <div className="flex items-center justify-center gap-3" style={{ opacity: 0, animation: "heroFadeUp 0.7s ease both", animationDelay: "0.18s" }}>
+            <span style={{ width: "34px", height: "2px", background: "#60a5fa", flexShrink: 0 }} />
+            <span className="text-xs font-semibold uppercase" style={{ letterSpacing: "0.14em", color: "#93c5fd" }}>
+              Protection You Can Rely On
+            </span>
+          </div>
+
+          <h1 className="text-2xl sm:text-4xl lg:text-5xl leading-[1.18] font-extrabold text-white"
+            style={{ textShadow: "0 2px 16px rgba(0,0,0,0.4)", textTransform: "uppercase", letterSpacing: "-0.01em", opacity: 0, animation: "heroFadeUp 0.7s ease both", animationDelay: "0.26s" }}>
+            Kenya's Trusted <span style={{ color: "#60a5fa" }}>Security</span> Partner
+          </h1>
+
+          <p className="text-sm sm:text-base text-white/85 leading-relaxed max-w-lg"
+            style={{ opacity: 0, animation: "heroFadeUp 0.7s ease both", animationDelay: "0.34s" }}>
+            ENAMOS SECURITY is committed to delivering excellent security services, offering a complete range of risk assessment, private guarding and executive protection services across Kenya.
+          </p>
+
+          <div className="flex flex-row gap-3 w-full justify-center" style={{ opacity: 0, animation: "heroFadeUp 0.7s ease both", animationDelay: "0.42s" }}>
+            <button onClick={() => navigate("/contact")}
+              className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-bold text-white text-sm shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all"
+              style={{ background: "linear-gradient(135deg,#2563eb,#1e40af)" }}>
+              Get Started <ArrowRight className="w-4 h-4" />
+            </button>
+            <button onClick={() => navigate("/services")}
+              className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-bold text-white text-sm border border-white/30 hover:border-white/60 hover:-translate-y-0.5 transition-all"
+              style={{ background: "rgba(255,255,255,0.08)", backdropFilter: "blur(6px)" }}>
+              <Play className="w-3.5 h-3.5" /> Our Services
+            </button>
+          </div>
+
+          <div className="grid grid-cols-3 w-full rounded-xl overflow-hidden border"
+            style={{ borderColor: "rgba(255,255,255,0.15)", opacity: 0, animation: "heroFadeUp 0.7s ease both", animationDelay: "0.50s" }}>
+            {[
+              { val: "200+", label: "Clients Served", icon: Shield },
+              { val: "24/7", label: "Control Room", icon: Eye },
+              { val: "100%", label: "Commitment", icon: CheckCircle },
+            ].map((s, i) => (
+              <div key={s.label} className="flex items-center justify-center gap-2 py-2.5 px-1"
+                style={{ background: i % 2 === 0 ? "rgba(255,255,255,0.08)" : "rgba(255,255,255,0.04)" }}>
+                <s.icon className="w-4 h-4" style={{ color: "#60a5fa" }} />
+                <div className="flex flex-col items-start leading-tight">
+                  <span className="text-sm sm:text-base font-extrabold text-white">{s.val}</span>
+                  <span className="text-[9px] sm:text-[10px] font-semibold uppercase tracking-wide text-white/70">{s.label}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="flex-1" />
       </div>
     </section>
   );
@@ -1569,6 +1541,7 @@ function ScrollToTopButton() {
     window.addEventListener('scroll', h);
     return () => window.removeEventListener('scroll', h);
   }, []);
+  if (!visible) return null;
   return (
     <button
       onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
