@@ -7,7 +7,7 @@ import {
   Building, Home, ShoppingBag, Factory, Mic,
   CheckCircle, TrendingUp, Eye, Cpu, BarChart3,
   Play, ChevronDown, Send, Quote,
-  Activity, Layers, Radio, Star, Target, BadgeCheck, FileCheck, BookOpen
+  Activity, Layers, Radio, Star, Target, BadgeCheck, FileCheck, BookOpen, Sparkles
 } from "lucide-react";
 
 // ── page imports ──
@@ -722,6 +722,15 @@ export const services = [
     bullets: ["Dedicated Area Managers","Regular supervisor check-ins","Strict adherence to client instructions","Performance accountability"],
     photo: "supervision-officer.jpg",
     longDesc: "To ensure that all guards complete their duties in accordance with company policy and client instructions, ENAMOS SECURITY deploys dedicated Area Managers and Supervisors who conduct constant, unannounced checks on deployed personnel. This layer of management ensures accountability, consistent performance, and immediate corrective action whenever required. Our supervision structure means clients can trust that their site is never left to chance — every post is monitored and every officer is held to our high standards."
+  },  {
+    icon: Sparkles,
+    title: "Cleaning Services",
+    slug: "cleaning-services",
+    desc: "ENAMOS SECURITY offers professional cleaning services for residential, commercial, and industrial properties. Our trained cleaning staff deliver thorough, reliable service using quality equipment and eco-friendly products, tailored to your schedule and needs.",
+    color: "#059669", bg: "#ecfdf5", gradient: "linear-gradient(135deg,#ecfdf5,#d1fae5)",
+    bullets: ["Residential & commercial cleaning","Trained and vetted cleaning staff","Eco-friendly cleaning products","Flexible scheduling to suit your needs"],
+    photo: "about-main.jpg",
+    longDesc: "ENAMOS SECURITY offers professional cleaning services designed to keep your home, office, or facility spotless and hygienic. Our trained and vetted cleaning staff use quality equipment and eco-friendly products to deliver thorough, reliable results every time. Whether you need a one-time deep clean or a regular scheduled service, we tailor our offering to fit your property size, budget, and timeline. From residential apartments to commercial premises and industrial facilities, our cleaning teams work efficiently and professionally, giving you a consistently clean and welcoming environment."
   },
 ];
 
