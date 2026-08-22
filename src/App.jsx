@@ -182,8 +182,8 @@ function Hero() {
   const navigate = useNavigate();
   const badges = ["PSRA Licensed", "Fully Insured", "24/7 Available"];
   const heroImages = [
-    { src: "/hero-truck-source.png", alt: "ENAMOS SECURITY alarm response vehicle" },
-    { src: "/hero-guard-dog.png", alt: "ENAMOS SECURITY officer with K9 unit" },
+    { src: "/hero-truck-source.jpg", alt: "ENAMOS SECURITY alarm response vehicle" },
+    { src: "/hero-guard-dog.jpg", alt: "ENAMOS SECURITY officer with K9 unit" },
   ];
   const [activeIndex, setActiveIndex] = useState(0);
   useEffect(() => {
@@ -1605,9 +1605,40 @@ function HomePage() {
 }
 
 /* ── APP ── */
+function TopLoadingBar() {
+  const [progress, setProgress] = useState(0);
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    const t1 = setTimeout(() => setProgress(70), 50);
+    const t2 = setTimeout(() => setProgress(100), 400);
+    const t3 = setTimeout(() => setVisible(false), 650);
+    return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
+  }, []);
+
+  if (!visible) return null;
+
+  return (
+    <div style={{
+      position: "fixed", top: 0, left: 0, right: 0, height: "3px", zIndex: 9999,
+      background: "transparent", pointerEvents: "none"
+    }}>
+      <div style={{
+        height: "100%",
+        width: `${progress}%`,
+        background: "linear-gradient(90deg, #2563eb, #F5A623)",
+        transition: "width 0.35s ease, opacity 0.3s ease",
+        opacity: progress === 100 ? 0 : 1,
+        boxShadow: "0 0 8px rgba(37,99,235,0.6)"
+      }} />
+    </div>
+  );
+}
+
 export default function App() {
   return (
     <>
+      <TopLoadingBar />
       <FontStyle />
       <Navbar />
       <ScrollToTop />
