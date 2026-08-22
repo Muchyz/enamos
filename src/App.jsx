@@ -186,10 +186,10 @@ function Hero() {
     <section id="hero" className="relative overflow-hidden"
       style={{ height: "100dvh", minHeight: "560px", maxHeight: "920px" }}>
 
-      {/* Background photo - full-bleed cover, fits every screen */}
+      {/* Background photo - full-bleed cover, slow zoom animation */}
       <div className="absolute inset-0 z-0">
         <img src="/hero-truck-source.png" alt="ENAMOS SECURITY alarm response vehicle"
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover hero-zoom"
           style={{ objectPosition: "center 30%" }}
           onError={e => { e.target.style.background = "#1e3a8a"; }} />
         <div className="absolute inset-0" style={{
