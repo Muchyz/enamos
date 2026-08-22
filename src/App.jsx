@@ -738,32 +738,46 @@ function Services() {
   const [active, setActive] = useState(null);
   const navigate = useNavigate();
   return (
-    <section id="services" className="py-28 overflow-hidden" style={{ background: "linear-gradient(180deg,#fafafa,#f8fafc)" }}>
+    <section id="services" className="pt-10 pb-28 overflow-hidden" style={{ background: "linear-gradient(180deg,#fafafa,#f8fafc)" }}>
       <div className="max-w-7xl mx-auto px-6">
         <Reveal>
-          <div className="text-center mb-8 md:mb-14">
-            <span className="inline-block bg-blue-50 text-blue-700 text-xs font-semibold tracking-widest uppercase px-3 py-1.5 rounded-full mb-4">
-              Our Services
-            </span>
-            <h2 className="text-4xl md:text-5xl text-gray-900 mb-4 leading-tight">
-              Proven Track Record<br />Across the <span style={{ color: "#dc2626" }}>Full Spectrum</span>
-            </h2>
-            <p className="text-gray-500 max-w-xl mx-auto">
-              We have the skills, experience and commitment required to be your preferred partner, service provider and supplier.
-            </p>
+          <div className="relative overflow-hidden text-center mb-8 md:mb-14 rounded-3xl" style={{ padding: "32px 24px", background: "linear-gradient(160deg,#0f1f45 0%,#1e3a8a 45%,#2563eb 100%)" }}>
+            <div className="absolute inset-0" style={{
+              backgroundImage: "radial-gradient(circle at 20% 20%, rgba(255,255,255,0.08) 0%, transparent 40%), radial-gradient(circle at 85% 75%, rgba(96,165,250,0.15) 0%, transparent 45%)"
+            }} />
+            <div className="absolute inset-0" style={{
+              backgroundImage: "linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px)",
+              backgroundSize: "36px 36px"
+            }} />
+            <div className="relative z-10">
+              <span className="inline-flex items-center gap-2 bg-white/10 text-white text-xs font-semibold tracking-widest uppercase px-3.5 py-1.5 rounded-full mb-5 border border-white/20 backdrop-blur-sm">
+                <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#60a5fa" }} />
+                Our Services
+              </span>
+              <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4 leading-tight">
+                Proven Track Record<br />
+                <span style={{ color: "#93c5fd" }}>Across the Full Spectrum</span>
+              </h2>
+              <p className="text-white/70 max-w-xl mx-auto text-sm md:text-base leading-relaxed">
+                We have the skills, experience and commitment required to be your preferred partner, service provider and supplier.
+              </p>
+            </div>
           </div>
         </Reveal>
 
         <Reveal delay={0.05}>
-          <div className="grid grid-cols-2 gap-2 mb-12">
-            {["Residential & Estates","Corporate","Commercial & Industrial","Oil & Gas","Banking & Finance","Health & Education","Government Agencies","Ports & Airports","Diplomatic","Events","Executive Protection","Access Control","CCTV & Surveillance","Electric Fencing","Alarm Systems","Retail Security","Door Supervision","Fingerprint & Biometrics"].map((tag,i) => (
-              <span key={i} className="px-2 py-1 rounded-full text-xs font-semibold border text-center leading-tight"
-                style={{ background: i % 3 === 0 ? "#fef2f2" : i % 3 === 1 ? "#eff6ff" : "#f0fdf4",
-                  color: i % 3 === 0 ? "#dc2626" : i % 3 === 1 ? "#1e3a8a" : "#15803d",
-                  borderColor: i % 3 === 0 ? "#fecaca" : i % 3 === 1 ? "#bfdbfe" : "#bbf7d0" }}>
-                {tag}
-              </span>
-            ))}
+          <div className="mb-12">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+              {["Residential & Estates","Corporate","Commercial & Industrial","Oil & Gas","Banking & Finance","Health & Education","Government Agencies","Ports & Airports","Diplomatic","Events","Executive Protection","Access Control","CCTV & Surveillance","Electric Fencing","Alarm Systems","Retail Security","Door Supervision","Fingerprint & Biometrics"].map((tag,i) => (
+                <div key={i} className="flex items-center gap-2.5 px-4 py-3 rounded-xl bg-white border transition-all hover:shadow-md hover:-translate-y-0.5"
+                  style={{ borderColor: "#dbeafe" }}>
+                  <span style={{ width: "8px", height: "8px", borderRadius: "50%", flexShrink: 0, background: "linear-gradient(135deg,#2563eb,#1e40af)" }} />
+                  <span className="text-sm font-semibold" style={{ color: "#1e3a8a" }}>
+                    {tag}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
         </Reveal>
 
