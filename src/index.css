@@ -11,9 +11,10 @@
 }
 
 @keyframes heroSlowZoom {
-  from { transform: scale(1.08); }
-  to { transform: scale(1); }
+  0% { transform: scale(1.08); }
+  60% { transform: scale(1); }
+  100% { transform: scale(1.03); }
 }
 .hero-zoom {
-  animation: heroSlowZoom 8s ease-out forwards;
+  animation: heroSlowZoom 20s ease-in-out infinite alternate;
 }
