@@ -503,7 +503,7 @@ function VisionMission() {
     { title: "Innovation", desc: "We are a professional and progressive company with staff who work hard and proactively in the delivery of security solutions to our esteemed clients.", icon: TrendingUp, gradient: "linear-gradient(135deg,#7c3aed,#a78bfa)" },
   ];
   return (
-    <section className="py-28 bg-white">
+    <section className="pt-8 md:pt-10 pb-28 bg-white">
       <div className="max-w-7xl mx-auto px-6">
         <Reveal>
           <div className="text-center mb-8 md:mb-14">
