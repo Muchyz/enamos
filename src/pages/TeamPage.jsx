@@ -30,10 +30,10 @@ export default function TeamPage() {
   const navigate = useNavigate();
 
   const credentials = [
-    { icon: BadgeCheck, color: "#dc2626", bg: "#fef2f2", title: "National Police Clearance", desc: "All our personnel hold valid National Police Clearance certificates, ensuring you engage only vetted, trustworthy officers." },
-    { icon: FileCheck, color: "#1e3a8a", bg: "#eff6ff", title: "Security Consultant License", desc: "Our management team is fully licensed as Security Consultants, qualified to design and advise on comprehensive security solutions." },
-    { icon: Shield, color: "#7c3aed", bg: "#f5f3ff", title: "Security Installers License", desc: "Certified Security Installers on staff ensure all electronic systems are installed to industry-standard specifications." },
-    { icon: BookOpen, color: "#15803d", bg: "#f0fdf4", title: "Additional Licenses — CFE", desc: "Our team holds additional specialised licenses including CFE (Certified Fraud Examiner), reflecting commitment to excellence." },
+    { icon: BadgeCheck, title: "National Police Clearance", desc: "All our personnel hold valid National Police Clearance certificates, ensuring you engage only vetted, trustworthy officers.", featured: true, gradient: "linear-gradient(135deg,#2563eb,#1e3a8a)" },
+    { icon: FileCheck, title: "Security Consultant License", desc: "Our management team is fully licensed as Security Consultants, qualified to design and advise on comprehensive security solutions.", color: "#7c3aed", bg: "linear-gradient(135deg,#7c3aed,#a78bfa)" },
+    { icon: Shield, title: "Security Installers License", desc: "Certified Security Installers on staff ensure all electronic systems are installed to industry-standard specifications.", color: "#0891b2", bg: "linear-gradient(135deg,#0891b2,#22d3ee)" },
+    { icon: BookOpen, title: "Additional Licenses — CFE", desc: "Our team holds additional specialised licenses including CFE (Certified Fraud Examiner), reflecting commitment to excellence.", color: "#b45309", bg: "linear-gradient(135deg,#b45309,#f59e0b)" },
   ];
 
   const traits = [
@@ -68,20 +68,57 @@ export default function TeamPage() {
       </div>
 
       {/* Credentials */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="relative py-24 overflow-hidden" style={{ background: "linear-gradient(180deg,#eff6ff 0%,#f8fafc 45%,#ffffff 100%)" }}>
+        <div className="absolute inset-0 pointer-events-none" style={{
+          backgroundImage: "radial-gradient(circle at 15% 10%, rgba(37,99,235,0.08) 0%, transparent 40%), radial-gradient(circle at 90% 30%, rgba(96,165,250,0.10) 0%, transparent 45%)"
+        }} />
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
           <Reveal>
             <div className="text-center mb-14">
-              <span className="inline-block bg-red-50 text-red-700 text-xs font-semibold tracking-widest uppercase px-3 py-1.5 rounded-full mb-4">Credentials & Licenses</span>
+              <span className="inline-flex items-center gap-2 bg-white/70 text-xs font-semibold tracking-widest uppercase px-3.5 py-1.5 rounded-full mb-4 border border-blue-100 backdrop-blur-sm" style={{ color: "#1e3a8a" }}>
+                <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#2563eb" }} />
+                Credentials & Licenses
+              </span>
               <h2 className="text-4xl text-gray-900" style={{ fontFamily: "'DM Serif Display',serif" }}>Qualified at Every Level</h2>
             </div>
           </Reveal>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-            {credentials.map((c, i) => (
-              <Reveal key={i} delay={i * 0.07}>
-                <div className="p-8 rounded-3xl border border-gray-100 bg-white hover:shadow-xl transition-all duration-300 text-center group">
-                  <div className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform" style={{ background: c.bg }}>
-                    <c.icon className="w-8 h-8" style={{ color: c.color }} />
+
+          {/* Featured credential */}
+          <Reveal delay={0.05}>
+            <div className="mb-6 rounded-3xl p-8 md:p-10 flex flex-col md:flex-row items-start md:items-center gap-6"
+              style={{
+                background: "rgba(255,255,255,0.55)",
+                backdropFilter: "blur(20px)",
+                WebkitBackdropFilter: "blur(20px)",
+                border: "1px solid rgba(255,255,255,0.9)",
+                boxShadow: "0 8px 32px rgba(30,58,138,0.12)"
+              }}>
+              <div className="w-20 h-20 rounded-2xl flex items-center justify-center shrink-0"
+                style={{ background: "linear-gradient(135deg,#dc2626,#f59e0b)", boxShadow: "0 8px 20px rgba(220,38,38,0.35)" }}>
+                {(() => { const Icon = credentials[0].icon; return <Icon className="w-10 h-10 text-white" />; })()}
+              </div>
+              <div>
+                <span className="inline-block text-xs font-bold tracking-widest uppercase mb-2" style={{ color: "#2563eb" }}>Most Important</span>
+                <h3 className="font-bold text-2xl text-gray-900 mb-2">{credentials[0].title}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed max-w-2xl">{credentials[0].desc}</p>
+              </div>
+            </div>
+          </Reveal>
+
+          <div className="grid md:grid-cols-3 gap-6 mb-16">
+            {credentials.slice(1).map((c, i) => (
+              <Reveal key={i} delay={0.1 + i * 0.07}>
+                <div className="p-8 rounded-3xl text-center group h-full transition-all duration-300 hover:-translate-y-1"
+                  style={{
+                    background: "rgba(255,255,255,0.55)",
+                    backdropFilter: "blur(20px)",
+                    WebkitBackdropFilter: "blur(20px)",
+                    border: "1px solid rgba(255,255,255,0.9)",
+                    boxShadow: "0 8px 32px rgba(30,58,138,0.10)"
+                  }}>
+                  <div className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform"
+                    style={{ background: c.bg }}>
+                    <c.icon className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="font-bold text-gray-900 mb-3">{c.title}</h3>
                   <p className="text-gray-500 text-sm leading-relaxed">{c.desc}</p>

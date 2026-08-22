@@ -93,7 +93,7 @@ export default function VisionMissionPage() {
               <img src="/mission-team.jpg" alt="Enamos Mission"
                 className="absolute inset-0 w-full h-full object-cover"
                 onError={e => { e.target.style.background = "#1e293b"; }} />
-              <div className="relative z-10 p-12 md:p-16" style={{ background: "linear-gradient(135deg,rgba(220,38,38,0.90),rgba(30,58,138,0.85))" }}>
+              <div className="relative z-10 p-12 md:p-16" style={{ background: "linear-gradient(160deg,rgba(15,31,69,0.90) 0%,rgba(30,58,138,0.85) 45%,rgba(37,99,235,0.82) 100%)" }}>
                 <h2 className="text-3xl md:text-4xl font-bold text-white mb-5" style={{ fontFamily: "'DM Serif Display',serif" }}>Mission Statement</h2>
                 <p className="text-white/90 text-xl leading-relaxed mb-4 max-w-3xl">
                   ENAMOS SECURITY is committed to providing exceptional services by delivering personalized, high-quality and cost efficient solutions to meet the needs of our clients.

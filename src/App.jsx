@@ -561,7 +561,7 @@ function VisionMission() {
             <img src="/mission-team.jpg"
               alt="ENAMOS SECURITY Mission Team" className="w-full h-full object-cover absolute inset-0" style={{ height: "100%" }}
               onError={e => { e.target.style.background="#1e293b"; }} />
-            <div className="relative z-10 p-10 md:p-14" style={{ background: "linear-gradient(135deg,rgba(220,38,38,0.88),rgba(30,58,138,0.82))" }}>
+            <div className="relative z-10 p-10 md:p-14" style={{ background: "linear-gradient(160deg,rgba(15,31,69,0.88) 0%,rgba(30,58,138,0.82) 45%,rgba(37,99,235,0.80) 100%)" }}>
               <h3 className="text-2xl md:text-3xl font-bold text-white mb-4" style={{ fontFamily: "'DM Serif Display',serif" }}>Mission Statement</h3>
               <p className="text-white/90 text-lg leading-relaxed mb-3 max-w-3xl">
                 ENAMOS SECURITY is committed to providing exceptional services by delivering personalized, high-quality and cost efficient solutions to meet the needs of our clients.
@@ -653,7 +653,7 @@ export const services = [
     title: "Security Systems",
     slug: "security-systems",
     desc: "ENAMOS SECURITY incorporates monitoring solutions designed to fit any and all of your security needs. Our monitoring packages will bring you peace of mind knowing that your property is protected by a state of the art system installed by trained certified technicians.",
-    color: "#7c3aed", bg: "#f5f3ff", gradient: "linear-gradient(135deg,#f5f3ff,#ede9fe)",
+    color: "#7c3aed", bg: "#f5f3ff", gradient: "linear-gradient(135deg,#7c3aed,#a78bfa)",
     bullets: ["Panic & alarm systems","Fingerprint readers & CCTV","Intercoms & surveillance cameras","Electric fencing"],
     photo: "security-systems.jpg",
     longDesc: "ENAMOS SECURITY incorporates monitoring solutions designed to fit any and all of your security needs. Our monitoring packages bring you peace of mind knowing that your property is protected by a state-of-the-art system installed by trained certified technicians. We also manage an in-house technical department which allows us to deal with technical issues promptly and efficiently. Through our skills and experience, we can analyse your property and provide improvements to your existing system. Systems we supply and install include: Panic systems, Alarm systems, Fingerprint readers, CCTV, Intercoms, Surveillance cameras, and Electric fencing.",
@@ -707,7 +707,7 @@ export const services = [
     title: "Access Control",
     slug: "access-control",
     desc: "Electronic access control systems, biometric readers, intercoms and electronic management for all facility types — from small offices to large industrial complexes. We also manage an in-house technical department which allows us to deal with technical issues forthwith and efficiently.",
-    color: "#b45309", bg: "#fffbeb", gradient: "linear-gradient(135deg,#fffbeb,#fef3c7)",
+    color: "#b45309", bg: "#fffbeb", gradient: "linear-gradient(135deg,#b45309,#f59e0b)",
     bullets: ["Biometric & electronic access","Intercoms & keypad systems","Suitable for all facility sizes","In-house technical support team"],
     photo: "access-control-hero.jpg",
     longDesc: "ENAMOS SECURITY provides comprehensive access control solutions for facilities of all types and sizes — from small offices to large industrial complexes. Our systems include electronic access control, biometric fingerprint readers, keypad systems, intercoms, and full electronic facility management. Our in-house technical department ensures any technical issues are resolved promptly and efficiently, minimising downtime and maintaining security integrity at all times."
@@ -718,7 +718,7 @@ export const services = [
     slug: "supervision-management",
     photo: "supervision-officer.jpg",
     desc: "To ensure that guards complete their duties accordingly and in accordance with company policy and the clients instructions, ENAMOS SECURITY has Area Managers and Supervisors who will constantly check on the guards.",
-    color: "#0891b2", bg: "#ecfeff", gradient: "linear-gradient(135deg,#ecfeff,#cffafe)",
+    color: "#0891b2", bg: "#ecfeff", gradient: "linear-gradient(135deg,#0891b2,#22d3ee)",
     bullets: ["Dedicated Area Managers","Regular supervisor check-ins","Strict adherence to client instructions","Performance accountability"],
     photo: "supervision-officer.jpg",
     longDesc: "To ensure that all guards complete their duties in accordance with company policy and client instructions, ENAMOS SECURITY deploys dedicated Area Managers and Supervisors who conduct constant, unannounced checks on deployed personnel. This layer of management ensures accountability, consistent performance, and immediate corrective action whenever required. Our supervision structure means clients can trust that their site is never left to chance — every post is monitored and every officer is held to our high standards."
@@ -1026,22 +1026,26 @@ function WhyUs() {
 /* ── TEAM ── */
 function Team() {
   const credentials = [
-    { icon: BadgeCheck, color: "#dc2626", bg: "#fef2f2", title: "National Police Clearance", desc: "All our personnel hold valid National Police Clearance certificates, ensuring you engage only vetted, trustworthy officers." },
-    { icon: FileCheck, color: "#1e3a8a", bg: "#eff6ff", title: "Security Consultant License", desc: "Our management team is fully licensed as Security Consultants, qualified to design and advise on comprehensive security solutions." },
-    { icon: Shield, color: "#7c3aed", bg: "#f5f3ff", title: "Security Installers License", desc: "Certified Security Installers on staff ensure that all electronic security systems are installed to industry-standard specifications." },
-    { icon: BookOpen, color: "#15803d", bg: "#f0fdf4", title: "Additional Licenses — CFE", desc: "Our team holds additional specialised licenses including CFE (Certified Fraud Examiner), reflecting our commitment to professional excellence." },
+    { icon: BadgeCheck, title: "National Police Clearance", desc: "All our personnel hold valid National Police Clearance certificates, ensuring you engage only vetted, trustworthy officers.", featured: true, gradient: "linear-gradient(135deg,#2563eb,#1e3a8a)" },
+    { icon: FileCheck, title: "Security Consultant License", desc: "Our management team is fully licensed as Security Consultants, qualified to design and advise on comprehensive security solutions.", color: "#7c3aed", bg: "linear-gradient(135deg,#7c3aed,#a78bfa)" },
+    { icon: Shield, title: "Security Installers License", desc: "Certified Security Installers on staff ensure that all electronic security systems are installed to industry-standard specifications.", color: "#0891b2", bg: "linear-gradient(135deg,#0891b2,#22d3ee)" },
+    { icon: BookOpen, title: "Additional Licenses — CFE", desc: "Our team holds additional specialised licenses including CFE (Certified Fraud Examiner), reflecting our commitment to professional excellence.", color: "#b45309", bg: "linear-gradient(135deg,#b45309,#f59e0b)" },
   ];
   return (
-    <section id="our-team" className="py-28 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="our-team" className="relative py-28 overflow-hidden" style={{ background: "linear-gradient(180deg,#eff6ff 0%,#f8fafc 45%,#ffffff 100%)" }}>
+      <div className="absolute inset-0 pointer-events-none" style={{
+        backgroundImage: "radial-gradient(circle at 15% 10%, rgba(37,99,235,0.08) 0%, transparent 40%), radial-gradient(circle at 90% 30%, rgba(96,165,250,0.10) 0%, transparent 45%)"
+      }} />
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         <Reveal>
           <div className="text-center mb-8 md:mb-14">
-            <span className="inline-block bg-blue-50 text-blue-700 text-xs font-semibold tracking-widest uppercase px-3 py-1.5 rounded-full mb-4">
+            <span className="inline-flex items-center gap-2 bg-white/70 text-xs font-semibold tracking-widest uppercase px-3.5 py-1.5 rounded-full mb-4 border border-blue-100 backdrop-blur-sm" style={{ color: "#1e3a8a" }}>
+              <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#2563eb" }} />
               Our Team
             </span>
             <h2 className="text-4xl md:text-5xl text-gray-900 mb-4">
               Certified, Vetted &amp;<br />
-              <span style={{ color: "#dc2626" }}>Professionally Trained</span>
+              <span style={{ color: "#2563eb" }}>Professionally Trained</span>
             </h2>
             <p className="text-gray-500 max-w-2xl mx-auto">
               Our team is made up of professionals who have undergone standard and rigorous vetting processes. Every member of our force holds the qualifications required to deliver trusted, professional security services.
@@ -1049,12 +1053,41 @@ function Team() {
           </div>
         </Reveal>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-          {credentials.map((c, i) => (
-            <Reveal key={i} delay={i * 0.07}>
-              <div className="p-7 rounded-3xl border border-gray-100 bg-white card-hover text-center group">
+        {/* Featured credential */}
+        <Reveal delay={0.05}>
+          <div className="mb-6 rounded-3xl p-7 md:p-8 flex flex-col md:flex-row items-start md:items-center gap-5"
+            style={{
+              background: "rgba(255,255,255,0.55)",
+              backdropFilter: "blur(20px)",
+              WebkitBackdropFilter: "blur(20px)",
+              border: "1px solid rgba(255,255,255,0.9)",
+              boxShadow: "0 8px 32px rgba(30,58,138,0.12)"
+            }}>
+            <div className="w-16 h-16 rounded-2xl flex items-center justify-center shrink-0"
+              style={{ background: "linear-gradient(135deg,#dc2626,#f59e0b)", boxShadow: "0 8px 20px rgba(220,38,38,0.35)" }}>
+              {(() => { const Icon = credentials[0].icon; return <Icon className="w-8 h-8 text-white" />; })()}
+            </div>
+            <div>
+              <span className="inline-block text-xs font-bold tracking-widest uppercase mb-1.5" style={{ color: "#2563eb" }}>Most Important</span>
+              <h4 className="font-bold text-lg text-gray-900 mb-1.5">{credentials[0].title}</h4>
+              <p className="text-gray-600 text-sm leading-relaxed">{credentials[0].desc}</p>
+            </div>
+          </div>
+        </Reveal>
+
+        <div className="grid md:grid-cols-3 gap-6 mb-16">
+          {credentials.slice(1).map((c, i) => (
+            <Reveal key={i} delay={0.1 + i * 0.07}>
+              <div className="p-7 rounded-3xl text-center group h-full transition-all duration-300 hover:-translate-y-1"
+                style={{
+                  background: "rgba(255,255,255,0.55)",
+                  backdropFilter: "blur(20px)",
+                  WebkitBackdropFilter: "blur(20px)",
+                  border: "1px solid rgba(255,255,255,0.9)",
+                  boxShadow: "0 8px 32px rgba(30,58,138,0.10)"
+                }}>
                 <div className="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform" style={{ background: c.bg }}>
-                  <c.icon className="w-7 h-7" style={{ color: c.color }} />
+                  <c.icon className="w-7 h-7 text-white" />
                 </div>
                 <h4 className="font-bold text-gray-900 text-sm mb-2">{c.title}</h4>
                 <p className="text-gray-500 text-xs leading-relaxed">{c.desc}</p>
