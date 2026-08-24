@@ -189,6 +189,10 @@ export default function AboutPage() {
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-gray-700 bg-white border border-gray-200 shadow-sm hover:shadow-md transition-all">
                 View Our Services
               </button>
+              <a href="/enamos-company-profile.pdf" target="_blank" rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-gray-700 bg-white border border-gray-200 shadow-sm hover:shadow-md transition-all">
+                Download Company Profile
+              </a>
             </div>
           </Reveal>
         </div>

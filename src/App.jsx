@@ -391,12 +391,16 @@ function About() {
                 </div>
               ))}
             </div>
-            <div className="flex justify-center">
+            <div className="flex justify-center gap-4 flex-wrap">
               <button onClick={() => navigate("/contact")}
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all"
                 style={{ background: "linear-gradient(135deg,#2563eb,#1e40af)" }}>
                 Work With Us <ArrowRight className="w-4 h-4" />
               </button>
+              <a href="/enamos-company-profile.pdf" target="_blank" rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-gray-700 bg-white border border-gray-200 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all">
+                Download Company Profile
+              </a>
             </div>
           </div>
         </Reveal>
