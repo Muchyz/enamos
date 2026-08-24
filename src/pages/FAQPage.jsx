@@ -48,7 +48,7 @@ const faqs = [
   {
     category: "Getting Started",
     items: [
-      { q: "How do I get a quote?", a: "Simply fill out our contact form, call us on +254 722 981 621, or send an email to info@enamossecurity.co.ke. Our team responds within 2 hours to arrange a free, no-obligation site assessment." },
+      { q: "How do I get a quote?", a: "Simply fill out our contact form, call us on +254 722 981 621, or send an email to info@enamos.co.ke. Our team responds within 2 hours to arrange a free, no-obligation site assessment." },
       { q: "How quickly can Enamos deploy officers to my site?", a: "After the initial assessment and agreement, we can typically deploy officers within a short turnaround period depending on your location and the scope of requirements. Contact us to discuss your specific timeline." },
       { q: "Is there a minimum contract period?", a: "Contract terms are discussed and agreed based on the nature of your security needs. We value long-term relationships with our clients, but we are flexible and will work with you to find an arrangement that suits your situation." },
     ]
@@ -128,7 +128,7 @@ export default function FAQPage() {
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white border border-white/20 hover:bg-white/10 transition-all">
                   <Phone className="w-4 h-4" /> Call Us
                 </a>
-                <a href="mailto:info@enamossecurity.co.ke"
+                <a href="mailto:info@enamos.co.ke"
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white border border-white/20 hover:bg-white/10 transition-all">
                   <Mail className="w-4 h-4" /> Email Us
                 </a>

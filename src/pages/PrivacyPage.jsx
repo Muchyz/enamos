@@ -68,7 +68,7 @@ export default function PrivacyPage() {
             },
             {
               title: "5. Your Rights",
-              content: "You have the right to access the personal information we hold about you, request correction of inaccurate information, request deletion of your information (subject to legal obligations), and withdraw consent where processing is based on consent. To exercise these rights, please contact us at info@enamossecurity.co.ke."
+              content: "You have the right to access the personal information we hold about you, request correction of inaccurate information, request deletion of your information (subject to legal obligations), and withdraw consent where processing is based on consent. To exercise these rights, please contact us at info@enamos.co.ke."
             },
             {
               title: "6. Cookies & Website",
@@ -76,7 +76,7 @@ export default function PrivacyPage() {
             },
             {
               title: "7. Contact Us About Privacy",
-              content: "If you have any questions about this Privacy Policy or our handling of your personal information, please contact us at: info@enamossecurity.co.ke or write to ENAMOS SECURITY SERVICES LIMITED, P.O. Box 132, City Square, Nairobi, Kenya."
+              content: "If you have any questions about this Privacy Policy or our handling of your personal information, please contact us at: info@enamos.co.ke or write to ENAMOS SECURITY SERVICES LIMITED, P.O. Box 132, City Square, Nairobi, Kenya."
             },
             {
               title: "8. Changes to This Policy",
