@@ -294,10 +294,10 @@ function About() {
   const navigate = useNavigate();
   const [selected, setSelected] = useState(null);
   const points = [
-    { icon: FileCheck, color: "#dc2626", bg: "#fef2f2", label: "PSRA Registered", desc: "Duly incorporated under Chapter 486 of the Laws of Kenya and licensed by the Private Security Regulatory Authority." },
-    { icon: Radio, color: "#1e3a8a", bg: "#eff6ff", label: "24-Hour Alarm Response", desc: "Round-the-clock control room monitoring with rapid dispatch backed by modern electronic surveillance systems." },
-    { icon: Users, color: "#15803d", bg: "#f0fdf4", label: "Trained Guard Force", desc: "Guards trained in patrol, first aid, firefighting, and incident reporting, supervised by experienced site managers." },
-    { icon: Globe, color: "#b45309", bg: "#fffbeb", label: "Nationwide Coverage", desc: "Deployed across Nairobi, Eldoret and beyond, with free security surveys for every new client site." },
+    { icon: FileCheck, color: "#2563eb", bg: "#eff6ff", label: "PSRA Registered", desc: "Duly incorporated under Chapter 486 of the Laws of Kenya and licensed by the Private Security Regulatory Authority." },
+    { icon: Radio, color: "#1e40af", bg: "#eff6ff", label: "24-Hour Alarm Response", desc: "Round-the-clock control room monitoring with rapid dispatch backed by modern electronic surveillance systems." },
+    { icon: Users, color: "#0284c7", bg: "#f0f9ff", label: "Trained Guard Force", desc: "Guards trained in patrol, first aid, firefighting, and incident reporting, supervised by experienced site managers." },
+    { icon: Globe, color: "#1d4ed8", bg: "#eff6ff", label: "Nationwide Coverage", desc: "Deployed across Nairobi, Eldoret and beyond, with free security surveys for every new client site." },
   ];
   return (
     <section id="about" className="pt-28 pb-10 bg-white overflow-hidden">
@@ -374,14 +374,14 @@ function About() {
             </p>
             <div className="grid grid-cols-2 gap-4 mb-8">
               {points.map((p, i) => (
-                <div key={i} className="p-4 rounded-2xl hover:shadow-lg transition-all duration-200 overflow-hidden"
+                <div key={i} className="p-4 rounded-2xl transition-all duration-300 overflow-hidden hover:-translate-y-1"
                   style={{
-                    background: "rgba(255,255,255,0.7)",
-                    backdropFilter: "blur(8px)",
-                    WebkitBackdropFilter: "blur(8px)",
-                    border: `1px solid ${p.color}30`,
-                    boxShadow: `0 4px 20px 0 ${p.color}20`,
-                  }}>
+                    background: "#ffffff",
+                    border: "1px solid #eef2f7",
+                    boxShadow: "0 4px 20px -8px rgba(30,64,175,0.15)",
+                  }}
+                  onMouseEnter={e => e.currentTarget.style.boxShadow = "0 14px 32px -10px rgba(37,99,235,0.28)"}
+                  onMouseLeave={e => e.currentTarget.style.boxShadow = "0 4px 20px -8px rgba(30,64,175,0.15)"}>
                   <div className="w-10 h-10 rounded-full flex items-center justify-center mb-2"
                     style={{ background: p.bg }}>
                     <p.icon className="w-5 h-5" style={{ color: p.color }} />
