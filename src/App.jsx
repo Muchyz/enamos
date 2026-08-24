@@ -398,6 +398,14 @@ function About() {
                 Work With Us <ArrowRight className="w-4 h-4" />
               </button>
               <a href="/enamos-company-profile.pdf" target="_blank" rel="noopener noreferrer"
+                onClick={(e) => {
+                  const link = document.createElement("a");
+                  link.href = "/enamos-company-profile.pdf";
+                  link.download = "Enamos-Company-Profile.pdf";
+                  document.body.appendChild(link);
+                  link.click();
+                  document.body.removeChild(link);
+                }}
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-gray-700 bg-white border border-gray-200 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all">
                 Download Company Profile
               </a>
