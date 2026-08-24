@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import SEO from "../components/SEO";
 import { useRef, useState, useEffect } from "react";
-import { Shield, Cpu, Users, Globe, Award, ArrowRight, CheckCircle, Eye, Target, TrendingUp, BadgeCheck, FileCheck, BookOpen } from "lucide-react";
+import { Shield, Cpu, Users, Globe, Award, ArrowRight, Eye, TrendingUp, FileCheck, Radio, Clock, MapPin } from "lucide-react";
 
 function useReveal(threshold = 0.12) {
   const ref = useRef(null);
@@ -27,86 +27,143 @@ function Reveal({ children, className = "", delay = 0 }) {
   );
 }
 
+const NAVY = "#1E3A5F";
+const SKY = "#2563EB";
+const INK = "#0F172A";
+const MONO = "ui-monospace, SFMono-Regular, 'IBM Plex Mono', Menlo, Consolas, monospace";
+
+/* Duty-log ledger row */
+function LogRow({ code, label, value, live, color, delay = 0 }) {
+  return (
+    <Reveal delay={delay}>
+      <div className="flex items-center gap-4 py-3 px-4 border-b" style={{ borderColor: "#e2e8f0" }}>
+        <span style={{ fontFamily: MONO, color, fontSize: "11px", letterSpacing: "0.05em", fontWeight: 700 }}>{code}</span>
+        <span className="flex-1 text-slate-500 text-sm">{label}</span>
+        <span className="flex items-center gap-2">
+          {live && <span className="w-1.5 h-1.5 rounded-full" style={{ background: "#22c55e", boxShadow: "0 0 0 3px #22c55e33", animation: "pulseDot 1.8s ease infinite" }} />}
+          <span className="text-slate-900 font-bold text-sm" style={{ fontFamily: MONO }}>{value}</span>
+        </span>
+      </div>
+    </Reveal>
+  );
+}
+
+/* Case-file credential card, one colour per entry */
+function LogCard({ n, icon: Icon, label, desc, color, bg, delay = 0 }) {
+  return (
+    <Reveal delay={delay}>
+      <div className="p-6 h-full bg-white" style={{ border: "1px solid #e2e8f0", borderLeft: `4px solid ${color}` }}>
+        <div className="flex items-center justify-between mb-4">
+          <span style={{ fontFamily: MONO, fontSize: "11px", color: "#94a3b8", letterSpacing: "0.05em" }}>LOG–{String(n).padStart(2, "0")}</span>
+          <div className="w-9 h-9 rounded-lg flex items-center justify-center" style={{ background: bg }}>
+            <Icon className="w-4.5 h-4.5" style={{ color }} />
+          </div>
+        </div>
+        <h3 className="font-bold mb-2 text-slate-900">{label}</h3>
+        <p className="text-sm leading-relaxed text-slate-500">{desc}</p>
+      </div>
+    </Reveal>
+  );
+}
+
 export default function AboutPage() {
   const navigate = useNavigate();
-  const points = [
-    { icon: FileCheck, color: "#2563eb", bg: "#eff6ff", label: "PSRA Licensed", desc: "Duly registered under Chapter 486 of the Laws of Kenya and licensed by the Private Security Regulatory Authority." },
-    { icon: Eye, color: "#1e40af", bg: "#eff6ff", label: "Corporate Control Room", desc: "A dedicated monitoring centre with live CCTV feeds and rapid alarm dispatch, watching over client sites around the clock." },
-    { icon: Users, color: "#0284c7", bg: "#f0f9ff", label: "Trained Guard Force", desc: "Recruits undergo structured training in patrols, searches, first aid, firefighting, and occurrence-book reporting before deployment." },
-    { icon: Globe, color: "#1d4ed8", bg: "#eff6ff", label: "Free Security Surveys", desc: "Every new client site is assessed at no cost to determine guard numbers, lighting, fencing, and alarm requirements." },
-    { icon: Award, color: "#0369a1", bg: "#f0f9ff", label: "Dog Patrol Services", desc: "Trained canine units supplement guard deployments for high-risk sites and after-hours patrols." },
-    { icon: TrendingUp, color: "#2563eb", bg: "#eff6ff", label: "Guard Welfare Focus", desc: "Guards receive fair pay and scheduled days off each month, supporting morale and consistent duty performance." },
+
+  const credentials = [
+    { icon: FileCheck, label: "PSRA Licensed", color: "#2563EB", bg: "#EFF6FF", desc: "Duly registered under Chapter 486 of the Laws of Kenya and licensed by the Private Security Regulatory Authority." },
+    { icon: Eye, label: "Corporate Control Room", color: "#0891B2", bg: "#ECFEFF", desc: "A dedicated monitoring centre with live CCTV feeds and rapid alarm dispatch, watching over client sites around the clock." },
+    { icon: Users, label: "Trained Guard Force", color: "#7C3AED", bg: "#F5F3FF", desc: "Recruits undergo structured training in patrols, searches, first aid, firefighting, and occurrence-book reporting before deployment." },
+    { icon: MapPin, label: "Free Security Surveys", color: "#EA580C", bg: "#FFF7ED", desc: "Every new client site is assessed at no cost to determine guard numbers, lighting, fencing, and alarm requirements." },
+    { icon: Shield, label: "Dog Patrol Services", color: "#15803D", bg: "#F0FDF4", desc: "Trained canine units supplement guard deployments for high-risk sites and after-hours patrols." },
+    { icon: TrendingUp, label: "Guard Welfare Focus", color: "#DB2777", bg: "#FDF2F8", desc: "Guards receive fair pay and scheduled days off each month, supporting morale and consistent duty performance." },
+  ];
+
+  const values = [
+    { icon: Users, color: "#2563EB", bg: "#EFF6FF", title: "Human Resource", desc: "We endeavor to hire and maintain highly trained and well-motivated security personnel across every deployment." },
+    { icon: Shield, color: "#15803D", bg: "#F0FDF4", title: "Absolute Integrity", desc: "We deliver true value for our clients through open liaison and consultation, with zero tolerance for corruption." },
+    { icon: Award, color: "#EA580C", bg: "#FFF7ED", title: "Solution Provider", desc: "We use proprietary processes and extensive experience to deliver expert solutions, improving safety and reducing risk and loss." },
+    { icon: Cpu, color: "#7C3AED", bg: "#F5F3FF", title: "Innovation", desc: "We are a professional and progressive company, proactive in delivering forward-thinking security solutions to our clients." },
   ];
 
   return (
     <div style={{ paddingTop: "80px" }}>
       <SEO title="About Us | Enamos Security Services Nairobi Kenya" description="Learn about Enamos Security Services Limited — PSRA licensed, Nairobi-based security company with a 24/7 control room, trained guard force, and free security assessments." path="/about" />
 
-      {/* Hero Banner */}
-      <div className="relative overflow-hidden" style={{ minHeight: "320px", background: "linear-gradient(135deg,#1e3a8a,#2563eb)" }}>
-        <img src="/officers-squad.jpg" alt="ENAMOS SECURITY Team"
-          className="absolute inset-0 w-full h-full object-cover opacity-20"
-          onError={e => { e.target.style.display = "none"; }} />
-        <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 text-center">
-          <span className="inline-block bg-white/10 text-white text-xs font-semibold tracking-widest uppercase px-3 py-1.5 rounded-full mb-4 border border-white/20">
-            About ENAMOS SECURITY
-          </span>
-          <h1 className="text-5xl md:text-6xl text-white mb-4" style={{ fontFamily: "'DM Serif Display',serif" }}>
-            Protecting Kenya<br />
-            <span style={{ background: "linear-gradient(135deg,#93c5fd,#dbeafe)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
-              with Purpose
-            </span>
-          </h1>
-          <p className="text-white/70 max-w-xl mx-auto">A Kenyan company dedicated to the provision of excellent security services since inception.</p>
+      <style>{`
+        @keyframes pulseDot { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
+        @keyframes fadeUp { from { opacity:0; transform: translateY(14px); } to { opacity:1; transform: translateY(0); } }
+      `}</style>
+
+      {/* Hero — white, blue accent */}
+      <div className="relative overflow-hidden" style={{ background: "linear-gradient(180deg,#F8FAFC,#ffffff)" }}>
+        <div className="relative z-10 max-w-7xl mx-auto px-6 py-12 md:py-24">
+          <Reveal>
+            <div className="inline-flex items-center gap-3 mb-8 px-4 py-2" style={{ border: "1px solid #dbeafe", background: "#EFF6FF" }}>
+              <span className="w-2 h-2 rounded-full" style={{ background: "#22c55e", boxShadow: "0 0 0 3px #22c55e33", animation: "pulseDot 1.8s ease infinite" }} />
+              <span style={{ fontFamily: MONO, fontSize: "11px", letterSpacing: "0.1em", color: SKY }}>PSRA REGISTERED · CHAPTER 486, LAWS OF KENYA</span>
+            </div>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <h1 className="text-5xl md:text-7xl font-black uppercase leading-[0.95] mb-6" style={{ color: INK, letterSpacing: "-0.01em" }}>
+              Protecting Kenya<br />
+              <span style={{ color: SKY }}>with Purpose</span>
+            </h1>
+          </Reveal>
+          <Reveal delay={0.2}>
+            <p className="text-slate-500 max-w-xl text-lg">A Kenyan company dedicated to the provision of excellent security services since inception.</p>
+          </Reveal>
+        </div>
+
+        {/* Duty log strip */}
+        <div className="relative z-10 max-w-7xl mx-auto px-6 pb-10">
+          <div className="bg-white" style={{ border: "1px solid #e2e8f0" }}>
+            <LogRow code="2023" label="Company incorporated" value="EST." color={SKY} delay={0} />
+            <LogRow code="24/7" label="Control room manned" value="ACTIVE" color="#0891B2" live delay={0.05} />
+            <LogRow code="200+" label="Client sites under coverage" value="NAIROBI · ELDORET" color="#7C3AED" delay={0.1} />
+            <LogRow code="35YR" label="Combined GM industry experience" value="ON RECORD" color="#EA580C" delay={0.15} />
+          </div>
         </div>
       </div>
 
       {/* Who We Are */}
-      <section className="py-24 bg-white">
+      <section className="py-12 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
           <Reveal>
             <div className="relative">
-              <div className="rounded-3xl overflow-hidden shadow-2xl" style={{ aspectRatio: "5/4" }}>
-                <img src="/director-matunda.jpg" alt="Dr. Amos Matunda - Director"
+              <div className="overflow-hidden rounded-2xl" style={{ aspectRatio: "5/4" }}>
+                <img src="/team-briefing.jpg" alt="Enamos Security team on duty"
                   className="w-full h-full object-cover object-top"
                   onError={e => { e.target.style.background = "#e2e8f0"; }} />
               </div>
-              <div className="absolute top-4 left-4 z-10 bg-white rounded-2xl shadow-lg px-4 py-3 flex items-center gap-2">
-                <div className="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center">
-                  <Award className="w-4 h-4 text-blue-700" />
-                </div>
-                <div>
-                  <div className="text-xs font-bold text-gray-900">Licensed</div>
-                  <div className="text-xs text-gray-400">PSRA Registered</div>
-                </div>
-              </div>
-              <div className="absolute -bottom-10 -right-6 w-44 rounded-2xl overflow-hidden shadow-xl border-4 border-white" style={{ aspectRatio: "3/2" }}>
+              <div className="absolute -bottom-8 -right-6 w-40 rounded-xl overflow-hidden" style={{ aspectRatio: "3/2", border: "4px solid #ffffff", boxShadow: "0 10px 30px -10px rgba(30,58,95,0.35)" }}>
                 <img src="/vip-vehicle.jpg" alt="VIP Protection"
                   className="w-full h-full object-cover"
                   onError={e => { e.target.style.background = "#f1f5f9"; }} />
+              </div>
+              <div className="absolute top-4 left-4 px-3 py-2 rounded-lg" style={{ background: NAVY }}>
+                <span style={{ fontFamily: MONO, fontSize: "10px", color: "#93C5FD", letterSpacing: "0.08em" }}>TEAM — ON DUTY</span>
               </div>
             </div>
           </Reveal>
           <Reveal delay={0.15}>
             <div>
-              <span className="inline-block bg-blue-50 text-blue-700 text-xs font-semibold tracking-widest uppercase px-3 py-1.5 rounded-full mb-5">Who We Are</span>
-              <h2 className="text-4xl md:text-5xl text-gray-900 mb-5 leading-tight" style={{ fontFamily: "'DM Serif Display',serif" }}>
-                Kenya's Most <span style={{ color: "#2563eb" }}>Trusted</span> Security Partner
+              <span style={{ fontFamily: MONO, fontSize: "11px", letterSpacing: "0.1em", color: SKY }}>WHO WE ARE</span>
+              <h2 className="text-4xl md:text-5xl text-slate-900 mt-3 mb-5 leading-tight" style={{ fontFamily: "'DM Serif Display',serif" }}>
+                Kenya's Most <span style={{ color: SKY }}>Trusted</span> Security Partner
               </h2>
-              <div className="space-y-4 text-gray-500 leading-relaxed mb-8">
-                <p>ENAMOS SECURITY SERVICES LIMITED is duly incorporated and registered under the Companies Act, Chapter 486, Laws of Kenya. We are a Kenyan-based company specializing in quality, nationwide security services. Whether it is an extra pair of eyes, an imposing presence, crowd control at a major event, or daily guarding for a business premise, ENAMOS SECURITY SERVICES delivers a complete range of planning, system analysis, design and executive protection services tailored to every client.</p>
-                <p>We pride ourselves on providing well-trained security personnel for every private security and protection need. Top-level management, combined with friendly and reliable customer service, is the cornerstone of the guarding services and private protection we deliver to every client. Our range extends across specialized VIP protection, security consultancy, guard force training programs, commercial and industrial protection, private investigations, free security surveys, and dog patrol services.</p>
-                <p>Our mission is to exceed the specific and customized security needs of our clients by delivering the highest quality of professional private security services, built on trust and confidence. Our vision is to become the security company of choice in and outside Kenya, offering services tailor-made to suit individual client needs. Our Management team is complemented by reputable, experienced professionals, with over <span className="font-semibold text-gray-700">35 years</span> of combined industry experience and standing membership in recognized security professional associations.</p>
-                <p>We will never compromise on the quality of our service as we keep on innovating to bring the best one can hope for. This is also why we invest significantly in the continuous development of our employees.</p>
+              <div className="space-y-4 text-slate-500 leading-relaxed mb-8">
+                <p>ENAMOS SECURITY SERVICES LIMITED is duly incorporated and registered under the Companies Act, Chapter 486, Laws of Kenya. We are a Kenyan-based company specializing in quality, nationwide security services — from an extra pair of eyes and crowd control at a major event, to daily guarding for a business premise, backed by planning, system analysis, design and executive protection tailored to every client.</p>
+                <p>Our range extends across specialized VIP protection, security consultancy, guard force training, commercial and industrial protection, private investigations, free security surveys, and dog patrol services. Top-level management combined with reliable customer service is the cornerstone of every deployment.</p>
+                <p>Our Management team brings over <span className="font-semibold text-slate-700">35 years</span> of combined industry experience and standing membership in recognized security professional associations. We invest continuously in the development of our employees so the quality of our service never slips.</p>
               </div>
               <div className="flex gap-3 flex-wrap">
                 <button onClick={() => navigate("/contact")}
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all"
-                  style={{ background: "linear-gradient(135deg,#2563eb,#1e40af)" }}>
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white transition-all hover:-translate-y-0.5 hover:shadow-lg"
+                  style={{ background: SKY }}>
                   Work With Us <ArrowRight className="w-4 h-4" />
                 </button>
                 <button onClick={() => navigate("/director")}
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-gray-700 bg-white border border-gray-200 shadow-sm hover:shadow-md transition-all">
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-slate-700 bg-white border border-slate-200 transition-all hover:-translate-y-0.5 hover:shadow-md">
                   Director's Message <ArrowRight className="w-4 h-4" />
                 </button>
               </div>
@@ -115,70 +172,45 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Why We're Different */}
-      <section className="py-24 bg-white">
+      {/* Credentials — colour-coded occurrence-book cards */}
+      <section className="py-12 md:py-24" style={{ background: "linear-gradient(180deg,#F8FAFC,#ffffff)" }}>
         <div className="max-w-7xl mx-auto px-6">
           <Reveal>
-            <div className="text-center mb-14">
-              <span className="inline-block bg-blue-50 text-blue-700 text-xs font-semibold tracking-widest uppercase px-3 py-1.5 rounded-full mb-4">What Sets Us Apart</span>
-              <h2 className="text-4xl md:text-5xl text-gray-900" style={{ fontFamily: "'DM Serif Display',serif" }}>
-                Built on <span style={{ color: "#2563eb" }}>Excellence</span>
+            <div className="mb-8 md:mb-14">
+              <span style={{ fontFamily: MONO, fontSize: "11px", letterSpacing: "0.1em", color: SKY }}>WHAT SETS US APART</span>
+              <h2 className="text-4xl md:text-5xl text-slate-900 mt-3" style={{ fontFamily: "'DM Serif Display',serif" }}>
+                Built on <span style={{ color: SKY }}>Excellence</span>
               </h2>
             </div>
           </Reveal>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {points.map((p, i) => (
-              <Reveal key={i} delay={i * 0.07}>
-                <div className="p-6 rounded-2xl bg-white transition-all duration-300 group hover:-translate-y-1"
-                  style={{
-                    border: "1px solid #eef2f7",
-                    boxShadow: "0 4px 24px -8px rgba(30,64,175,0.12)",
-                  }}
-                  onMouseEnter={e => e.currentTarget.style.boxShadow = "0 16px 36px -10px rgba(37,99,235,0.25)"}
-                  onMouseLeave={e => e.currentTarget.style.boxShadow = "0 4px 24px -8px rgba(30,64,175,0.12)"}>
-                  <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform" style={{ background: p.bg }}>
-                    <p.icon className="w-6 h-6" style={{ color: p.color }} />
-                  </div>
-                  <h3 className="font-bold text-gray-900 mb-2">{p.label}</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed">{p.desc}</p>
-                </div>
-              </Reveal>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {credentials.map((c, i) => (
+              <LogCard key={i} n={i + 1} icon={c.icon} label={c.label} desc={c.desc} color={c.color} bg={c.bg} delay={i * 0.06} />
             ))}
           </div>
         </div>
       </section>
 
-      {/* Our Values */}
-      <section className="py-24 bg-white">
+      {/* Core Values */}
+      <section className="py-12 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <Reveal>
-            <div className="text-center mb-14">
-              <span className="inline-block bg-blue-50 text-blue-700 text-xs font-semibold tracking-widest uppercase px-3 py-1.5 rounded-full mb-4">Core Values</span>
-              <h2 className="text-4xl md:text-5xl text-gray-900" style={{ fontFamily: "'DM Serif Display',serif" }}>
-                What We <span style={{ color: "#2563eb" }}>Stand For</span>
+            <div className="mb-8 md:mb-14">
+              <span style={{ fontFamily: MONO, fontSize: "11px", letterSpacing: "0.1em", color: SKY }}>CORE VALUES</span>
+              <h2 className="text-4xl md:text-5xl text-slate-900 mt-3" style={{ fontFamily: "'DM Serif Display',serif" }}>
+                What We Stand For
               </h2>
             </div>
           </Reveal>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              { icon: Users, color: "#2563eb", bg: "#eff6ff", title: "Human Resource", desc: "We endeavor to hire and maintain highly trained and well-motivated security personnel across every deployment." },
-              { icon: Shield, color: "#1e40af", bg: "#eff6ff", title: "Absolute Integrity", desc: "We deliver true value for our clients through open liaison and consultation, with zero tolerance for corruption." },
-              { icon: Award, color: "#0284c7", bg: "#f0f9ff", title: "Solution Provider", desc: "We use proprietary processes and extensive experience to deliver expert solutions, improving safety and reducing risk and loss." },
-              { icon: Cpu, color: "#1d4ed8", bg: "#eff6ff", title: "Innovation", desc: "We are a professional and progressive company, proactive in delivering forward-thinking security solutions to our clients." },
-            ].map((v, i) => (
-              <Reveal key={i} delay={i * 0.1}>
-                <div className="p-8 rounded-3xl text-center bg-white transition-all duration-300 hover:-translate-y-1"
-                  style={{
-                    border: "1px solid #eef2f7",
-                    boxShadow: "0 6px 28px -10px rgba(30,64,175,0.15)",
-                  }}
-                  onMouseEnter={e => e.currentTarget.style.boxShadow = "0 18px 40px -12px rgba(37,99,235,0.28)"}
-                  onMouseLeave={e => e.currentTarget.style.boxShadow = "0 6px 28px -10px rgba(30,64,175,0.15)"}>
-                  <div className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-5" style={{ background: v.bg }}>
-                    <v.icon className="w-8 h-8" style={{ color: v.color }} />
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {values.map((v, i) => (
+              <Reveal key={i} delay={i * 0.08}>
+                <div className="p-8 h-full rounded-2xl" style={{ border: "1px solid #e2e8f0" }}>
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style={{ background: v.bg }}>
+                    <v.icon className="w-6 h-6" style={{ color: v.color }} />
                   </div>
-                  <h3 className="text-gray-900 font-bold text-lg mb-3">{v.title}</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed">{v.desc}</p>
+                  <h3 className="text-slate-900 font-bold text-lg mb-3">{v.title}</h3>
+                  <p className="text-slate-500 text-sm leading-relaxed">{v.desc}</p>
                 </div>
               </Reveal>
             ))}
@@ -190,16 +222,16 @@ export default function AboutPage() {
       <section className="py-20 bg-white">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <Reveal>
-            <h2 className="text-4xl text-gray-900 mb-4" style={{ fontFamily: "'DM Serif Display',serif" }}>Ready to Secure Your Premises?</h2>
-            <p className="text-gray-500 mb-8">Contact our team today for a free, no-obligation security assessment tailored to your specific needs.</p>
+            <h2 className="text-4xl text-slate-900 mb-4" style={{ fontFamily: "'DM Serif Display',serif" }}>Ready to Secure Your Premises?</h2>
+            <p className="text-slate-500 mb-8">Contact our team today for a free, no-obligation security assessment tailored to your specific needs.</p>
             <div className="flex gap-4 justify-center flex-wrap">
               <button onClick={() => navigate("/contact")}
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-white shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all"
-                style={{ background: "linear-gradient(135deg,#2563eb,#1e40af)" }}>
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-white transition-all hover:-translate-y-0.5 hover:shadow-lg"
+                style={{ background: SKY }}>
                 Get Free Assessment <ArrowRight className="w-4 h-4" />
               </button>
               <button onClick={() => navigate("/services")}
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-gray-700 bg-white border border-gray-200 shadow-sm hover:shadow-md transition-all">
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-slate-700 bg-white border border-slate-200 transition-all hover:-translate-y-0.5 hover:shadow-md">
                 View Our Services
               </button>
               <a href="/enamos-company-profile.pdf" target="_blank" rel="noopener noreferrer"
@@ -211,7 +243,7 @@ export default function AboutPage() {
                   link.click();
                   document.body.removeChild(link);
                 }}
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-gray-700 bg-white border border-gray-200 shadow-sm hover:shadow-md transition-all">
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-slate-700 bg-white border border-slate-200 transition-all hover:-translate-y-0.5 hover:shadow-md">
                 Download Company Profile
               </a>
             </div>
