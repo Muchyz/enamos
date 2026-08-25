@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, useLayoutEffect } from "react";
 import SEO from "./components/SEO";
+import Navbar from "./components/Navbar";
 import { Routes, Route, useNavigate, Link, useLocation } from "react-router-dom";
 import {
   Shield, Camera, Bell, UserCheck, Lock, Car, Zap,
@@ -99,84 +100,6 @@ function ScrollToTop() {
 }
 
 const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-
-/* ── NAVBAR ── */
-function Navbar() {
-  const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const navigate = useNavigate();
-  const navRef = useRef(null);
-
-  useEffect(() => {
-    const h = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", h);
-    return () => window.removeEventListener("scroll", h);
-  }, []);
-
-  useLayoutEffect(() => {
-    const setNavH = () => {
-      if (navRef.current) {
-        document.documentElement.style.setProperty("--nav-h", `${navRef.current.offsetHeight}px`);
-      }
-    };
-    setNavH();
-    window.addEventListener("resize", setNavH);
-    return () => window.removeEventListener("resize", setNavH);
-  }, []);
-
-  // Links: label → anchor id (for home page scroll) OR route path
-  const links = [
-    { label: "Home", action: () => { navigate("/"); setTimeout(() => scrollTo("hero"), 100); } },
-    { label: "About", action: () => { navigate("/about"); } },
-    { label: "Services", action: () => { navigate("/services"); } },
-    { label: "Why Us", action: () => { navigate("/"); setTimeout(() => scrollTo("why-us"), 100); } },
-    { label: "Clients", action: () => { navigate("/clients"); } },
-    { label: "Contact", action: () => { navigate("/contact"); } },
-  ];
-
-  return (
-    <nav ref={navRef} className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
-      style={{
-        background: "rgba(255,255,255,0.98)",
-        backdropFilter: scrolled ? "blur(20px)" : "none",
-        borderBottom: scrolled ? "1px solid rgba(226,232,240,0.8)" : "none",
-        boxShadow: scrolled ? "0 1px 24px rgba(0,0,0,0.06)" : "none",
-      }}>
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <button onClick={() => { navigate("/"); setTimeout(() => scrollTo("hero"), 100); }}>
-          <img src="/enamos-logo-navbar.png" alt="ENAMOS SECURITY" style={{ height: "72px", objectFit: "contain" }} />
-        </button>
-        <div className="hidden lg:flex items-center gap-8">
-          {links.map((l) => (
-            <button key={l.label} onClick={() => { l.action(); setOpen(false); }}
-              className="text-sm font-medium text-slate-500 hover:text-red-600 transition-colors">{l.label}</button>
-          ))}
-          <button onClick={() => navigate("/contact")}
-            className="px-5 py-2.5 rounded-xl text-sm font-semibold text-white shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200"
-            style={{ background: "linear-gradient(135deg,#2563eb,#1e40af)" }}>
-            Get a Quote
-          </button>
-        </div>
-        <button className="lg:hidden p-2 rounded-lg text-slate-500 hover:bg-gray-100" onClick={() => setOpen(!open)}>
-          {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-        </button>
-      </div>
-      {open && (
-        <div className="lg:hidden bg-white border-t border-gray-100 px-6 py-4 space-y-1">
-          {links.map((l) => (
-            <button key={l.label} onClick={() => { l.action(); setOpen(false); }}
-              className="block w-full text-left px-4 py-3 rounded-xl text-sm font-medium text-gray-700 hover:bg-red-50 hover:text-red-700 transition-colors">{l.label}</button>
-          ))}
-          <button onClick={() => { navigate("/contact"); setOpen(false); }}
-            className="w-full mt-2 px-4 py-3 rounded-xl text-sm font-semibold text-white"
-            style={{ background: "linear-gradient(135deg,#2563eb,#1e40af)" }}>
-            Get a Free Quote
-          </button>
-        </div>
-      )}
-    </nav>
-  );
-}
 
 /* ── HERO ── */
 function Hero() {
