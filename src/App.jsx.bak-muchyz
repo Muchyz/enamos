@@ -1531,34 +1531,12 @@ function Footer() {
           </a>
         </div>
         <div className="pt-8 border-t border-sky-900/30 flex flex-col md:flex-row items-center justify-between gap-4">
-          {/* Muchyz Credit */}
-          <div className="mb-2 flex flex-col items-center gap-2">
-            <p className="text-slate-500 text-xs tracking-widest uppercase">Crafted with ♥ by</p>
-            <a
-              href="https://muchyz.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="relative overflow-hidden flex items-center gap-2 px-5 py-2 rounded-full text-xs font-bold uppercase tracking-widest transition-all duration-300 hover:scale-105 hover:shadow-lg"
-              style={{
-                background: "linear-gradient(90deg, #0E2A47, #1e4976, #0E2A47)",
-                border: "1px solid rgba(56,189,248,0.5)",
-                color: "#38BDF8",
-                boxShadow: "0 0 16px rgba(56,189,248,0.25), inset 0 1px 0 rgba(255,255,255,0.05)"
-              }}
-            >
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="#38BDF8"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-              Muchyz Digital Agency
-              <span
-                className="absolute inset-0 rounded-full pointer-events-none"
-                style={{
-                  background: "linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.08) 50%, transparent 60%)",
-                  animation: "shimmer 3s infinite"
-                }}
-              />
-            </a>
-            <style>{`@keyframes shimmer { 0%{transform:translateX(-100%)} 100%{transform:translateX(200%)} }`}</style>
-          </div>
           <p className="text-slate-500 text-sm">© {new Date().getFullYear()} ENAMOS SECURITY SERVICES LIMITED. All rights reserved.</p>
+          <div className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-sky-900/40 bg-sky-950/30">
+            <span className="w-2 h-2 rounded-full bg-sky-400 animate-pulse" />
+            <span className="text-slate-500 text-xs">All systems operational</span>
+          </div>
+          <p className="text-slate-500 text-sm">Protection You Can Rely On</p>
         </div>
       </div>
     </footer>
