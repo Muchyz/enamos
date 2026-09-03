@@ -47,7 +47,7 @@ export default function ContactPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await fetch("YOUR_FORM_ID_HERE", {
+    await fetch("https://formspree.io/f/xbgjyzeo", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(form),
